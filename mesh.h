@@ -5,13 +5,15 @@
 #include <iostream>
 
 #include "graphics.h"
+#include "mesh.h"
+#include "material.h"
+#include "geometry.h"
 
 using namespace std;
 
 class Mesh {
 public:
-	Mesh(void);
-	Mesh(vector<glm::vec3>& vertices, std::vector<glm::vec2>& uvs);
+	Mesh(Geometry *geometry, Material* material);
 	~Mesh(void);
 
 	virtual void Draw();
@@ -19,19 +21,16 @@ public:
 
 	void SetTexture(GLuint texture);
 	GLuint GetTexture();
+	Geometry* GetGeometry();
 private:
 	void CreateBufferData();
 
 	GLuint texture;
 	GLuint vao;
 	GLuint vbo[BUFFER_COUNT];
-	GLuint type;
 
-	unsigned int numVertices;
-
-	glm::vec3* vertices;
-	glm::vec4* colours;
-	glm::vec2* texCoords;
+	Material *material;
+	Geometry *geometry;
 };
 
 #endif

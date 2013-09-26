@@ -1,4 +1,4 @@
-CC= g++
+CC= g++ 
 CFLAGS= -Wall \
 		-pedantic \
 		-ansi \
@@ -8,8 +8,16 @@ CFLAGS= -Wall \
 		-framework Cocoa \
 		-lGLEW \
 		-lglfw3 \
-		-lIOKit 
-SRC= main.cpp mesh.cpp shader.cpp app.cpp renderer.cpp
+		-lIOKit \
+		-std=c++11
+SRC= main.cpp \
+	mesh.cpp \
+	shader.cpp \
+	app.cpp \
+	renderer.cpp \
+	material.cpp \
+	geometry.cpp \
+	camera.cpp 
 OBJ= $(SRC:.cpp=.o)
 EXE= a.out
 

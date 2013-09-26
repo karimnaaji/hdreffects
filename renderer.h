@@ -3,17 +3,20 @@
 
 #include <vector>
 #include <ctime>
+#include <stdexcept>
 
 #include "graphics.h"
+
 #include "mesh.h"
 #include "shader.h"
+#include "camera.h"
 
 using namespace std;
 
 class Renderer {
 public:
-	Renderer(void);
-	~Renderer(void);
+	Renderer(int width, int height, Camera* camera);
+	~Renderer();
 
 	void Render();
 	void Init();
@@ -24,9 +27,10 @@ private:
 	Mesh *triangle;
 	Mesh *quad;
 	Shader *shader;
-	Shader *rgbShiftShader;
+
 	GLuint fbo;
 	GLuint renderTexture;
+	Camera* camera;
 };
 
 #endif

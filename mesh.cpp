@@ -1,84 +1,55 @@
 #include "mesh.h"
 
-Mesh::Mesh(void) {
-	vertices = NULL;
-	colours = NULL;
-	texCoords = NULL;
-	texture = 0;
-	numVertices = 0;
-	type = GL_TRIANGLES;
+Mesh::Mesh(Geometry* geometry_, Material* material_) {
+	geometry = geometry_;
+	material = material_;
 
 	for(int i = 0; i < BUFFER_COUNT; ++i) {
 		vbo[i] = 0;
 	}
 	
 	glGenVertexArrays(1, &vao);
-}
-
-Mesh::Mesh(vector<glm::vec3>& verticesList, std::vector<glm::vec2>& uvs) {
-	numVertices = verticesList.size();
-	vertices = new glm::vec3[numVertices];
-	texCoords = new glm::vec2[numVertices];
-	colours = NULL;
-	texture = 0;
-	type = GL_TRIANGLES;
-
-	vector<glm::vec3>::iterator it1;
-	int i = 0;
-	for(it1 = verticesList.begin(); it1 != verticesList.end(); ++it1, ++i) {
-		vertices[i] = *it1;
-	}
-
-	vector<glm::vec2>::iterator it2;
-	i = 0;
-	for(it2 = uvs.begin(); it2 != uvs.end(); ++it2, ++i) {
-		texCoords[i] = *it2;
-	}
-
-	for(int i = 0; i < BUFFER_COUNT; ++i) {
-		vbo[i] = 0;
-	}
-	
-	glGenVertexArrays(1, &vao);
-	CreateBufferData();
 }
 
 Mesh::~Mesh(void) {
 	glDeleteVertexArrays(1, &vao);
 	glDeleteBuffers(BUFFER_COUNT, vbo);
 
-	delete[] texCoords;
-	delete[] vertices;
-	delete[] colours;
+	delete material;
+	delete geometry;
 }
 
 void Mesh::SetTexture(GLuint tex) {
 	texture = tex;
 }
 
+Geometry* Mesh::GetGeometry() {
+	return geometry;
+}
+
 void Mesh::Draw() {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glBindVertexArray(vao);
-	glDrawArrays(type, 0, numVertices);
+	glDrawArrays(geometry->GetType(), 0, geometry->GetVerticesCount());
 	glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 Mesh* Mesh::Triangle() {
-	Mesh *mesh = new Mesh();
+	glm::vec3* vertices = new glm::vec3[3];
+	vertices[0] = glm::vec3(0, 1, 0);
+	vertices[1] = glm::vec3(-1, -1, 0);
+	vertices[2] = glm::vec3(1, -1, 0);
 
-	mesh->numVertices = 3;
+	glm::vec4* colours = new glm::vec4[3];
+	colours[0] = glm::vec4(1, 0, 0, 1);
+	colours[1] = glm::vec4(0, 1, 0, 1);
+	colours[2] = glm::vec4(0, 0, 1, 1);
 
-	mesh->vertices = new glm::vec3[mesh->numVertices];
-	mesh->vertices[0] = glm::vec3(0, 1, 0);
-	mesh->vertices[1] = glm::vec3(-1, -1, 0);
-	mesh->vertices[2] = glm::vec3(1, -1, 0);
+	Geometry* geometry = new Geometry(vertices, colours, 3);
+	Material* material = new Material(NULL);
 
-	mesh->colours = new glm::vec4[mesh->numVertices];
-	mesh->colours[0] = glm::vec4(1, 0, 0, 1);
-	mesh->colours[1] = glm::vec4(0, 1, 0, 1);
-	mesh->colours[2] = glm::vec4(0, 0, 1, 1);
-
+	Mesh *mesh = new Mesh(geometry, material);
 	mesh->CreateBufferData();
 
 	return mesh;
@@ -90,25 +61,25 @@ void Mesh::CreateBufferData() {
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[VERTEX_BUFFER]);
 
 	// send data to opengl
-	glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(glm::vec3), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec3), geometry->GetVertices(), GL_STATIC_DRAW);
 
 	glVertexAttribPointer(VERTEX_BUFFER, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(VERTEX_BUFFER);
 
-	if(texCoords) {
+	if(geometry->HasTexCoords()) {
 		glGenBuffers(1, &vbo[TEXTURE_BUFFER]);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[TEXTURE_BUFFER]);
 
-		glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(glm::vec2), texCoords, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, geometry->GetUVsCount() * sizeof(glm::vec2), geometry->GetUVs(), GL_STATIC_DRAW);
 
 		glVertexAttribPointer(TEXTURE_BUFFER, 2, GL_FLOAT, GL_FALSE, 0, 0);
 		glEnableVertexAttribArray(TEXTURE_BUFFER);
 	}
-	if(colours) {
+	if(geometry->HasColors()) {
 		glGenBuffers(1, &vbo[COLOUR_BUFFER]);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[COLOUR_BUFFER]);
 
-		glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(glm::vec4), colours, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec4), geometry->GetColours(), GL_STATIC_DRAW);
 
 		glVertexAttribPointer(COLOUR_BUFFER, 4, GL_FLOAT, GL_FALSE, 0, 0);
 		glEnableVertexAttribArray(COLOUR_BUFFER);

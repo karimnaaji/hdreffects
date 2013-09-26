@@ -2,24 +2,70 @@
 
 App::App(int width_, int height_) : width(width_), height(height_) {}
 
-App::~App(void) {
-	delete renderer;
-
+App::~App() {
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 
 void App::MainLoop() {
+    double lastTime = glfwGetTime();
+    int frames = 0;
+
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
+        double time = glfwGetTime();
+
+        /* update inputs */
+        Update(time - lastTime);
+
+        /* render scene in buffer */
         renderer->Render();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
+        /* update frame number */
+        frames++;
+
         /* Poll for and process events */
         glfwPollEvents();
+
+        float lastMod = fmodf(lastTime, 1.0f);
+        float mod = fmodf(time, 1.0f);
+        
+        if(mod < lastMod) {
+            cout << "FPS: " << frames << endl;
+            frames = 0;
+        }
+
+        lastTime = time;
     }
+}
+
+void App::Update(float elapsedTime) {
+
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE))
+        glfwSetWindowShouldClose(window, true);
+
+    const float moveSpeed = 2.0f;
+
+    if(glfwGetKey(window, 'S')) {
+        camera.Translate(elapsedTime * moveSpeed * -camera.Forward());
+    } else if(glfwGetKey(window, 'W')) {
+        camera.Translate(elapsedTime * moveSpeed * camera.Forward());
+    }
+
+    if(glfwGetKey(window, 'A')) {
+        camera.Translate(elapsedTime * moveSpeed * -camera.Right());
+    } else if(glfwGetKey(window, 'D')) {
+        camera.Translate(elapsedTime * moveSpeed * camera.Right());
+    }
+
+    const float mouseSensitivity = 0.05f;
+    double cursorX, cursorY;
+    glfwGetCursorPos(window, &cursorX, &cursorY);
+    camera.Rotate(glm::vec2(mouseSensitivity * cursorY, mouseSensitivity * cursorX));
+    glfwSetCursorPos(window, 0, 0); 
 }
 
 void App::DisplayGraphicInfo() {
@@ -42,20 +88,23 @@ void App::InitGLFW() {
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     
     /* Create a windowed mode window and its OpenGL context */
+    //window = glfwCreateWindow(width, height, "Hello World", glfwGetPrimaryMonitor(), NULL);
     window = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
-    if (!window)
-    {
+    if (!window) {
         glfwTerminate();
         throw std::runtime_error("glfwOpenWindow failed.");
     }
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetCursorPos(window, 0, 0);
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
     /* Initialize GLEW */
     glewExperimental = GL_TRUE;
-    if(glewInit() != GLEW_OK)
-    {
+    if(glewInit() != GLEW_OK) {
         glfwTerminate();
         throw std::runtime_error("glewInit failed.");
     }
@@ -63,7 +112,10 @@ void App::InitGLFW() {
 
 void App::Init() {
 	InitGLFW();
-	
-	renderer = new Renderer();
+
+    camera.SetAspectRatio(width / height);
+
+	renderer = new Renderer(width, height, &camera);
+
 	renderer->Init();
 }

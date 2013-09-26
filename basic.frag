@@ -1,7 +1,5 @@
 #version 150
 
-uniform sampler2D frameTexture;
-
 in Vertex {
 	vec4 colour;
 	vec2 uv;

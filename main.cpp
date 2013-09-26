@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     try {
-        App app(640, 480);
+        App app(800, 600);
 
         app.Init();
         app.DisplayGraphicInfo();

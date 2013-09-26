@@ -4,6 +4,7 @@
 #include <stdexcept>
 
 #include "graphics.h"
+#include "camera.h"
 #include "renderer.h"
 
 using namespace std;
@@ -11,11 +12,12 @@ using namespace std;
 class App {
 public:
 	App(int width_, int height_);
-	~App(void);
+	~App();
 
 	void DisplayGraphicInfo();
 	void MainLoop();
 	void Init();
+	void Update(float elapsedTime);
 
 private:
 	void InitGLFW();
@@ -25,6 +27,7 @@ private:
 
 	GLFWwindow* window;
 	Renderer* renderer;
+	Camera camera;
 };
 
 #endif
