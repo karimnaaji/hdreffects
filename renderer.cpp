@@ -40,9 +40,6 @@ void Renderer::CreateFrameBuffer(GLuint renderTexture) {
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 
-    // once the frame is binded, then you don't render to the screen but to whatever
-    // is attached to this frame buffer
-
     // attach the render texture to the frame buffer
     glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, renderTexture, 0);
 

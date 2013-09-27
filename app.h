@@ -11,7 +11,7 @@ using namespace std;
 
 class App {
 public:
-	App(int width_, int height_);
+	App(int width, int height, bool fullscreen);
 	~App();
 
 	void DisplayGraphicInfo();
@@ -23,6 +23,7 @@ private:
 	void InitGLFW();
 
 	unsigned int width, height;
+	bool fullscreen;
 	GLuint fbo;
 
 	GLFWwindow* window;

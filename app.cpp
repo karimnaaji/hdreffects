@@ -1,6 +1,6 @@
 #include "app.h"
 
-App::App(int width_, int height_) : width(width_), height(height_) {}
+App::App(int width_, int height_, bool fullscreen_) : width(width_), height(height_), fullscreen(fullscreen_) {}
 
 App::~App() {
     glfwDestroyWindow(window);
@@ -64,7 +64,15 @@ void App::Update(float elapsedTime) {
     const float mouseSensitivity = 0.05f;
     double cursorX, cursorY;
     glfwGetCursorPos(window, &cursorX, &cursorY);
-    camera.Rotate(glm::vec2(mouseSensitivity * cursorY, mouseSensitivity * cursorX));
+
+    // fix a bug that made the cursor out of screen for the first time
+    if(abs(cursorX) <= 100 && abs(cursorY) <= 100)
+        camera.Rotate(glm::vec2(mouseSensitivity * cursorY, mouseSensitivity * cursorX));
+
+    if(cursorX != 0 || cursorY != 0) {
+        cout << "Mouse pos : " << cursorX << ";" << cursorY << endl;
+    }
+
     glfwSetCursorPos(window, 0, 0); 
 }
 
@@ -74,7 +82,6 @@ void App::DisplayGraphicInfo() {
     cout << "GLSL version : " << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl;
     cout << "Renderer : " << glGetString(GL_RENDERER) << endl;
 }
-
 
 void App::InitGLFW() {
     /* Initialize the library */
@@ -88,16 +95,20 @@ void App::InitGLFW() {
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     
     /* Create a windowed mode window and its OpenGL context */
-    //window = glfwCreateWindow(width, height, "Hello World", glfwGetPrimaryMonitor(), NULL);
-    window = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
+
+    if(fullscreen)
+        window = glfwCreateWindow(width, height, "Hello World", glfwGetPrimaryMonitor(), NULL);
+    else
+        window = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
+
     if (!window) {
         glfwTerminate();
         throw std::runtime_error("glfwOpenWindow failed.");
     }
 
+    glfwSetCursorPos(window, 0, 0);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    glfwSetCursorPos(window, 0, 0);
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
