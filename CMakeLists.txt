@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(HDR)
 
-set(CMAKE_CXX_FLAGS "-g -Wall")
+set(CMAKE_CXX_FLAGS "-g -Wall -std=c++11")
 
 file(GLOB_RECURSE Foo_SOURCES "src/*.cpp")
 file(GLOB_RECURSE Foo_HEADERS "src/*.h")
@@ -26,6 +26,11 @@ if(APPLE)
                                ${CORE_FOUNDATION_FRAMEWORK})
 endif()
 
+#link c library
+set(C_LIB_DIR "lib")
+include_directories(${C_LIB_DIR})
+add_library(c_lib ${C_LIB_DIR}/rgbe.c)
+
 include_directories(${GLFW_INCLUDE_DIRS})
 include_directories(${GLEW_INCLUDE_DIRS})
 include_directories(${OpenGL_INCLUDE_DIRS})
@@ -33,4 +38,4 @@ include_directories(${Foo_INCLUDE_DIRS})
 
 add_executable(build/hdr.out ${Foo_SOURCES})
 
-target_link_libraries(build/hdr.out ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${glfw_LIBRARIES} ${GLEW_LIBRARY})
+target_link_libraries(build/hdr.out c_lib ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${glfw_LIBRARIES} ${GLEW_LIBRARY})

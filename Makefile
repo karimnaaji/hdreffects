@@ -114,6 +114,43 @@ build/hdr.out/fast:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/build
 .PHONY : build/hdr.out/fast
 
+#=============================================================================
+# Target rules for targets named c_lib
+
+# Build rule for target.
+c_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 c_lib
+.PHONY : c_lib
+
+# fast build rule for target.
+c_lib/fast:
+	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/build
+.PHONY : c_lib/fast
+
+lib/rgbe.o: lib/rgbe.c.o
+.PHONY : lib/rgbe.o
+
+# target to build an object file
+lib/rgbe.c.o:
+	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/lib/rgbe.c.o
+.PHONY : lib/rgbe.c.o
+
+lib/rgbe.i: lib/rgbe.c.i
+.PHONY : lib/rgbe.i
+
+# target to preprocess a source file
+lib/rgbe.c.i:
+	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/lib/rgbe.c.i
+.PHONY : lib/rgbe.c.i
+
+lib/rgbe.s: lib/rgbe.c.s
+.PHONY : lib/rgbe.s
+
+# target to generate assembly for a file
+lib/rgbe.c.s:
+	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/lib/rgbe.c.s
+.PHONY : lib/rgbe.c.s
+
 src/app.o: src/app.cpp.o
 .PHONY : src/app.o
 
@@ -210,29 +247,29 @@ src/core/mesh.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.s
 .PHONY : src/core/mesh.cpp.s
 
-src/hdr/hdrrawimage.o: src/hdr/hdrrawimage.cpp.o
-.PHONY : src/hdr/hdrrawimage.o
+src/hdr/hdrimage.o: src/hdr/hdrimage.cpp.o
+.PHONY : src/hdr/hdrimage.o
 
 # target to build an object file
-src/hdr/hdrrawimage.cpp.o:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.o
-.PHONY : src/hdr/hdrrawimage.cpp.o
+src/hdr/hdrimage.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o
+.PHONY : src/hdr/hdrimage.cpp.o
 
-src/hdr/hdrrawimage.i: src/hdr/hdrrawimage.cpp.i
-.PHONY : src/hdr/hdrrawimage.i
+src/hdr/hdrimage.i: src/hdr/hdrimage.cpp.i
+.PHONY : src/hdr/hdrimage.i
 
 # target to preprocess a source file
-src/hdr/hdrrawimage.cpp.i:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.i
-.PHONY : src/hdr/hdrrawimage.cpp.i
+src/hdr/hdrimage.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.i
+.PHONY : src/hdr/hdrimage.cpp.i
 
-src/hdr/hdrrawimage.s: src/hdr/hdrrawimage.cpp.s
-.PHONY : src/hdr/hdrrawimage.s
+src/hdr/hdrimage.s: src/hdr/hdrimage.cpp.s
+.PHONY : src/hdr/hdrimage.s
 
 # target to generate assembly for a file
-src/hdr/hdrrawimage.cpp.s:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.s
-.PHONY : src/hdr/hdrrawimage.cpp.s
+src/hdr/hdrimage.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.s
+.PHONY : src/hdr/hdrimage.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -337,8 +374,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... build/hdr.out"
+	@echo "... c_lib"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... lib/rgbe.o"
+	@echo "... lib/rgbe.i"
+	@echo "... lib/rgbe.s"
 	@echo "... src/app.o"
 	@echo "... src/app.i"
 	@echo "... src/app.s"
@@ -351,9 +392,9 @@ help:
 	@echo "... src/core/mesh.o"
 	@echo "... src/core/mesh.i"
 	@echo "... src/core/mesh.s"
-	@echo "... src/hdr/hdrrawimage.o"
-	@echo "... src/hdr/hdrrawimage.i"
-	@echo "... src/hdr/hdrrawimage.s"
+	@echo "... src/hdr/hdrimage.o"
+	@echo "... src/hdr/hdrimage.i"
+	@echo "... src/hdr/hdrimage.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -4,8 +4,6 @@
 #include "graphics.h"
 #include <iostream>
 
-// inspired from http://tomdalling.com/blog/modern-opengl/04-cameras-vectors-and-input/
-
 class Camera {
 	public:
 		Camera();

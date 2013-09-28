@@ -69,7 +69,7 @@ void Camera::LookAt(glm::vec3 point) {
 
 	glm::vec3 direction = glm::normalize(position - point);
 	rotation.x = -rad2deg(atan2f(-direction.x, -direction.z));
-	rotation.y = rad2deg(asinf(-direction.y));
+	rotation.y = rad2deg(acosf(direction.y));
 
 	NormalizeAngles();
 }

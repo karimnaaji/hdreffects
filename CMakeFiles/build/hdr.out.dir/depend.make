@@ -31,9 +31,11 @@ CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: src/core/mesh.h
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: src/helpers/utils.h
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: src/render/shader.h
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.o: src/hdr/hdrrawimage.cpp
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.o: src/hdr/hdrrawimage.h
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.o: src/helpers/rgbe.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/hdr/hdrimage.cpp
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/hdr/hdrimage.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: lib/rgbe.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/core/graphics.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/helpers/utils.h
 
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/app.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/main.cpp

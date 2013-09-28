@@ -16,7 +16,7 @@ public:
 	Mesh(Geometry *geometry, Material* material);
 	~Mesh(void);
 
-	virtual void Draw();
+	void Draw();
 	static Mesh* Triangle();
 
 	void SetTexture(GLuint texture);

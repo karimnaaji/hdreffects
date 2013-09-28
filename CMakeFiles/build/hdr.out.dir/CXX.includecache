@@ -72,17 +72,21 @@ material.h
 geometry.h
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrrawimage.cpp
-hdrrawimage.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrrawimage.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrimage.cpp
+hdrimage.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrimage.h
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrrawimage.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrimage.h
 iostream
 -
 string
 -
+stdexcept
+-
 rgbe.h
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/rgbe.h
+graphics.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/graphics.h
 
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/main.cpp
 stdexcept
@@ -136,6 +140,10 @@ fstream
 graphics.h
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/graphics.h
 
+lib/rgbe.h
+stdio.h
+-
+
 src/core/geometry.h
 graphics.h
 src/core/graphics.h
@@ -175,10 +183,6 @@ material.h
 src/core/material.h
 geometry.h
 src/core/geometry.h
-
-src/helpers/rgbe.h
-stdio.h
--
 
 src/helpers/utils.h
 

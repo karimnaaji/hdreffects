@@ -8,7 +8,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/material.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/material.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o"
-  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrrawimage.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.o"
+  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrimage.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/main.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/main.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/renderer.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o"
@@ -18,10 +18,12 @@ SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
+  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/c_lib.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "lib"
   "src"
   "src/core"
   "src/hdr"

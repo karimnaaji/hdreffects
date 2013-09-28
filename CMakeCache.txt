@@ -220,6 +220,12 @@ OPENGL_glu_LIBRARY:FILEPATH=/System/Library/Frameworks/AGL.framework
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/local/bin/pkg-config
 
+//Dependencies for target
+c_lib_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+rgbe_LIB_DEPENDS:STATIC=
+
 
 ########################
 # INTERNAL cache entries

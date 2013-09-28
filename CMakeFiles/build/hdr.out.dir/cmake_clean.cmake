@@ -3,7 +3,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/core/material.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o"
-  "CMakeFiles/build/hdr.out.dir/src/hdr/hdrrawimage.cpp.o"
+  "CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/main.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o"
