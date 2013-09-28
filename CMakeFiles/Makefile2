@@ -56,38 +56,38 @@ CMAKE_SOURCE_DIR = /Users/karimnaaji/Documents/programmation/projets/hdr_project
 CMAKE_BINARY_DIR = /Users/karimnaaji/Documents/programmation/projets/hdr_project
 
 #=============================================================================
-# Target rules for target CMakeFiles/build/hdr.dir
+# Target rules for target CMakeFiles/build/hdr.out.dir
 
 # All Build rule for target.
-CMakeFiles/build/hdr.dir/all:
-	$(MAKE) -f CMakeFiles/build/hdr.dir/build.make CMakeFiles/build/hdr.dir/depend
-	$(MAKE) -f CMakeFiles/build/hdr.dir/build.make CMakeFiles/build/hdr.dir/build
+CMakeFiles/build/hdr.out.dir/all:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/depend
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles  1 2 3 4 5 6 7 8 9
-	@echo "Built target build/hdr"
-.PHONY : CMakeFiles/build/hdr.dir/all
+	@echo "Built target build/hdr.out"
+.PHONY : CMakeFiles/build/hdr.out.dir/all
 
 # Include target in all.
-all: CMakeFiles/build/hdr.dir/all
+all: CMakeFiles/build/hdr.out.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/build/hdr.dir/rule: cmake_check_build_system
+CMakeFiles/build/hdr.out.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles 9
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/build/hdr.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/build/hdr.out.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles 0
-.PHONY : CMakeFiles/build/hdr.dir/rule
+.PHONY : CMakeFiles/build/hdr.out.dir/rule
 
 # Convenience name for target.
-build/hdr: CMakeFiles/build/hdr.dir/rule
-.PHONY : build/hdr
+build/hdr.out: CMakeFiles/build/hdr.out.dir/rule
+.PHONY : build/hdr.out
 
 # clean rule for target.
-CMakeFiles/build/hdr.dir/clean:
-	$(MAKE) -f CMakeFiles/build/hdr.dir/build.make CMakeFiles/build/hdr.dir/clean
-.PHONY : CMakeFiles/build/hdr.dir/clean
+CMakeFiles/build/hdr.out.dir/clean:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/clean
+.PHONY : CMakeFiles/build/hdr.out.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/build/hdr.dir/clean
+clean: CMakeFiles/build/hdr.out.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -3,8 +3,8 @@
 Renderer::Renderer(int width, int height, Camera* camera_) {
     triangle = Mesh::Triangle();
 
-    string vertex = "basic.vert";
-    string fragment = "basic.frag";
+    string vertex = "shaders/basic.vert";
+    string fragment = "shaders/basic.frag";
     shader = new Shader(vertex, fragment);
 
     camera = camera_;

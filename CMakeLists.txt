@@ -26,11 +26,11 @@ if(APPLE)
                                ${CORE_FOUNDATION_FRAMEWORK})
 endif()
 
-find_package(OpenGL REQUIRED)
-
+include_directories(${GLFW_INCLUDE_DIRS})
+include_directories(${GLEW_INCLUDE_DIRS})
 include_directories(${OpenGL_INCLUDE_DIRS})
 include_directories(${Foo_INCLUDE_DIRS})
 
-add_executable(build/hdr ${Foo_SOURCES})
+add_executable(build/hdr.out ${Foo_SOURCES})
 
-target_link_libraries(build/hdr ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${glfw_LIBRARIES} ${GLEW_LIBRARY})
+target_link_libraries(build/hdr.out ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${glfw_LIBRARIES} ${GLEW_LIBRARY})
