@@ -3,6 +3,9 @@
 *.out
 *.a
 
+#other files
+*.swp
+
 #os file
 .DS_Store
 .DS_Store?
