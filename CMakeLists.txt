@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 2.8)
+project(HDR)
+
+set(CMAKE_CXX_FLAGS "-g -Wall")
+
+file(GLOB_RECURSE Foo_SOURCES "src/*.cpp")
+file(GLOB_RECURSE Foo_HEADERS "src/*.h")
+
+set(Foo_INCLUDE_DIRS "")
+foreach(_headerFile ${Foo_HEADERS})
+	get_filename_component(_dir ${_headerFile} PATH)
+	list(APPEND Foo_INCLUDE_DIRS ${_dir})
+endforeach()
+list(REMOVE_DUPLICATES Foo_INCLUDE_DIRS)
+
+find_package(OpenGL REQUIRED)
+find_package(GLEW REQUIRED)
+
+if(APPLE)
+	find_library(COCOA_FRAMEWORK Cocoa)
+    find_library(IOKIT_FRAMEWORK IOKit)
+    find_library(CORE_FOUNDATION_FRAMEWORK CoreFoundation)
+    
+	list(APPEND glfw_LIBRARIES ${COCOA_FRAMEWORK}
+                               ${IOKIT_FRAMEWORK}
+                               ${CORE_FOUNDATION_FRAMEWORK})
+endif()
+
+find_package(OpenGL REQUIRED)
+
+include_directories(${OpenGL_INCLUDE_DIRS})
+include_directories(${Foo_INCLUDE_DIRS})
+
+add_executable(build/hdr ${Foo_SOURCES})
+
+target_link_libraries(build/hdr ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${glfw_LIBRARIES} ${GLEW_LIBRARY})
