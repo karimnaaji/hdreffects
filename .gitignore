@@ -1,6 +1,7 @@
 #compiled source
 *.o
 *.out
+*.a
 
 #os file
 .DS_Store
