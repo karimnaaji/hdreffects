@@ -5,6 +5,7 @@
 
 #other files
 *.swp
+*.log
 
 #os file
 .DS_Store

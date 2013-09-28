@@ -2,6 +2,7 @@
 #include <string>
 
 #include "app.h"
+#include "HDRImage.h"
 
 using namespace std;
 
@@ -9,7 +10,10 @@ int main(int argc, char *argv[]) {
     int width = 1024;
     int height = 768;
     bool fullscreen = false;
-
+	
+	HDRImage image;
+	image.Load("media/uffizi_cross.hdr");
+	
     int c;
     while((c = getopt(argc, argv, "w:h:f:")) != -1) {
         switch(c) {

@@ -40,10 +40,12 @@ CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/app.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/main.cpp
+ lib/rgbe.h
  src/core/geometry.h
  src/core/graphics.h
  src/core/material.h
  src/core/mesh.h
+ src/hdr/HDRImage.h
  src/helpers/utils.h
  src/objects/camera.h
  src/render/renderer.h
