@@ -43,7 +43,7 @@ void HDRCubeMap::LoadFaces() {
 		int jFace = (l - (l % faceHeight)) / faceHeight;
 		
 		for(int iFace = 0; iFace < 3; ++iFace) {
-			int offset = faceWidth * iFace + l * width;
+			int offset = 3 * (faceWidth * iFace + l * width);
 			Face *face = NULL;			
 
 			if(iFace == 1 && jFace == 0) face = faces[POSITIVE_X];
@@ -54,27 +54,24 @@ void HDRCubeMap::LoadFaces() {
 			if(iFace == 1 && jFace == 3) face = faces[NEGATIVE_Z];
 
 			if(face) {
-				memcpy(face->data + face->currentOffset, data + offset, width); 	
-				face->currentOffset += faceWidth;
+				memcpy(face->data + face->currentOffset, data + offset, sizeof(float) * faceWidth * 3); 	
+				face->currentOffset += (3 * faceWidth);
 			}
 		}
 	}
 
-	for(int i = 0; i < 6; ++i) {
-		
+	int i = 2;	
     GLuint textureId;
 
     glGenTextures(1, &textureId);
     glBindTexture(GL_TEXTURE_2D, textureId);
 
-    GLenum internalFormat = GL_RGBA16F_ARB;
+    GLenum internalFormat = GL_RGB16F_ARB;
 
     glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, faces[i]->width, faces[i]->height, 0, Format, GL_FLOAT, faces[i]->data);                
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-    //glBindTexture(GL_TEXTURE_2D, 0);
-
-	}
+    glBindTexture(GL_TEXTURE_2D, 0);
 }

@@ -6,14 +6,24 @@
 
 #IncludeRegexTransform: 
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.cpp
-camera.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp
+hdrcubemap.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.h
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.h
-graphics.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/graphics.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.h
 iostream
+-
+string
+-
+stdexcept
+-
+rgbe.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/rgbe.h
+graphics.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/graphics.h
+
+lib/rgbe.h
+stdio.h
 -
 
 src/core/graphics.h
