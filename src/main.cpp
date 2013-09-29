@@ -2,19 +2,17 @@
 #include <string>
 
 #include "app.h"
-#include "HDRImage.h"
+
+#include "hdrcubemap.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
     int width = 1024;
     int height = 768;
-    bool fullscreen = false;
-	
-	HDRImage image;
-	image.Load("media/uffizi_cross.hdr");
-	
     int c;
+    bool fullscreen = false;
+
     while((c = getopt(argc, argv, "w:h:f:")) != -1) {
         switch(c) {
             case 'w':
@@ -37,6 +35,10 @@ int main(int argc, char *argv[]) {
 
         app.Init();
         app.DisplayGraphicInfo();
+
+		HDRCubeMap cubeMap;
+		cubeMap.Load("media/uffizi_cross.hdr");
+
         app.MainLoop();
     } catch (const exception& e) {
         cerr << "ERROR: " << e.what() << endl;

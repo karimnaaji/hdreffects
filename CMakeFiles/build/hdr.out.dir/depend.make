@@ -31,11 +31,11 @@ CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: src/core/mesh.h
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: src/helpers/utils.h
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: src/render/shader.h
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/hdr/hdrimage.cpp
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/hdr/hdrimage.h
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: lib/rgbe.h
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/core/graphics.h
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/helpers/utils.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: src/hdr/hdrcubemap.cpp
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: src/hdr/hdrcubemap.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: lib/rgbe.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: src/core/graphics.h
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: src/helpers/utils.h
 
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/app.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/main.cpp
@@ -44,7 +44,7 @@ CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/core/geometry.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/core/graphics.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/core/material.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/core/mesh.h
-CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/hdr/HDRImage.h
+CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/hdr/hdrcubemap.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/helpers/utils.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/objects/camera.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/render/renderer.h

@@ -5,10 +5,10 @@ const float maxRotationX = 89.0f;
 Camera::Camera() :
     position(0.0f, 0.0f, 5.0f),
     rotation(0.0f, 0.0f),
+    aspectRatio(4/3),
     fov(50.0f),
     near(0.01f),
-    far(100.0f),
-    aspectRatio(4/3)
+    far(100.0f)
 {}
 
 Camera::~Camera() {}

@@ -144,28 +144,28 @@ CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o.provides: CMakeFiles/build/hdr.
 
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o: src/hdr/hdrimage.cpp
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: src/hdr/hdrcubemap.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrimage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrimage.cpp > CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.i
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp > CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrimage.cpp -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.s
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.requires:
-.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.requires
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires:
+.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.provides: CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.requires
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.provides.build
-.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.provides
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides.build
+.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o
 
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/main.cpp
@@ -265,7 +265,7 @@ build/hdr_out_OBJECTS = \
 "CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/core/material.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o" \
-"CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o" \
+"CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/main.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o" \
@@ -278,7 +278,7 @@ build/hdr.out: CMakeFiles/build/hdr.out.dir/src/app.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/core/material.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o
-build/hdr.out: CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o
+build/hdr.out: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/main.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o
@@ -299,7 +299,7 @@ CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/app.cpp.
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/core/material.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o.requires
-CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o.requires
+CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/main.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o.requires

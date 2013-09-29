@@ -247,29 +247,29 @@ src/core/mesh.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.s
 .PHONY : src/core/mesh.cpp.s
 
-src/hdr/hdrimage.o: src/hdr/hdrimage.cpp.o
-.PHONY : src/hdr/hdrimage.o
+src/hdr/hdrcubemap.o: src/hdr/hdrcubemap.cpp.o
+.PHONY : src/hdr/hdrcubemap.o
 
 # target to build an object file
-src/hdr/hdrimage.cpp.o:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.o
-.PHONY : src/hdr/hdrimage.cpp.o
+src/hdr/hdrcubemap.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o
+.PHONY : src/hdr/hdrcubemap.cpp.o
 
-src/hdr/hdrimage.i: src/hdr/hdrimage.cpp.i
-.PHONY : src/hdr/hdrimage.i
+src/hdr/hdrcubemap.i: src/hdr/hdrcubemap.cpp.i
+.PHONY : src/hdr/hdrcubemap.i
 
 # target to preprocess a source file
-src/hdr/hdrimage.cpp.i:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.i
-.PHONY : src/hdr/hdrimage.cpp.i
+src/hdr/hdrcubemap.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i
+.PHONY : src/hdr/hdrcubemap.cpp.i
 
-src/hdr/hdrimage.s: src/hdr/hdrimage.cpp.s
-.PHONY : src/hdr/hdrimage.s
+src/hdr/hdrcubemap.s: src/hdr/hdrcubemap.cpp.s
+.PHONY : src/hdr/hdrcubemap.s
 
 # target to generate assembly for a file
-src/hdr/hdrimage.cpp.s:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrimage.cpp.s
-.PHONY : src/hdr/hdrimage.cpp.s
+src/hdr/hdrcubemap.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s
+.PHONY : src/hdr/hdrcubemap.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -392,9 +392,9 @@ help:
 	@echo "... src/core/mesh.o"
 	@echo "... src/core/mesh.i"
 	@echo "... src/core/mesh.s"
-	@echo "... src/hdr/hdrimage.o"
-	@echo "... src/hdr/hdrimage.i"
-	@echo "... src/hdr/hdrimage.s"
+	@echo "... src/hdr/hdrcubemap.o"
+	@echo "... src/hdr/hdrcubemap.i"
+	@echo "... src/hdr/hdrcubemap.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
