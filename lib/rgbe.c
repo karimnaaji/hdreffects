@@ -126,7 +126,6 @@ int RGBE_WriteHeader(FILE *fp, int width, int height, rgbe_header_info *info)
 /* minimal header reading.  modify if you want to parse more information */
 int RGBE_ReadHeader(FILE *fp, int *width, int *height, rgbe_header_info *info)
 {
-	printf("read");
   char buf[128];
   int found_format;
   float tempf;

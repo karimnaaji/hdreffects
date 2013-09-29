@@ -23,6 +23,7 @@ void HDRCubeMap::Load(const string& fileName) {
 	fclose(file);
 
 	LoadFaces();
+	GenerateTextureCube();
 }
 
 void HDRCubeMap::LoadFaces() {
@@ -43,24 +44,28 @@ void HDRCubeMap::LoadFaces() {
 		int jFace = (l - (l % faceHeight)) / faceHeight;
 		
 		for(int iFace = 0; iFace < 3; ++iFace) {
-			int offset = 3 * (faceWidth * iFace + l * width);
 			Face *face = NULL;			
+			int offset = 3 * (faceWidth * iFace + l * width);
 
-			if(iFace == 1 && jFace == 0) face = faces[POSITIVE_X];
-			if(iFace == 0 && jFace == 1) face = faces[NEGATIVE_Y];
-			if(iFace == 1 && jFace == 1) face = faces[POSITIVE_Z];
-			if(iFace == 2 && jFace == 1) face = faces[POSITIVE_Y];
-			if(iFace == 1 && jFace == 2) face = faces[NEGATIVE_X];
-			if(iFace == 1 && jFace == 3) face = faces[NEGATIVE_Z];
+			if(iFace == 1 && jFace == 0) face = faces[0]; // POS_X
+			if(iFace == 1 && jFace == 2) face = faces[1]; // NEG_X
+			if(iFace == 2 && jFace == 1) face = faces[2]; // POS_Y
+			if(iFace == 0 && jFace == 1) face = faces[3]; // NEG_Y
+			if(iFace == 1 && jFace == 1) face = faces[4]; // POS_Z
+			if(iFace == 1 && jFace == 3) face = faces[5]; // NEG_Z
 
 			if(face) {
-				memcpy(face->data + face->currentOffset, data + offset, sizeof(float) * faceWidth * 3); 	
+				// the number of components to copy
+				int n = sizeof(float) * faceWidth * 3;
+				
+				memcpy(face->data + face->currentOffset, data + offset, n); 	
 				face->currentOffset += (3 * faceWidth);
 			}
 		}
 	}
 
-	int i = 2;	
+/*
+        int i = 2;      
     GLuint textureId;
 
     glGenTextures(1, &textureId);
@@ -74,4 +79,27 @@ void HDRCubeMap::LoadFaces() {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
     glBindTexture(GL_TEXTURE_2D, 0);
+*/
+}
+
+void HDRCubeMap::Bind() {
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
+}
+
+void HDRCubeMap::GenerateTextureCube() {
+	glGenTextures(1, &textureId);
+
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
+	
+	for(int i = 0; i < 6; ++i) {
+		Face *f = faces[i];
+		glTexImage2D(CubeMapFace[i], 0, InternalFormat, f->width, f->height, 0, Format, Type, f->data);
+	}
+
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 }
