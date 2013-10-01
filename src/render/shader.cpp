@@ -1,14 +1,23 @@
 #include "shader.h"
 
-Shader::Shader(string vertexFile, string fragmentFile) {
+Shader::Shader(string shaderName) : name(shaderName) {}
+
+void Shader::Init() {
 	program = glCreateProgram();
-	vertex = CreateShader(GL_VERTEX_SHADER, vertexFile);
-	fragment = CreateShader(GL_FRAGMENT_SHADER, fragmentFile);
+	
+	string fragName = name + string(FRAG_EXT);
+	string vertName = name + string(VERT_EXT);
+
+	vertex = CreateShader(GL_VERTEX_SHADER, vertName);
+	fragment = CreateShader(GL_FRAGMENT_SHADER, fragName);
 
 	glAttachShader(program, vertex);
 	glAttachShader(program, fragment);
 
+	// must be done before linking
 	SetDefaultAttributes();
+
+	Link();
 }
 
 Shader::~Shader(void) {
@@ -19,6 +28,10 @@ Shader::~Shader(void) {
 	glDeleteShader(vertex);
 
 	glDeleteProgram(program);
+}
+
+string Shader::GetName() const {
+	return name;
 }
 
 GLuint Shader::Program() {
@@ -34,10 +47,7 @@ bool Shader::Link() {
 	return code == GL_TRUE ? true : false ;
 }
 
-/* Must be done before linking */
 void Shader::SetDefaultAttributes() {
-	/* another possibility would be to let opengl 
-	decide for the locations and query it after */
 	glBindAttribLocation(program, VERTEX_BUFFER, "position");
 	glBindAttribLocation(program, TEXTURE_BUFFER, "uv");
 	glBindAttribLocation(program, COLOUR_BUFFER, "colour");
@@ -48,7 +58,7 @@ bool Shader::LoadShaderSource(string& path, string& into) {
 	string buffer;
 
 	cout << path << " :" << endl;
-
+	
 	file.open(path.c_str());
 
 	if(!file.is_open()) {
@@ -69,9 +79,10 @@ bool Shader::LoadShaderSource(string& path, string& into) {
 }
 
 GLuint Shader::CreateShader(GLenum type, string& file) {
+	string path = string(RELATIVE_PATH) + file;	
 	string source;
 
-	if(!LoadShaderSource(file, source)) {
+	if(!LoadShaderSource(path, source)) {
 		cout << "Creation of shader failed" << endl;
 		return 0;
 	}

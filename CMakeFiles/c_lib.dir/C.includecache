@@ -6,19 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/lib/rgbe.c
-rgbe.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/lib/rgbe.h
-math.h
--
-string.h
--
-stdlib.h
--
-ctype.h
--
-
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/lib/rgbe.h
-stdio.h
--
-

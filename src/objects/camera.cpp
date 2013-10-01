@@ -1,7 +1,5 @@
 #include "camera.h"
 
-const float maxRotationX = 89.0f;
-
 Camera::Camera() :
     position(0.0f, 0.0f, 5.0f),
     rotation(0.0f, 0.0f),
@@ -64,11 +62,8 @@ glm::mat4 Camera::GetViewMatrix() const {
 }
 
 void Camera::LookAt(glm::vec3 point) {
-	if(position == point) 
-		return;
-
 	glm::vec3 direction = glm::normalize(position - point);
-	rotation.x = -rad2deg(atan2f(-direction.x, -direction.z));
+	rotation.x = rad2deg(atan2f(direction.x, direction.z));
 	rotation.y = rad2deg(acosf(direction.y));
 
 	NormalizeAngles();
@@ -77,5 +72,5 @@ void Camera::LookAt(glm::vec3 point) {
 void Camera::NormalizeAngles() {
 	rotation.y = fmodf(rotation.y, 360.0f);
 	rotation.y = rotation.y < 0.0f ? rotation.y + 360.0f : rotation.y;
-	rotation.x = clamp(rotation.x, -maxRotationX, maxRotationX);
+	rotation.x = clamp(rotation.x, -cam::maxRotationX, cam::maxRotationX);
 }

@@ -199,30 +199,6 @@ src/core/geometry.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.s
 .PHONY : src/core/geometry.cpp.s
 
-src/core/material.o: src/core/material.cpp.o
-.PHONY : src/core/material.o
-
-# target to build an object file
-src/core/material.cpp.o:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/material.cpp.o
-.PHONY : src/core/material.cpp.o
-
-src/core/material.i: src/core/material.cpp.i
-.PHONY : src/core/material.i
-
-# target to preprocess a source file
-src/core/material.cpp.i:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/material.cpp.i
-.PHONY : src/core/material.cpp.i
-
-src/core/material.s: src/core/material.cpp.s
-.PHONY : src/core/material.s
-
-# target to generate assembly for a file
-src/core/material.cpp.s:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/material.cpp.s
-.PHONY : src/core/material.cpp.s
-
 src/core/mesh.o: src/core/mesh.cpp.o
 .PHONY : src/core/mesh.o
 
@@ -294,6 +270,54 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/materials/material.o: src/materials/material.cpp.o
+.PHONY : src/materials/material.o
+
+# target to build an object file
+src/materials/material.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o
+.PHONY : src/materials/material.cpp.o
+
+src/materials/material.i: src/materials/material.cpp.i
+.PHONY : src/materials/material.i
+
+# target to preprocess a source file
+src/materials/material.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.i
+.PHONY : src/materials/material.cpp.i
+
+src/materials/material.s: src/materials/material.cpp.s
+.PHONY : src/materials/material.s
+
+# target to generate assembly for a file
+src/materials/material.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.s
+.PHONY : src/materials/material.cpp.s
+
+src/materials/materialcubemap.o: src/materials/materialcubemap.cpp.o
+.PHONY : src/materials/materialcubemap.o
+
+# target to build an object file
+src/materials/materialcubemap.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o
+.PHONY : src/materials/materialcubemap.cpp.o
+
+src/materials/materialcubemap.i: src/materials/materialcubemap.cpp.i
+.PHONY : src/materials/materialcubemap.i
+
+# target to preprocess a source file
+src/materials/materialcubemap.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.i
+.PHONY : src/materials/materialcubemap.cpp.i
+
+src/materials/materialcubemap.s: src/materials/materialcubemap.cpp.s
+.PHONY : src/materials/materialcubemap.s
+
+# target to generate assembly for a file
+src/materials/materialcubemap.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.s
+.PHONY : src/materials/materialcubemap.cpp.s
 
 src/objects/camera.o: src/objects/camera.cpp.o
 .PHONY : src/objects/camera.o
@@ -367,6 +391,30 @@ src/render/shader.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.s
 .PHONY : src/render/shader.cpp.s
 
+src/shaderlibrary.o: src/shaderlibrary.cpp.o
+.PHONY : src/shaderlibrary.o
+
+# target to build an object file
+src/shaderlibrary.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o
+.PHONY : src/shaderlibrary.cpp.o
+
+src/shaderlibrary.i: src/shaderlibrary.cpp.i
+.PHONY : src/shaderlibrary.i
+
+# target to preprocess a source file
+src/shaderlibrary.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.i
+.PHONY : src/shaderlibrary.cpp.i
+
+src/shaderlibrary.s: src/shaderlibrary.cpp.s
+.PHONY : src/shaderlibrary.s
+
+# target to generate assembly for a file
+src/shaderlibrary.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.s
+.PHONY : src/shaderlibrary.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -386,9 +434,6 @@ help:
 	@echo "... src/core/geometry.o"
 	@echo "... src/core/geometry.i"
 	@echo "... src/core/geometry.s"
-	@echo "... src/core/material.o"
-	@echo "... src/core/material.i"
-	@echo "... src/core/material.s"
 	@echo "... src/core/mesh.o"
 	@echo "... src/core/mesh.i"
 	@echo "... src/core/mesh.s"
@@ -398,6 +443,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/materials/material.o"
+	@echo "... src/materials/material.i"
+	@echo "... src/materials/material.s"
+	@echo "... src/materials/materialcubemap.o"
+	@echo "... src/materials/materialcubemap.i"
+	@echo "... src/materials/materialcubemap.s"
 	@echo "... src/objects/camera.o"
 	@echo "... src/objects/camera.i"
 	@echo "... src/objects/camera.s"
@@ -407,6 +458,9 @@ help:
 	@echo "... src/render/shader.o"
 	@echo "... src/render/shader.i"
 	@echo "... src/render/shader.s"
+	@echo "... src/shaderlibrary.o"
+	@echo "... src/shaderlibrary.i"
+	@echo "... src/shaderlibrary.s"
 .PHONY : help
 
 

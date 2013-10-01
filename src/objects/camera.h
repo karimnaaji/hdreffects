@@ -4,6 +4,10 @@
 #include "graphics.h"
 #include <iostream>
 
+namespace cam {
+	const float maxRotationX = 89.0f;
+}
+
 class Camera {
 	public:
 		Camera();

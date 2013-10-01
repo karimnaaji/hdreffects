@@ -6,31 +6,27 @@ CMakeFiles/build/hdr.out.dir/src/app.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/app.h
  src/core/geometry.h
  src/core/graphics.h
- src/core/material.h
  src/core/mesh.h
  src/helpers/utils.h
+ src/materials/material.h
  src/objects/camera.h
  src/render/renderer.h
  src/render/shader.h
+ src/shaderlibrary.h
 CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/graphics.h
  src/helpers/utils.h
-CMakeFiles/build/hdr.out.dir/src/core/material.cpp.o
- /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/material.cpp
- /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/material.h
- src/core/graphics.h
- src/helpers/utils.h
- src/render/shader.h
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/graphics.h
- /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/material.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.h
  src/helpers/utils.h
+ src/materials/material.h
  src/render/shader.h
+ src/shaderlibrary.h
 CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.h
@@ -43,12 +39,28 @@ CMakeFiles/build/hdr.out.dir/src/main.cpp.o
  lib/rgbe.h
  src/core/geometry.h
  src/core/graphics.h
- src/core/material.h
  src/core/mesh.h
  src/hdr/hdrcubemap.h
  src/helpers/utils.h
+ src/materials/material.h
  src/objects/camera.h
  src/render/renderer.h
+ src/render/shader.h
+ src/shaderlibrary.h
+CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.cpp
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.h
+ src/core/graphics.h
+ src/helpers/utils.h
+ src/render/shader.h
+CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.h
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/materialcubemap.cpp
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/materialcubemap.h
+ lib/rgbe.h
+ src/core/graphics.h
+ src/hdr/hdrcubemap.h
+ src/helpers/utils.h
  src/render/shader.h
 CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.cpp
@@ -61,12 +73,19 @@ CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/shader.h
  src/core/geometry.h
  src/core/graphics.h
- src/core/material.h
  src/core/mesh.h
  src/helpers/utils.h
+ src/materials/material.h
  src/objects/camera.h
+ src/shaderlibrary.h
 CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/shader.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/shader.h
  src/core/graphics.h
  src/helpers/utils.h
+CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/shaderlibrary.cpp
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/shaderlibrary.h
+ src/core/graphics.h
+ src/helpers/utils.h
+ src/render/shader.h

@@ -1,39 +1,46 @@
 #include "renderer.h"
 
 Renderer::Renderer(int width, int height, Camera* camera_) {
-    triangle = Mesh::Triangle();
-
-    string vertex = "shaders/basic.vert";
-    string fragment = "shaders/basic.frag";
-    shader = new Shader(vertex, fragment);
+	shaderLibrary = new ShaderLibrary();
+	LoadShaders();
 
     camera = camera_;
+    triangle = Mesh::Triangle(shaderLibrary);
+
+	_material = NULL;
+	_shader = NULL;
 }
 
 Renderer::~Renderer() {
-  	delete shader;
+	delete shaderLibrary;
   	delete triangle;
+	delete shaderLibrary;
+}
+
+void Renderer::LoadShaders() {
+	shaderLibrary->AddShader(string("basic"));
 }
 
 void Renderer::Init() {
     glClearColor(0.1, 0.1, 0.2, 1.0);
-
-    shader->Link();
+	
+	LoadShaders();
 }
 
 void Renderer::Render() {
     float time = (float) clock() / (CLOCKS_PER_SEC / 1000);
 
-    glUseProgram(shader->Program());
-
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    glUniform1f(glGetUniformLocation(shader->Program(), "globalTime"), time);
-    glUniformMatrix4fv(glGetUniformLocation(shader->Program(), "view"), 1, GL_FALSE, glm::value_ptr(camera->GetViewMatrix()));
+	_material = triangle->GetMaterial();
+	_shader = _material->Bind();
+
+    glUniform1f(glGetUniformLocation(_shader->Program(), "globalTime"), time);
+    glUniformMatrix4fv(glGetUniformLocation(_shader->Program(), "view"), 1, GL_FALSE, glm::value_ptr(camera->GetViewMatrix()));
 
     triangle->Draw();
 
-    glUseProgram(0);
+	_material->UnBind();
 }
 
 void Renderer::CreateFrameBuffer(GLuint renderTexture) {

@@ -19,6 +19,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "src/core"
   "src/hdr"
   "src/helpers"
+  "src/materials"
   "src/objects"
   "src/render"
   )

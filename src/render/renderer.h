@@ -10,6 +10,7 @@
 #include "mesh.h"
 #include "shader.h"
 #include "camera.h"
+#include "shaderlibrary.h"
 
 using namespace std;
 
@@ -21,16 +22,20 @@ public:
 	void Render();
 	void Init();
 private:
+	void LoadShaders();
 	void CreateFrameBuffer(GLuint renderTexture);
 	GLuint CreateTexture(int width, int height, bool isDepth = false);
 
-	Mesh *triangle;
-	Mesh *quad;
-	Shader *shader;
+	Mesh* triangle;
+	Mesh* quad;
+
+	Material* _material;
+	Shader* _shader;
 
 	GLuint fbo;
 	GLuint renderTexture;
 	Camera* camera;
+	ShaderLibrary* shaderLibrary;
 };
 
 #endif

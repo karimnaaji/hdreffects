@@ -27,6 +27,10 @@ Geometry* Mesh::GetGeometry() {
 	return geometry;
 }
 
+Material* Mesh::GetMaterial() {
+	return material;
+}
+
 void Mesh::Draw() {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glBindVertexArray(vao);
@@ -35,7 +39,7 @@ void Mesh::Draw() {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-Mesh* Mesh::Triangle() {
+Mesh* Mesh::Triangle(ShaderLibrary* shaderLibrary) {
 	glm::vec3* vertices = new glm::vec3[3];
 	vertices[0] = glm::vec3(0, 1, 0);
 	vertices[1] = glm::vec3(-1, -1, 0);
@@ -45,9 +49,9 @@ Mesh* Mesh::Triangle() {
 	colours[0] = glm::vec4(1, 0, 0, 1);
 	colours[1] = glm::vec4(0, 1, 0, 1);
 	colours[2] = glm::vec4(0, 0, 1, 1);
-
+	
 	Geometry* geometry = new Geometry(vertices, colours, 3);
-	Material* material = new Material(NULL);
+	Material* material = new Material(shaderLibrary->GetShader("basic"));
 
 	Mesh *mesh = new Mesh(geometry, material);
 	mesh->CreateBufferData();

@@ -8,6 +8,7 @@
 #include "mesh.h"
 #include "material.h"
 #include "geometry.h"
+#include "shaderlibrary.h"
 
 using namespace std;
 
@@ -17,11 +18,12 @@ public:
 	~Mesh(void);
 
 	void Draw();
-	static Mesh* Triangle();
+	static Mesh* Triangle(ShaderLibrary* shaderLibrary);
 
 	void SetTexture(GLuint texture);
 	GLuint GetTexture();
 	Geometry* GetGeometry();
+	Material* GetMaterial();
 private:
 	void CreateBufferData();
 
@@ -29,8 +31,8 @@ private:
 	GLuint vao;
 	GLuint vbo[BUFFER_COUNT];
 
-	Material *material;
-	Geometry *geometry;
+	Material* material;
+	Geometry* geometry;
 };
 
 #endif
