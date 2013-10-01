@@ -112,3 +112,5 @@ GLuint Shader::CreateShader(GLenum type, string& file) {
 
 	return shader;
 }
+
+

@@ -3,7 +3,7 @@
 Mesh::Mesh(Geometry* geometry_, Material* material_) {
 	geometry = geometry_;
 	material = material_;
-
+        
 	for(int i = 0; i < BUFFER_COUNT; ++i) {
 		vbo[i] = 0;
 	}
@@ -34,23 +34,53 @@ Material* Mesh::GetMaterial() {
 void Mesh::Draw() {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glBindVertexArray(vao);
-	glDrawArrays(geometry->GetType(), 0, geometry->GetVerticesCount());
+    
+    if(geometry->HasIndices()) {
+        glDrawElements(geometry->GetType(), geometry->GetIndicesCount(), GL_UNSIGNED_INT, 0);
+    } else {
+	    glDrawArrays(geometry->GetType(), 0, geometry->GetVerticesCount());
+    }
+
 	glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 Mesh* Mesh::Triangle(ShaderLibrary* shaderLibrary) {
-	glm::vec3* vertices = new glm::vec3[3];
-	vertices[0] = glm::vec3(0, 1, 0);
-	vertices[1] = glm::vec3(-1, -1, 0);
-	vertices[2] = glm::vec3(1, -1, 0);
+    float size = 1.0f;
 
-	glm::vec4* colours = new glm::vec4[3];
-	colours[0] = glm::vec4(1, 0, 0, 1);
-	colours[1] = glm::vec4(0, 1, 0, 1);
-	colours[2] = glm::vec4(0, 0, 1, 1);
-	
-	Geometry* geometry = new Geometry(vertices, colours, 3);
+    float vertices[] = {
+        -size,  size,  size,
+        -size, -size,  size,
+         size, -size,  size,
+         size,  size,  size,
+        -size,  size, -size,
+        -size, -size, -size,
+         size, -size, -size,
+         size,  size, -size,
+    };
+
+    unsigned int indices[] = {
+        0, 1, 2,
+        0, 2, 3,
+        3, 2, 7,
+        2, 7, 6,
+        6, 4, 7,
+        6, 4, 5,
+        0, 5, 4,
+        0, 5, 1,
+        0, 4, 3,
+        3, 4, 7,
+    };
+
+    float UVs[] = {
+        0, 1,
+        0, 0,
+        1, 0,
+        1, 1,
+    };
+
+    Geometry* geometry = new Geometry(reinterpret_cast<glm::vec3*>(vertices), indices, 8, 10);
+    //geometry->SetUVs(reinterpret_cast<glm::vec2*>(UVs));
 	Material* material = new Material(shaderLibrary->GetShader("basic"));
 
 	Mesh *mesh = new Mesh(geometry, material);
@@ -80,6 +110,7 @@ void Mesh::CreateBufferData() {
 		glEnableVertexAttribArray(TEXTURE_BUFFER);
 	}
 	if(geometry->HasColors()) {
+        cout << "creation of colour buffer" << endl;
 		glGenBuffers(1, &vbo[COLOUR_BUFFER]);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[COLOUR_BUFFER]);
 
@@ -88,6 +119,13 @@ void Mesh::CreateBufferData() {
 		glVertexAttribPointer(COLOUR_BUFFER, 4, GL_FLOAT, GL_FALSE, 0, 0);
 		glEnableVertexAttribArray(COLOUR_BUFFER);
 	}
+    if(geometry->HasIndices()) {
+        cout << "creation of index buffer" << endl;
+        glGenBuffers(1, &vbo[INDEX_BUFFER]);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo[INDEX_BUFFER]);
+
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, geometry->GetIndicesCount() * sizeof(unsigned int), geometry->GetIndices(), GL_STATIC_DRAW);
+    }
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);

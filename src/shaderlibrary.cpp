@@ -19,6 +19,12 @@ void ShaderLibrary::AddShader(string shaderName) {
 }
 
 Shader* ShaderLibrary::GetShader(string shaderName) const {
-	return shaders.find(shaderName)->second;
+	Shader* shader = shaders.find(shaderName)->second;
+
+    if(shader == NULL) {
+        throw new runtime_error("Didn't found shader " + shaderName + " in the shader library");
+    }
+    cout << "Shader lib : getting " << shaderName << endl;
+    return shader;
 }
 

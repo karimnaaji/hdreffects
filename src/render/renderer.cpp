@@ -22,9 +22,8 @@ void Renderer::LoadShaders() {
 }
 
 void Renderer::Init() {
-    glClearColor(0.1, 0.1, 0.2, 1.0);
-	
-	LoadShaders();
+    //glClearColor(0.1, 0.1, 0.2, 1.0);
+	glClearColor(1, 1, 1, 1);
 }
 
 void Renderer::Render() {

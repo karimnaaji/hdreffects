@@ -10,8 +10,6 @@
 #include "geometry.h"
 #include "shaderlibrary.h"
 
-using namespace std;
-
 class Mesh {
 public:
 	Mesh(Geometry *geometry, Material* material);

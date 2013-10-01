@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <stdexcept>
 #include "shader.h"
 
 using namespace std;

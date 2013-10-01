@@ -16,6 +16,7 @@ using namespace std;
 enum MeshBuffer { 
 	VERTEX_BUFFER,
 	COLOUR_BUFFER,
+        INDEX_BUFFER,
 	TEXTURE_BUFFER,
 	BUFFER_COUNT
 };

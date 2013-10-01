@@ -10,7 +10,7 @@ App::~App() {
 void App::MainLoop() {
     double lastTime = glfwGetTime();
     int frames = 0;
-
+    
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window)) {
         double time = glfwGetTime();
