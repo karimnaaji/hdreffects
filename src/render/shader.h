@@ -7,11 +7,8 @@
 #include <string>
 
 #include "graphics.h"
+#include "hdrtexturecube.h"
 
-#define VERT_EXT 	".vert"
-#define FRAG_EXT 	".frag"
-
-#define RELATIVE_PATH   "shaders/"
 
 using namespace std;
 
@@ -20,15 +17,21 @@ class Shader {
 		Shader(string shaderName);
 		~Shader(void);
 
-		GLuint Program();
+		GLuint Program() const;
 		void Init();
 		string GetName() const;
-		
+		bool IsInUse() const;
+
+		void SendUniform(string name, HDRTextureCube* hdrTextureCube);
+		void SendUniform(string name, float value);
+		void SendUniform(string name, glm::mat4 mat);
+
 	private:	
 		bool Link();
 		GLuint CreateShader(GLenum type, string& file);
 		bool LoadShaderSource(string& file, string& into);
 		void SetDefaultAttributes();
+		GLint Uniform(string uniformName) const;
 
 		GLuint fragment;
 		GLuint vertex;

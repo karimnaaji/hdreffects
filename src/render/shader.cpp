@@ -34,8 +34,14 @@ string Shader::GetName() const {
 	return name;
 }
 
-GLuint Shader::Program() {
+GLuint Shader::Program() const {
 	return program;
+}
+
+bool Shader::IsInUse() const {
+    GLint currentProgram = 0;
+    glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
+    return (Program() == (GLint)currentProgram);
 }
 
 bool Shader::Link() {
@@ -79,7 +85,7 @@ bool Shader::LoadShaderSource(string& path, string& into) {
 }
 
 GLuint Shader::CreateShader(GLenum type, string& file) {
-	string path = string(RELATIVE_PATH) + file;	
+	string path = string(SHADERS_RELATIVE_PATH) + file;	
 	string source;
 
 	if(!LoadShaderSource(path, source)) {
@@ -111,6 +117,26 @@ GLuint Shader::CreateShader(GLenum type, string& file) {
 	cout << "Shader compilation successfull" << endl;
 
 	return shader;
+}
+
+GLint Shader::Uniform(string uniformName) const {
+    GLint uniform = glGetUniformLocation(program, uniformName.c_str());
+    return uniform;
+}
+
+void Shader::SendUniform(string name, glm::mat4 mat) {
+	assert(IsInUse());
+    glUniformMatrix4fv(Uniform(name), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+void Shader::SendUniform(string name, float value) {
+	assert(IsInUse());
+    glUniform1f(Uniform(name), value);
+}
+
+void Shader::SendUniform(string name, HDRTextureCube* hdrTextureCube) {
+	assert(IsInUse());
+	glUniform1i(Uniform(name), hdrTextureCube->TextureId());
 }
 
 

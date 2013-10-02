@@ -61,7 +61,7 @@ void Geometry::SetUVs(glm::vec2* uvs_) {
         delete[] uvs;
 
     uvs = new glm::vec2[verticesCount];
-    //memcpy(uvs, uvs_, verticesCount * sizeof(glm::vec2));
+    memcpy(uvs, uvs_, verticesCount * sizeof(glm::vec2));
 }
 
 void Geometry::SetPrimitive(PrimitiveType primitiveType_) {

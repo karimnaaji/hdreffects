@@ -12,20 +12,18 @@
 
 class Mesh {
 public:
+	Mesh();
 	Mesh(Geometry *geometry, Material* material);
 	~Mesh(void);
 
 	void Draw();
 	static Mesh* Triangle(ShaderLibrary* shaderLibrary);
 
-	void SetTexture(GLuint texture);
-	GLuint GetTexture();
 	Geometry* GetGeometry();
 	Material* GetMaterial();
-private:
 	void CreateBufferData();
-
-	GLuint texture;
+	
+protected:
 	GLuint vao;
 	GLuint vbo[BUFFER_COUNT];
 

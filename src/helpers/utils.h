@@ -1,6 +1,13 @@
 #ifndef HELPERS_H
 #define HELPERS_H
 
+#define MEDIA_RELATIVE_PATH 	"media/"
+#define SHADERS_RELATIVE_PATH   "shaders/"
+
+#define VERT_EXT 	".vert"
+#define FRAG_EXT 	".frag"
+#define HDR_EXT		".hdr"
+
 static const float PI = 3.14159265358979323846f;	
 static const float PI_2 = PI / 2.0f;
 static const float PI_4 = PI / 4.0f;

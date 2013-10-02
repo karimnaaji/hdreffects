@@ -75,9 +75,55 @@ CMakeFiles/build/hdr.out.dir/src/app.cpp.o.provides: CMakeFiles/build/hdr.out.di
 
 CMakeFiles/build/hdr.out.dir/src/app.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/app.cpp.o
 
+CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
+CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o: src/core/cubemap.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/cubemap.cpp
+
+CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/cubemap.cpp > CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.i
+
+CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/cubemap.cpp -o CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.s
+
+CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.requires:
+.PHONY : CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.requires
+
+CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.provides: CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.requires
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.provides.build
+.PHONY : CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.provides
+
+CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o
+
+CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
+CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o: src/core/geometries.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.cpp
+
+CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.cpp > CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.i
+
+CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.cpp -o CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.s
+
+CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.requires:
+.PHONY : CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.requires
+
+CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.provides: CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.requires
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.provides.build
+.PHONY : CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.provides
+
+CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o
+
 CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o: src/core/geometry.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.cpp
 
@@ -100,7 +146,7 @@ CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o: src/core/mesh.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.cpp
 
@@ -121,32 +167,32 @@ CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o.provides: CMakeFiles/build/hdr.
 
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o: src/hdr/hdrcubemap.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o: src/hdr/hdrtexturecube.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.cpp
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp > CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.cpp > CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.i
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.cpp -o CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.s
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires:
-.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.requires:
+.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.requires
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides.build
-.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.provides: CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.requires
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.provides.build
+.PHONY : CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.provides
 
-CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o
+CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.provides.build: CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o
 
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o: src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/main.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/main.cpp
 
@@ -169,7 +215,7 @@ CMakeFiles/build/hdr.out.dir/src/main.cpp.o.provides.build: CMakeFiles/build/hdr
 
 CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o: src/materials/material.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.cpp
 
@@ -192,7 +238,7 @@ CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o.provides.build: CMakeF
 
 CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o: src/materials/materialcubemap.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/materialcubemap.cpp
 
@@ -215,7 +261,7 @@ CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o.provides.build:
 
 CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o: src/objects/camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.cpp
 
@@ -238,7 +284,7 @@ CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o: src/render/renderer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/renderer.cpp
 
@@ -261,7 +307,7 @@ CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.o: src/render/shader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/shader.cpp
 
@@ -284,7 +330,7 @@ CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o: CMakeFiles/build/hdr.out.dir/flags.make
 CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o: src/shaderlibrary.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o -c /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/shaderlibrary.cpp
 
@@ -308,9 +354,11 @@ CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o.provides.build: CMakeFiles/
 # Object files for target build/hdr.out
 build/hdr_out_OBJECTS = \
 "CMakeFiles/build/hdr.out.dir/src/app.cpp.o" \
+"CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o" \
+"CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o" \
-"CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o" \
+"CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/main.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o" \
 "CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o" \
@@ -323,9 +371,11 @@ build/hdr_out_OBJECTS = \
 build/hdr_out_EXTERNAL_OBJECTS =
 
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/app.cpp.o
+build/hdr.out: CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o
+build/hdr.out: CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o
-build/hdr.out: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o
+build/hdr.out: CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/main.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o
 build/hdr.out: CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o
@@ -346,9 +396,11 @@ CMakeFiles/build/hdr.out.dir/build: build/hdr.out
 .PHONY : CMakeFiles/build/hdr.out.dir/build
 
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/app.cpp.o.requires
+CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o.requires
+CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o.requires
-CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o.requires
+CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/main.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o.requires
 CMakeFiles/build/hdr.out.dir/requires: CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o.requires

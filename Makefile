@@ -175,6 +175,54 @@ src/app.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/app.cpp.s
 .PHONY : src/app.cpp.s
 
+src/core/cubemap.o: src/core/cubemap.cpp.o
+.PHONY : src/core/cubemap.o
+
+# target to build an object file
+src/core/cubemap.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o
+.PHONY : src/core/cubemap.cpp.o
+
+src/core/cubemap.i: src/core/cubemap.cpp.i
+.PHONY : src/core/cubemap.i
+
+# target to preprocess a source file
+src/core/cubemap.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.i
+.PHONY : src/core/cubemap.cpp.i
+
+src/core/cubemap.s: src/core/cubemap.cpp.s
+.PHONY : src/core/cubemap.s
+
+# target to generate assembly for a file
+src/core/cubemap.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.s
+.PHONY : src/core/cubemap.cpp.s
+
+src/core/geometries.o: src/core/geometries.cpp.o
+.PHONY : src/core/geometries.o
+
+# target to build an object file
+src/core/geometries.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o
+.PHONY : src/core/geometries.cpp.o
+
+src/core/geometries.i: src/core/geometries.cpp.i
+.PHONY : src/core/geometries.i
+
+# target to preprocess a source file
+src/core/geometries.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.i
+.PHONY : src/core/geometries.cpp.i
+
+src/core/geometries.s: src/core/geometries.cpp.s
+.PHONY : src/core/geometries.s
+
+# target to generate assembly for a file
+src/core/geometries.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.s
+.PHONY : src/core/geometries.cpp.s
+
 src/core/geometry.o: src/core/geometry.cpp.o
 .PHONY : src/core/geometry.o
 
@@ -223,29 +271,29 @@ src/core/mesh.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.s
 .PHONY : src/core/mesh.cpp.s
 
-src/hdr/hdrcubemap.o: src/hdr/hdrcubemap.cpp.o
-.PHONY : src/hdr/hdrcubemap.o
+src/hdr/hdrtexturecube.o: src/hdr/hdrtexturecube.cpp.o
+.PHONY : src/hdr/hdrtexturecube.o
 
 # target to build an object file
-src/hdr/hdrcubemap.cpp.o:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o
-.PHONY : src/hdr/hdrcubemap.cpp.o
+src/hdr/hdrtexturecube.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o
+.PHONY : src/hdr/hdrtexturecube.cpp.o
 
-src/hdr/hdrcubemap.i: src/hdr/hdrcubemap.cpp.i
-.PHONY : src/hdr/hdrcubemap.i
+src/hdr/hdrtexturecube.i: src/hdr/hdrtexturecube.cpp.i
+.PHONY : src/hdr/hdrtexturecube.i
 
 # target to preprocess a source file
-src/hdr/hdrcubemap.cpp.i:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.i
-.PHONY : src/hdr/hdrcubemap.cpp.i
+src/hdr/hdrtexturecube.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.i
+.PHONY : src/hdr/hdrtexturecube.cpp.i
 
-src/hdr/hdrcubemap.s: src/hdr/hdrcubemap.cpp.s
-.PHONY : src/hdr/hdrcubemap.s
+src/hdr/hdrtexturecube.s: src/hdr/hdrtexturecube.cpp.s
+.PHONY : src/hdr/hdrtexturecube.s
 
 # target to generate assembly for a file
-src/hdr/hdrcubemap.cpp.s:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.s
-.PHONY : src/hdr/hdrcubemap.cpp.s
+src/hdr/hdrtexturecube.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.s
+.PHONY : src/hdr/hdrtexturecube.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -431,15 +479,21 @@ help:
 	@echo "... src/app.o"
 	@echo "... src/app.i"
 	@echo "... src/app.s"
+	@echo "... src/core/cubemap.o"
+	@echo "... src/core/cubemap.i"
+	@echo "... src/core/cubemap.s"
+	@echo "... src/core/geometries.o"
+	@echo "... src/core/geometries.i"
+	@echo "... src/core/geometries.s"
 	@echo "... src/core/geometry.o"
 	@echo "... src/core/geometry.i"
 	@echo "... src/core/geometry.s"
 	@echo "... src/core/mesh.o"
 	@echo "... src/core/mesh.i"
 	@echo "... src/core/mesh.s"
-	@echo "... src/hdr/hdrcubemap.o"
-	@echo "... src/hdr/hdrcubemap.i"
-	@echo "... src/hdr/hdrcubemap.s"
+	@echo "... src/hdr/hdrtexturecube.o"
+	@echo "... src/hdr/hdrtexturecube.i"
+	@echo "... src/hdr/hdrtexturecube.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

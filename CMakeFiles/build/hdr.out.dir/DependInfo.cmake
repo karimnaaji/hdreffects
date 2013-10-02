@@ -5,9 +5,11 @@ SET(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/app.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/app.cpp.o"
+  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/cubemap.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o"
+  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o"
-  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrcubemap.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/hdr/hdrcubemap.cpp.o"
+  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/main.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/main.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/materialcubemap.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o"

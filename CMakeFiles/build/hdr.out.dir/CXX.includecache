@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.cpp
+geometries.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.h
+
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.h
+geometry.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
+
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
 iostream
 -
@@ -30,51 +38,5 @@ cmath
 utils.h
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/utils.h
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.cpp
-mesh.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.h
-
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.h
-vector
--
-iostream
--
-graphics.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/graphics.h
-mesh.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.h
-material.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/material.h
-geometry.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
-shaderlibrary.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/shaderlibrary.h
-
 src/helpers/utils.h
-
-src/materials/material.h
-shader.h
-src/materials/shader.h
-
-src/render/shader.h
-string
--
-iostream
--
-fstream
--
-string
--
-graphics.h
-src/render/graphics.h
-
-src/shaderlibrary.h
-map
--
-string
--
-stdexcept
--
-shader.h
-src/shader.h
 

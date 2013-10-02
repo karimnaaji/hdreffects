@@ -2,44 +2,54 @@
 
 Renderer::Renderer(int width, int height, Camera* camera_) {
 	shaderLibrary = new ShaderLibrary();
-	LoadShaders();
 
     camera = camera_;
-    triangle = Mesh::Triangle(shaderLibrary);
 
-	_material = NULL;
 	_shader = NULL;
 }
 
 Renderer::~Renderer() {
 	delete shaderLibrary;
-  	delete triangle;
-	delete shaderLibrary;
+    delete cubemap;
 }
 
 void Renderer::LoadShaders() {
 	shaderLibrary->AddShader(string("basic"));
+    shaderLibrary->AddShader(string("cubemap"));
+}
+
+void Renderer::LoadCubeMap() {
+    HDRTextureCube* hdrTextureCube = new HDRTextureCube();
+    hdrTextureCube->Load(string("uffizi_cross"));
+    
+    MaterialCubeMap* materialCubeMap = new MaterialCubeMap(shaderLibrary->GetShader("cubemap"), hdrTextureCube);
+
+    cubemap = new CubeMap(materialCubeMap);
+    cubemap->CreateBufferData();
 }
 
 void Renderer::Init() {
-    //glClearColor(0.1, 0.1, 0.2, 1.0);
 	glClearColor(1, 1, 1, 1);
+
+    LoadShaders();
+    LoadCubeMap();
 }
 
 void Renderer::Render() {
-    float time = (float) clock() / (CLOCKS_PER_SEC / 1000);
-
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-	_material = triangle->GetMaterial();
-	_shader = _material->Bind();
 
-    glUniform1f(glGetUniformLocation(_shader->Program(), "globalTime"), time);
-    glUniformMatrix4fv(glGetUniformLocation(_shader->Program(), "view"), 1, GL_FALSE, glm::value_ptr(camera->GetViewMatrix()));
+    RenderCubeMap();
+}
 
-    triangle->Draw();
+void Renderer::RenderCubeMap() {
+    _shader = cubemap->GetMaterial()->Bind();
+    SendUniforms();
 
-	_material->UnBind();
+    cubemap->Draw();
+}
+
+void Renderer::SendUniforms() {
+    _shader->SendUniform("view", camera->GetViewMatrix());
 }
 
 void Renderer::CreateFrameBuffer(GLuint renderTexture) {

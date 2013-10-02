@@ -2,17 +2,17 @@
 #define MATERIAL_CUBE_MAP_H
 
 #include "material.h"
-#include "hdrcubemap.h"
+#include "hdrtexturecube.h"
 
-class MaterialCubeMap : Material {
+class MaterialCubeMap : public Material {
 	public:
-		MaterialCubeMap(Shader* shader, HDRCubeMap* cubeMap);
+		MaterialCubeMap(Shader* shader, HDRTextureCube* hdrTextureCube);
 		~MaterialCubeMap();
 
 		Shader* Bind();
 		void UnBind();
 	private:
-		 HDRCubeMap* cubeMap;
+		 HDRTextureCube* hdrTextureCube;
 };
 
 #endif

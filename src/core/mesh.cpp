@@ -11,16 +11,23 @@ Mesh::Mesh(Geometry* geometry_, Material* material_) {
 	glGenVertexArrays(1, &vao);
 }
 
+Mesh::Mesh() {
+	geometry = NULL;
+	material = NULL;
+
+	for(int i = 0; i < BUFFER_COUNT; ++i) {
+		vbo[i] = 0;
+	}
+
+	glGenVertexArrays(1, &vao);
+}
+
 Mesh::~Mesh(void) {
 	glDeleteVertexArrays(1, &vao);
 	glDeleteBuffers(BUFFER_COUNT, vbo);
 
 	delete material;
 	delete geometry;
-}
-
-void Mesh::SetTexture(GLuint tex) {
-	texture = tex;
 }
 
 Geometry* Mesh::GetGeometry() {
@@ -32,7 +39,6 @@ Material* Mesh::GetMaterial() {
 }
 
 void Mesh::Draw() {
-	glBindTexture(GL_TEXTURE_2D, texture);
 	glBindVertexArray(vao);
     
     if(geometry->HasIndices()) {
@@ -42,51 +48,6 @@ void Mesh::Draw() {
     }
 
 	glBindVertexArray(0);
-	glBindTexture(GL_TEXTURE_2D, 0);
-}
-
-Mesh* Mesh::Triangle(ShaderLibrary* shaderLibrary) {
-    float size = 1.0f;
-
-    float vertices[] = {
-        -size,  size,  size,
-        -size, -size,  size,
-         size, -size,  size,
-         size,  size,  size,
-        -size,  size, -size,
-        -size, -size, -size,
-         size, -size, -size,
-         size,  size, -size,
-    };
-
-    unsigned int indices[] = {
-        0, 1, 2,
-        0, 2, 3,
-        3, 2, 7,
-        2, 7, 6,
-        6, 4, 7,
-        6, 4, 5,
-        0, 5, 4,
-        0, 5, 1,
-        0, 4, 3,
-        3, 4, 7,
-    };
-
-    float UVs[] = {
-        0, 1,
-        0, 0,
-        1, 0,
-        1, 1,
-    };
-
-    Geometry* geometry = new Geometry(reinterpret_cast<glm::vec3*>(vertices), indices, 8, 10);
-    //geometry->SetUVs(reinterpret_cast<glm::vec2*>(UVs));
-	Material* material = new Material(shaderLibrary->GetShader("basic"));
-
-	Mesh *mesh = new Mesh(geometry, material);
-	mesh->CreateBufferData();
-
-	return mesh;
 }
 
 void Mesh::CreateBufferData() {

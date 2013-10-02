@@ -69,10 +69,6 @@ void App::Update(float elapsedTime) {
     if(abs(cursorX) <= 100 && abs(cursorY) <= 100)
         camera.Rotate(glm::vec2(mouseSensitivity * cursorY, mouseSensitivity * cursorX));
 
-    if(cursorX != 0 || cursorY != 0) {
-        cout << "Mouse pos : " << cursorX << ";" << cursorY << endl;
-    }
-
     glfwSetCursorPos(window, 0, 0); 
 }
 
