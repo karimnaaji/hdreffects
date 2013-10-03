@@ -44,13 +44,15 @@ bool Shader::IsInUse() const {
     return (Program() == (GLint)currentProgram);
 }
 
-bool Shader::Link() {
+void Shader::Link() {
 	glLinkProgram(program);
 
 	GLint code;
 	glGetProgramiv(program, GL_LINK_STATUS, &code);
 
-	return code == GL_TRUE ? true : false ;
+	if(!code) {
+		throw runtime_error("Link shader failure (" + name + ")"); 
+	}
 }
 
 void Shader::SetDefaultAttributes() {
@@ -59,17 +61,14 @@ void Shader::SetDefaultAttributes() {
 	glBindAttribLocation(program, COLOUR_BUFFER, "colour");
 }
 
-bool Shader::LoadShaderSource(string& path, string& into) {
+void Shader::LoadShaderSource(string& path, string& into) {
 	ifstream file;
 	string buffer;
 
-	cout << path << " :" << endl;
-	
 	file.open(path.c_str());
 
 	if(!file.is_open()) {
-		cout << "Opening file failure" << endl;
-		return false;
+		throw runtime_error("Opening file failure" + path + " (" + name + ")"); 
 	}
 
 	while(!file.eof()) {
@@ -78,20 +77,13 @@ bool Shader::LoadShaderSource(string& path, string& into) {
 	}
 
 	file.close();
-	//cout << into << endl << endl;
-	cout << "Shader source loaded" << endl;
-
-	return true;
 }
 
 GLuint Shader::CreateShader(GLenum type, string& file) {
 	string path = string(SHADERS_RELATIVE_PATH) + file;	
 	string source;
 
-	if(!LoadShaderSource(path, source)) {
-		cout << "Creation of shader failed" << endl;
-		return 0;
-	}
+	LoadShaderSource(path, source);
 
 	GLuint shader = glCreateShader(type);
 
@@ -108,19 +100,20 @@ GLuint Shader::CreateShader(GLenum type, string& file) {
 
 		glGetShaderInfoLog(shader, sizeof(error), NULL, error);
 
-		cout << "Impossible de compiler le shader" << endl;
-		cout << file << " : " << error;
-
-		return 0;
+		cout << error;
+		throw runtime_error("Impossible de compiler le shader " + file + " (" + name + ")");
 	} 
-
-	cout << "Shader compilation successfull" << endl;
 
 	return shader;
 }
 
 GLint Shader::Uniform(string uniformName) const {
     GLint uniform = glGetUniformLocation(program, uniformName.c_str());
+
+    if(uniform < 0) {
+    	throw runtime_error("Uniform variable not found : " + uniformName + " (" + name + ")");
+    }
+
     return uniform;
 }
 
@@ -136,7 +129,11 @@ void Shader::SendUniform(string name, float value) {
 
 void Shader::SendUniform(string name, HDRTextureCube* hdrTextureCube) {
 	assert(IsInUse());
-	glUniform1i(Uniform(name), hdrTextureCube->TextureId());
+	glUniform1i(Uniform(name), hdrTextureCube->TextureIndex());
 }
 
+void Shader::SendUniform(string name, glm::vec3 vec) {
+	assert(IsInUse());
+	glUniform3f(Uniform(name), vec[0], vec[1], vec[2]);
+}
 

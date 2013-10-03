@@ -71,7 +71,6 @@ void Mesh::CreateBufferData() {
 		glEnableVertexAttribArray(TEXTURE_BUFFER);
 	}
 	if(geometry->HasColors()) {
-        cout << "creation of colour buffer" << endl;
 		glGenBuffers(1, &vbo[COLOUR_BUFFER]);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[COLOUR_BUFFER]);
 
@@ -81,7 +80,6 @@ void Mesh::CreateBufferData() {
 		glEnableVertexAttribArray(COLOUR_BUFFER);
 	}
     if(geometry->HasIndices()) {
-        cout << "creation of index buffer" << endl;
         glGenBuffers(1, &vbo[INDEX_BUFFER]);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo[INDEX_BUFFER]);
 

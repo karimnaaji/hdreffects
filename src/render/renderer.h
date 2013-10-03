@@ -23,7 +23,7 @@ public:
 	void Render();
 	void Init();
 private:
-	void SendUniforms();
+	void SendDefaultUniforms();
 	void RenderCubeMap();
 	void LoadShaders();
 	void LoadCubeMap();

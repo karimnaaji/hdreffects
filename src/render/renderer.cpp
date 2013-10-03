@@ -43,13 +43,20 @@ void Renderer::Render() {
 
 void Renderer::RenderCubeMap() {
     _shader = cubemap->GetMaterial()->Bind();
-    SendUniforms();
+    //_shader->SendUniform("camPosition", camera->GetPosition());
+    SendDefaultUniforms();
 
     cubemap->Draw();
 }
 
-void Renderer::SendUniforms() {
-    _shader->SendUniform("view", camera->GetViewMatrix());
+void Renderer::SendDefaultUniforms() {
+    glm::mat4 view = camera->GetViewMatrix();
+    glm::mat4 projection = camera->GetProjectionMatrix();
+    glm::mat4 model = glm::mat4(1.0f);
+
+    glm::mat4 mvp = projection * view * model;
+
+    _shader->SendUniform("mvp", mvp);
 }
 
 void Renderer::CreateFrameBuffer(GLuint renderTexture) {

@@ -54,9 +54,12 @@ void Camera::Rotate(glm::vec2 rotation_) {
     NormalizeAngles();
 }
 
+glm::mat4 Camera::GetProjectionMatrix() const {
+	return glm::perspective(fov, aspectRatio, near, far);
+}
+
 glm::mat4 Camera::GetViewMatrix() const {
-	glm::mat4 view = glm::perspective(fov, aspectRatio, near, far);
-	view *= GetRotationMatrix();
+	glm::mat4 view = GetRotationMatrix();
 	view = glm::translate(view, -position);
 	return view;
 }

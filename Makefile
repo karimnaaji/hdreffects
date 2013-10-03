@@ -295,6 +295,30 @@ src/hdr/hdrtexturecube.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.s
 .PHONY : src/hdr/hdrtexturecube.cpp.s
 
+src/helpers/debug.o: src/helpers/debug.cpp.o
+.PHONY : src/helpers/debug.o
+
+# target to build an object file
+src/helpers/debug.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.o
+.PHONY : src/helpers/debug.cpp.o
+
+src/helpers/debug.i: src/helpers/debug.cpp.i
+.PHONY : src/helpers/debug.i
+
+# target to preprocess a source file
+src/helpers/debug.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.i
+.PHONY : src/helpers/debug.cpp.i
+
+src/helpers/debug.s: src/helpers/debug.cpp.s
+.PHONY : src/helpers/debug.s
+
+# target to generate assembly for a file
+src/helpers/debug.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.s
+.PHONY : src/helpers/debug.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -494,6 +518,9 @@ help:
 	@echo "... src/hdr/hdrtexturecube.o"
 	@echo "... src/hdr/hdrtexturecube.i"
 	@echo "... src/hdr/hdrtexturecube.s"
+	@echo "... src/helpers/debug.o"
+	@echo "... src/helpers/debug.i"
+	@echo "... src/helpers/debug.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

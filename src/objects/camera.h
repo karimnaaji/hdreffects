@@ -21,6 +21,7 @@ class Camera {
 		glm::vec3 Right() const;
 		glm::mat4 GetViewMatrix() const;
 		glm::mat4 GetRotationMatrix() const;
+		glm::mat4 GetProjectionMatrix() const;
 		glm::vec3 GetPosition() const;
 
 		void Translate(glm::vec3 vec);

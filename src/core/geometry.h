@@ -4,8 +4,11 @@
 #include <iostream>
 #include "graphics.h"
 
-enum PrimitiveType { TRIANGLE = GL_TRIANGLES, QUADS = GL_QUADS };
-
+enum PrimitiveType { 
+	TRIANGLE = GL_TRIANGLES, 
+	QUADS = GL_QUADS, 
+	TRIANGLE_STRIP = GL_TRIANGLE_STRIP,
+};
 
 class Geometry {
 	public:
@@ -34,6 +37,7 @@ class Geometry {
 		bool HasColors();
 		bool HasTexCoords();
         bool HasIndices();
+        
 	private:
 		glm::vec3* vertices;
 		glm::vec2* uvs;

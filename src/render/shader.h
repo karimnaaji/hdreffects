@@ -25,11 +25,12 @@ class Shader {
 		void SendUniform(string name, HDRTextureCube* hdrTextureCube);
 		void SendUniform(string name, float value);
 		void SendUniform(string name, glm::mat4 mat);
+		void SendUniform(string name, glm::vec3 vec);
 
 	private:	
-		bool Link();
+		void Link();
 		GLuint CreateShader(GLenum type, string& file);
-		bool LoadShaderSource(string& file, string& into);
+		void LoadShaderSource(string& file, string& into);
 		void SetDefaultAttributes();
 		GLint Uniform(string uniformName) const;
 

@@ -11,6 +11,7 @@ CMakeFiles/build/hdr.out.dir/src/app.cpp.o
  src/core/graphics.h
  src/core/mesh.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/materials/material.h
  src/materials/materialcubemap.h
@@ -27,6 +28,7 @@ CMakeFiles/build/hdr.out.dir/src/core/cubemap.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.h
  lib/rgbe.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/materials/material.h
  src/materials/materialcubemap.h
@@ -37,11 +39,13 @@ CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/graphics.h
+ src/helpers/debug.h
  src/helpers/utils.h
 CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/graphics.h
+ src/helpers/debug.h
  src/helpers/utils.h
 CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
@@ -50,6 +54,7 @@ CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.h
  lib/rgbe.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/materials/material.h
  src/render/shader.h
@@ -59,7 +64,11 @@ CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.h
  lib/rgbe.h
  src/core/graphics.h
+ src/helpers/debug.h
  src/helpers/utils.h
+CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.o
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/debug.cpp
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/debug.h
 CMakeFiles/build/hdr.out.dir/src/main.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/app.h
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/main.cpp
@@ -70,6 +79,7 @@ CMakeFiles/build/hdr.out.dir/src/main.cpp.o
  src/core/graphics.h
  src/core/mesh.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/materials/material.h
  src/materials/materialcubemap.h
@@ -83,6 +93,7 @@ CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o
  lib/rgbe.h
  src/core/graphics.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/render/shader.h
 CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o
@@ -92,12 +103,14 @@ CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.o
  lib/rgbe.h
  src/core/graphics.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/render/shader.h
 CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/objects/camera.h
  src/core/graphics.h
+ src/helpers/debug.h
  src/helpers/utils.h
 CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/render/renderer.cpp
@@ -110,6 +123,7 @@ CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o
  src/core/graphics.h
  src/core/mesh.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/materials/material.h
  src/materials/materialcubemap.h
@@ -121,6 +135,7 @@ CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.o
  lib/rgbe.h
  src/core/graphics.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
 CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/shaderlibrary.cpp
@@ -128,5 +143,6 @@ CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o
  lib/rgbe.h
  src/core/graphics.h
  src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
  src/helpers/utils.h
  src/render/shader.h

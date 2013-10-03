@@ -6,9 +6,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    int width = 800;
-    int height = 600;
-    int c;
+    int width = 800, height = 600, c;
     bool fullscreen = false;
 
     while((c = getopt(argc, argv, "w:h:f:")) != -1) {
@@ -29,11 +27,13 @@ int main(int argc, char *argv[]) {
     }
 
     try {
+        Debug::Instance() << "Debug mode" << endl;
         App app(width, height, fullscreen);
 
         app.Init();
         app.DisplayGraphicInfo();
         app.MainLoop();
+        Debug::Release();
     } catch (const exception& e) {
         cerr << "ERROR: " << e.what() << endl;
         return EXIT_FAILURE;

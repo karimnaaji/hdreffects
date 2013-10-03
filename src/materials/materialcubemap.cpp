@@ -7,6 +7,8 @@ MaterialCubeMap::~MaterialCubeMap() {}
 Shader* MaterialCubeMap::Bind() {
 	Material::Bind();
 
+	//glDisable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 	hdrTextureCube->Bind();
 	shader->SendUniform("cubeMap", hdrTextureCube);
 

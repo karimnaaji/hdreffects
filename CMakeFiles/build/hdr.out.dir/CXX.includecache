@@ -6,21 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.cpp
-geometries.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.cpp
+hdrtexturecube.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.h
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.h
-geometry.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
-
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.h
 iostream
 -
+string
+-
+stdexcept
+-
+rgbe.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/rgbe.h
 graphics.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/graphics.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/graphics.h
+iostream
+-
 
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/graphics.h
+lib/rgbe.h
+stdio.h
+-
+
+src/core/graphics.h
 GL/glew.h
 -
 GLFW/glfw3.h
@@ -36,7 +44,17 @@ glm/gtx/string_cast.hpp
 cmath
 -
 utils.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/utils.h
+src/core/utils.h
+debug.h
+src/core/debug.h
+
+src/helpers/debug.h
+iosfwd
+-
+sstream
+-
+string
+-
 
 src/helpers/utils.h
 

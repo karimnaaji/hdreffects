@@ -34,7 +34,7 @@ void App::MainLoop() {
         float mod = fmodf(time, 1.0f);
         
         if(mod < lastMod) {
-            cout << "FPS: " << frames << endl;
+            Debug::Instance() << "FPS: " << frames << endl;
             frames = 0;
         }
 
@@ -76,7 +76,7 @@ void App::DisplayGraphicInfo() {
     cout << "OpenGL Version : " << glGetString(GL_VERSION) << endl;
     cout << "Vendor : " << glGetString(GL_VENDOR) << endl;
     cout << "GLSL version : " << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl;
-    cout << "Renderer : " << glGetString(GL_RENDERER) << endl;
+    cout << "Renderer : " << glGetString(GL_RENDERER) << endl << endl;
 }
 
 void App::InitGLFW() {
@@ -92,10 +92,12 @@ void App::InitGLFW() {
     
     /* Create a windowed mode window and its OpenGL context */
 
+    string appName = "HDR Image Based Lighting";
+
     if(fullscreen)
-        window = glfwCreateWindow(width, height, "Hello World", glfwGetPrimaryMonitor(), NULL);
+        window = glfwCreateWindow(width, height, appName.c_str(), glfwGetPrimaryMonitor(), NULL);
     else
-        window = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
+        window = glfwCreateWindow(width, height, appName.c_str(), NULL, NULL);
 
     if (!window) {
         glfwTerminate();

@@ -5,7 +5,7 @@ in vec4 colour;
 in vec2 uv;
 
 uniform float globalTime;
-uniform mat4 view;
+uniform mat4 mvp;
 
 out Vertex {
 	vec4 colour;
@@ -16,5 +16,5 @@ void main() {
 	OUT.uv = uv;
 	OUT.colour = colour;
 	
-    gl_Position = view * vec4(position, 1);
+    gl_Position = mvp * vec4(position, 1);
 }
