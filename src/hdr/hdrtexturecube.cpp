@@ -61,13 +61,13 @@ void HDRTextureCube::LoadFaces() {
 			Face *face = NULL;			
 			int offset = 3 * (faceWidth * iFace + l * width);
 
-			if(iFace == 1 && jFace == 0) face = faces[0]; // POS_X
-			if(iFace == 1 && jFace == 2) face = faces[1]; // NEG_X
-			if(iFace == 2 && jFace == 1) face = faces[2]; // POS_Y
-			if(iFace == 0 && jFace == 1) face = faces[3]; // NEG_Y
+			if(iFace == 2 && jFace == 1) face = faces[0]; // POS_Y
+			if(iFace == 0 && jFace == 1) face = faces[1]; // NEG_Y
+			if(iFace == 1 && jFace == 0) face = faces[2]; // POS_X
+			if(iFace == 1 && jFace == 2) face = faces[3]; // NEG_X
 			if(iFace == 1 && jFace == 1) face = faces[4]; // POS_Z
 			if(iFace == 1 && jFace == 3) face = faces[5]; // NEG_Z
-
+            
 			if(face) {
 				// the number of components to copy
 				int n = sizeof(float) * faceWidth * 3;
@@ -77,6 +77,46 @@ void HDRTextureCube::LoadFaces() {
 			}
 		}
 	}
+
+    // adjust NEG_Z face
+    FlipHorizontal(faces[5]); 
+    FlipVertical(faces[5]);   
+}
+
+void HDRTextureCube::FlipHorizontal(Face* face) {
+    int dataSize = face->width * face->height * 3;
+    int n = sizeof(float) * 3 * face->width;
+    float* newData = new float[dataSize];
+
+    for(int i = 0; i < face->height; i++) {
+        int offset = i * face->width * 3;
+        int bias = -(i + 1) * 3 * face->width;
+
+        memcpy(newData + dataSize + bias, face->data + offset, n);
+    }
+
+    delete[] face->data;
+    face->data = newData;
+}
+
+void HDRTextureCube::FlipVertical(Face* face) {
+    int dataSize = face->width * face->height * 3;
+    int n = sizeof(float) * 3;
+    float* newData = new float[dataSize];
+
+    for(int i = 0; i < face->height; ++i) {
+        int lineOffset = i * face->width * 3;
+
+        for(int j = 0; j < face->width; ++j) {
+            int offset = lineOffset + j * 3;
+            int bias = lineOffset + face->width * 3 - (j + 1) * 3;
+            
+            memcpy(newData + bias, face->data + offset, n);
+        }   
+    }
+
+    delete[] face->data;
+    face->data = newData;
 }
 
 GLuint HDRTextureCube::TextureId() const {

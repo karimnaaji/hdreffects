@@ -37,6 +37,9 @@ class HDRTextureCube {
 	private:
 		void LoadFaces();
 		void Generate();
+        void FlipHorizontal(Face* face);
+        void FlipVertical(Face* face);
+
 		int width;
 		int height;
 		float *data;

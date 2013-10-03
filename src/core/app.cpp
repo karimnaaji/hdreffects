@@ -34,7 +34,7 @@ void App::MainLoop() {
         float mod = fmodf(time, 1.0f);
         
         if(mod < lastMod) {
-            Debug::Instance() << "FPS: " << frames << endl;
+            //Debug::Instance() << "FPS: " << frames << endl;
             frames = 0;
         }
 
