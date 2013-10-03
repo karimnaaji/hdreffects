@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/karimnaaji/Documents/programmation/projets/hdr_project
 # Target rules for target CMakeFiles/build/hdr.out.dir
 
 # All Build rule for target.
-CMakeFiles/build/hdr.out.dir/all: CMakeFiles/c_lib.dir/all
+CMakeFiles/build/hdr.out.dir/all: CMakeFiles/rgbe.dir/all
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/depend
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14
@@ -91,38 +91,38 @@ clean: CMakeFiles/build/hdr.out.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/c_lib.dir
+# Target rules for target CMakeFiles/rgbe.dir
 
 # All Build rule for target.
-CMakeFiles/c_lib.dir/all:
-	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/depend
-	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/build
+CMakeFiles/rgbe.dir/all:
+	$(MAKE) -f CMakeFiles/rgbe.dir/build.make CMakeFiles/rgbe.dir/depend
+	$(MAKE) -f CMakeFiles/rgbe.dir/build.make CMakeFiles/rgbe.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles  15
-	@echo "Built target c_lib"
-.PHONY : CMakeFiles/c_lib.dir/all
+	@echo "Built target rgbe"
+.PHONY : CMakeFiles/rgbe.dir/all
 
 # Include target in all.
-all: CMakeFiles/c_lib.dir/all
+all: CMakeFiles/rgbe.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/c_lib.dir/rule: cmake_check_build_system
+CMakeFiles/rgbe.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/c_lib.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rgbe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles 0
-.PHONY : CMakeFiles/c_lib.dir/rule
+.PHONY : CMakeFiles/rgbe.dir/rule
 
 # Convenience name for target.
-c_lib: CMakeFiles/c_lib.dir/rule
-.PHONY : c_lib
+rgbe: CMakeFiles/rgbe.dir/rule
+.PHONY : rgbe
 
 # clean rule for target.
-CMakeFiles/c_lib.dir/clean:
-	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/clean
-.PHONY : CMakeFiles/c_lib.dir/clean
+CMakeFiles/rgbe.dir/clean:
+	$(MAKE) -f CMakeFiles/rgbe.dir/build.make CMakeFiles/rgbe.dir/clean
+.PHONY : CMakeFiles/rgbe.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/c_lib.dir/clean
+clean: CMakeFiles/rgbe.dir/clean
 .PHONY : clean
 
 #=============================================================================

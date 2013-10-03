@@ -27,9 +27,9 @@ if(APPLE)
 endif()
 
 #link c library
-set(C_LIB_DIR "lib")
-include_directories(${C_LIB_DIR})
-add_library(c_lib ${C_LIB_DIR}/rgbe.c)
+set(LIB_C lib)
+include_directories(${LIB_C})
+add_library(rgbe ${LIB_C}/rgbe.c)
 
 include_directories(${GLFW_INCLUDE_DIRS})
 include_directories(${GLEW_INCLUDE_DIRS})
@@ -38,4 +38,4 @@ include_directories(${Foo_INCLUDE_DIRS})
 
 add_executable(build/hdr.out ${Foo_SOURCES})
 
-target_link_libraries(build/hdr.out c_lib ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${glfw_LIBRARIES} ${GLEW_LIBRARY})
+target_link_libraries(build/hdr.out rgbe ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${glfw_LIBRARIES} ${GLEW_LIBRARY})

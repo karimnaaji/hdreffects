@@ -115,24 +115,24 @@ build/hdr.out/fast:
 .PHONY : build/hdr.out/fast
 
 #=============================================================================
-# Target rules for targets named c_lib
+# Target rules for targets named rgbe
 
 # Build rule for target.
-c_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 c_lib
-.PHONY : c_lib
+rgbe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rgbe
+.PHONY : rgbe
 
 # fast build rule for target.
-c_lib/fast:
-	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/build
-.PHONY : c_lib/fast
+rgbe/fast:
+	$(MAKE) -f CMakeFiles/rgbe.dir/build.make CMakeFiles/rgbe.dir/build
+.PHONY : rgbe/fast
 
 lib/rgbe.o: lib/rgbe.c.o
 .PHONY : lib/rgbe.o
 
 # target to build an object file
 lib/rgbe.c.o:
-	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/lib/rgbe.c.o
+	$(MAKE) -f CMakeFiles/rgbe.dir/build.make CMakeFiles/rgbe.dir/lib/rgbe.c.o
 .PHONY : lib/rgbe.c.o
 
 lib/rgbe.i: lib/rgbe.c.i
@@ -140,7 +140,7 @@ lib/rgbe.i: lib/rgbe.c.i
 
 # target to preprocess a source file
 lib/rgbe.c.i:
-	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/lib/rgbe.c.i
+	$(MAKE) -f CMakeFiles/rgbe.dir/build.make CMakeFiles/rgbe.dir/lib/rgbe.c.i
 .PHONY : lib/rgbe.c.i
 
 lib/rgbe.s: lib/rgbe.c.s
@@ -148,32 +148,56 @@ lib/rgbe.s: lib/rgbe.c.s
 
 # target to generate assembly for a file
 lib/rgbe.c.s:
-	$(MAKE) -f CMakeFiles/c_lib.dir/build.make CMakeFiles/c_lib.dir/lib/rgbe.c.s
+	$(MAKE) -f CMakeFiles/rgbe.dir/build.make CMakeFiles/rgbe.dir/lib/rgbe.c.s
 .PHONY : lib/rgbe.c.s
 
-src/app.o: src/app.cpp.o
-.PHONY : src/app.o
+src/core/app.o: src/core/app.cpp.o
+.PHONY : src/core/app.o
 
 # target to build an object file
-src/app.cpp.o:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/app.cpp.o
-.PHONY : src/app.cpp.o
+src/core/app.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/app.cpp.o
+.PHONY : src/core/app.cpp.o
 
-src/app.i: src/app.cpp.i
-.PHONY : src/app.i
+src/core/app.i: src/core/app.cpp.i
+.PHONY : src/core/app.i
 
 # target to preprocess a source file
-src/app.cpp.i:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/app.cpp.i
-.PHONY : src/app.cpp.i
+src/core/app.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/app.cpp.i
+.PHONY : src/core/app.cpp.i
 
-src/app.s: src/app.cpp.s
-.PHONY : src/app.s
+src/core/app.s: src/core/app.cpp.s
+.PHONY : src/core/app.s
 
 # target to generate assembly for a file
-src/app.cpp.s:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/app.cpp.s
-.PHONY : src/app.cpp.s
+src/core/app.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/app.cpp.s
+.PHONY : src/core/app.cpp.s
+
+src/core/camera.o: src/core/camera.cpp.o
+.PHONY : src/core/camera.o
+
+# target to build an object file
+src/core/camera.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/camera.cpp.o
+.PHONY : src/core/camera.cpp.o
+
+src/core/camera.i: src/core/camera.cpp.i
+.PHONY : src/core/camera.i
+
+# target to preprocess a source file
+src/core/camera.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/camera.cpp.i
+.PHONY : src/core/camera.cpp.i
+
+src/core/camera.s: src/core/camera.cpp.s
+.PHONY : src/core/camera.s
+
+# target to generate assembly for a file
+src/core/camera.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/camera.cpp.s
+.PHONY : src/core/camera.cpp.s
 
 src/core/cubemap.o: src/core/cubemap.cpp.o
 .PHONY : src/core/cubemap.o
@@ -319,6 +343,30 @@ src/helpers/debug.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.s
 .PHONY : src/helpers/debug.cpp.s
 
+src/helpers/shaderlibrary.o: src/helpers/shaderlibrary.cpp.o
+.PHONY : src/helpers/shaderlibrary.o
+
+# target to build an object file
+src/helpers/shaderlibrary.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/shaderlibrary.cpp.o
+.PHONY : src/helpers/shaderlibrary.cpp.o
+
+src/helpers/shaderlibrary.i: src/helpers/shaderlibrary.cpp.i
+.PHONY : src/helpers/shaderlibrary.i
+
+# target to preprocess a source file
+src/helpers/shaderlibrary.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/shaderlibrary.cpp.i
+.PHONY : src/helpers/shaderlibrary.cpp.i
+
+src/helpers/shaderlibrary.s: src/helpers/shaderlibrary.cpp.s
+.PHONY : src/helpers/shaderlibrary.s
+
+# target to generate assembly for a file
+src/helpers/shaderlibrary.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/shaderlibrary.cpp.s
+.PHONY : src/helpers/shaderlibrary.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -391,30 +439,6 @@ src/materials/materialcubemap.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/materials/materialcubemap.cpp.s
 .PHONY : src/materials/materialcubemap.cpp.s
 
-src/objects/camera.o: src/objects/camera.cpp.o
-.PHONY : src/objects/camera.o
-
-# target to build an object file
-src/objects/camera.cpp.o:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.o
-.PHONY : src/objects/camera.cpp.o
-
-src/objects/camera.i: src/objects/camera.cpp.i
-.PHONY : src/objects/camera.i
-
-# target to preprocess a source file
-src/objects/camera.cpp.i:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.i
-.PHONY : src/objects/camera.cpp.i
-
-src/objects/camera.s: src/objects/camera.cpp.s
-.PHONY : src/objects/camera.s
-
-# target to generate assembly for a file
-src/objects/camera.cpp.s:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/objects/camera.cpp.s
-.PHONY : src/objects/camera.cpp.s
-
 src/render/renderer.o: src/render/renderer.cpp.o
 .PHONY : src/render/renderer.o
 
@@ -463,30 +487,6 @@ src/render/shader.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/render/shader.cpp.s
 .PHONY : src/render/shader.cpp.s
 
-src/shaderlibrary.o: src/shaderlibrary.cpp.o
-.PHONY : src/shaderlibrary.o
-
-# target to build an object file
-src/shaderlibrary.cpp.o:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.o
-.PHONY : src/shaderlibrary.cpp.o
-
-src/shaderlibrary.i: src/shaderlibrary.cpp.i
-.PHONY : src/shaderlibrary.i
-
-# target to preprocess a source file
-src/shaderlibrary.cpp.i:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.i
-.PHONY : src/shaderlibrary.cpp.i
-
-src/shaderlibrary.s: src/shaderlibrary.cpp.s
-.PHONY : src/shaderlibrary.s
-
-# target to generate assembly for a file
-src/shaderlibrary.cpp.s:
-	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/shaderlibrary.cpp.s
-.PHONY : src/shaderlibrary.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -494,15 +494,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... build/hdr.out"
-	@echo "... c_lib"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... rgbe"
 	@echo "... lib/rgbe.o"
 	@echo "... lib/rgbe.i"
 	@echo "... lib/rgbe.s"
-	@echo "... src/app.o"
-	@echo "... src/app.i"
-	@echo "... src/app.s"
+	@echo "... src/core/app.o"
+	@echo "... src/core/app.i"
+	@echo "... src/core/app.s"
+	@echo "... src/core/camera.o"
+	@echo "... src/core/camera.i"
+	@echo "... src/core/camera.s"
 	@echo "... src/core/cubemap.o"
 	@echo "... src/core/cubemap.i"
 	@echo "... src/core/cubemap.s"
@@ -521,6 +524,9 @@ help:
 	@echo "... src/helpers/debug.o"
 	@echo "... src/helpers/debug.i"
 	@echo "... src/helpers/debug.s"
+	@echo "... src/helpers/shaderlibrary.o"
+	@echo "... src/helpers/shaderlibrary.i"
+	@echo "... src/helpers/shaderlibrary.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -530,18 +536,12 @@ help:
 	@echo "... src/materials/materialcubemap.o"
 	@echo "... src/materials/materialcubemap.i"
 	@echo "... src/materials/materialcubemap.s"
-	@echo "... src/objects/camera.o"
-	@echo "... src/objects/camera.i"
-	@echo "... src/objects/camera.s"
 	@echo "... src/render/renderer.o"
 	@echo "... src/render/renderer.i"
 	@echo "... src/render/renderer.s"
 	@echo "... src/render/shader.o"
 	@echo "... src/render/shader.i"
 	@echo "... src/render/shader.s"
-	@echo "... src/shaderlibrary.o"
-	@echo "... src/shaderlibrary.i"
-	@echo "... src/shaderlibrary.s"
 .PHONY : help
 
 

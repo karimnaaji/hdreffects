@@ -15,12 +15,10 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "lib"
-  "src"
   "src/core"
   "src/hdr"
   "src/helpers"
   "src/materials"
-  "src/objects"
   "src/render"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -1,3 +1,3 @@
 FILE(REMOVE_RECURSE
-  "libc_lib.a"
+  "lib/c_lib.a"
 )

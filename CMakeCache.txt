@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//Dependencies for target
+/c_lib_LIB_DEPENDS:STATIC=
+
 //Path to a library.
 CARBON:FILEPATH=/System/Library/Frameworks/Carbon.framework
 
@@ -222,6 +225,9 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/local/bin/pkg-config
 
 //Dependencies for target
 c_lib_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+lib/rgbe_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
 rgbe_LIB_DEPENDS:STATIC=
