@@ -43,7 +43,7 @@ void Renderer::Render() {
 
 void Renderer::RenderCubeMap() {
     _shader = cubemap->GetMaterial()->Bind();
-    //_shader->SendUniform("camPosition", camera->GetPosition());
+    _shader->SendUniform("camPosition", camera->GetPosition());
     SendDefaultUniforms();
 
     cubemap->Draw();
@@ -63,7 +63,6 @@ void Renderer::CreateFrameBuffer(GLuint renderTexture) {
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 
-    // attach the render texture to the frame buffer
     glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, renderTexture, 0);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
