@@ -3,6 +3,10 @@
 *.out
 *.a
 
+#latex
+*.aux
+*.synctex.gz
+
 #other files
 *.swp
 *.log
