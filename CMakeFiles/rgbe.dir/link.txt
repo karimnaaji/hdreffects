@@ -1,0 +1,2 @@
+/usr/bin/ar cr librgbe.a  CMakeFiles/rgbe.dir/lib/rgbe.c.o
+/usr/bin/ranlib librgbe.a
