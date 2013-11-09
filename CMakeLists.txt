@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(HDR)
 
-set(CMAKE_CXX_FLAGS "-g -Wall -std=c++11")
+set(CMAKE_CXX_FLAGS "-g -Wall -std=c++11 -g -O0")
 
 file(GLOB_RECURSE Foo_SOURCES "src/*.cpp")
 file(GLOB_RECURSE Foo_HEADERS "src/*.h")

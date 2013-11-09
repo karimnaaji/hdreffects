@@ -2,13 +2,14 @@
 #include <string>
 
 #include "app.h"
+#include "objparser.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
     int width = 800, height = 600, c;
     bool fullscreen = false;
-
+       
     while((c = getopt(argc, argv, "w:h:f:")) != -1) {
         switch(c) {
             case 'w':
@@ -29,7 +30,7 @@ int main(int argc, char *argv[]) {
     try {
         Debug::Instance() << "Debug mode" << endl;
         App app(width, height, fullscreen);
-
+        
         app.Init();
         app.DisplayGraphicInfo();
         app.MainLoop();

@@ -7,6 +7,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.o"
+  "CMakeFiles/build/hdr.out.dir/src/helpers/objparser.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/helpers/shaderlibrary.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/main.cpp.o"
   "CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o"

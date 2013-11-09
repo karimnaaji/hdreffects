@@ -343,6 +343,30 @@ src/helpers/debug.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.s
 .PHONY : src/helpers/debug.cpp.s
 
+src/helpers/objparser.o: src/helpers/objparser.cpp.o
+.PHONY : src/helpers/objparser.o
+
+# target to build an object file
+src/helpers/objparser.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/objparser.cpp.o
+.PHONY : src/helpers/objparser.cpp.o
+
+src/helpers/objparser.i: src/helpers/objparser.cpp.i
+.PHONY : src/helpers/objparser.i
+
+# target to preprocess a source file
+src/helpers/objparser.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/objparser.cpp.i
+.PHONY : src/helpers/objparser.cpp.i
+
+src/helpers/objparser.s: src/helpers/objparser.cpp.s
+.PHONY : src/helpers/objparser.s
+
+# target to generate assembly for a file
+src/helpers/objparser.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/helpers/objparser.cpp.s
+.PHONY : src/helpers/objparser.cpp.s
+
 src/helpers/shaderlibrary.o: src/helpers/shaderlibrary.cpp.o
 .PHONY : src/helpers/shaderlibrary.o
 
@@ -524,6 +548,9 @@ help:
 	@echo "... src/helpers/debug.o"
 	@echo "... src/helpers/debug.i"
 	@echo "... src/helpers/debug.s"
+	@echo "... src/helpers/objparser.o"
+	@echo "... src/helpers/objparser.i"
+	@echo "... src/helpers/objparser.s"
 	@echo "... src/helpers/shaderlibrary.o"
 	@echo "... src/helpers/shaderlibrary.i"
 	@echo "... src/helpers/shaderlibrary.s"

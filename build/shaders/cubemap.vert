@@ -7,7 +7,8 @@ uniform vec3 camPosition;
 
 out vec3 pos;
 
-void main() {
+void main() {   
+    camPosition;
     gl_Position = mvp * vec4(position + camPosition, 1);
     pos = position;
 }

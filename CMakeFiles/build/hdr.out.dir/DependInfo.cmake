@@ -12,6 +12,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/debug.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.o"
+  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/objparser.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/helpers/objparser.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/shaderlibrary.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/helpers/shaderlibrary.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/main.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/main.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/materials/material.cpp.o"

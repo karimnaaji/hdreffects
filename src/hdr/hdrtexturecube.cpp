@@ -15,7 +15,7 @@ HDRTextureCube::~HDRTextureCube() {
 }
 
 void HDRTextureCube::Load(const string fileName) {
-	string path = string(MEDIA_RELATIVE_PATH) + fileName + string(HDR_EXT);	
+	string path = string(HDR_RELATIVE_PATH) + fileName + string(HDR_EXT);	
 
 	cout << "Loading hdr texture.. [" << fileName << "]" << endl;
 

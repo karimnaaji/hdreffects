@@ -15,6 +15,7 @@ class Geometry {
 		Geometry();
 		Geometry(glm::vec3* vertices, glm::vec4* colours, int verticesCount);
         Geometry(glm::vec3* vertices, unsigned int* indices, int verticesCount, int indicesCount);
+        //Geometry(glm::vec3* vertices, unsigned int* indices, glm::vec3* normals, int verticesCount, int indicesCount);
 		~Geometry();
 
 		glm::vec3* GetVertices();

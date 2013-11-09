@@ -13,6 +13,7 @@ CMakeFiles/build/hdr.out.dir/src/core/app.cpp.o
  src/core/mesh.h
  src/hdr/hdrtexturecube.h
  src/helpers/debug.h
+ src/helpers/objparser.h
  src/helpers/shaderlibrary.h
  src/helpers/utils.h
  src/materials/material.h
@@ -75,6 +76,19 @@ CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o
 CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/debug.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/debug.h
+CMakeFiles/build/hdr.out.dir/src/helpers/objparser.cpp.o
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/objparser.cpp
+ /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/objparser.h
+ lib/rgbe.h
+ src/core/geometry.h
+ src/core/graphics.h
+ src/core/mesh.h
+ src/hdr/hdrtexturecube.h
+ src/helpers/debug.h
+ src/helpers/shaderlibrary.h
+ src/helpers/utils.h
+ src/materials/material.h
+ src/render/shader.h
 CMakeFiles/build/hdr.out.dir/src/helpers/shaderlibrary.cpp.o
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/shaderlibrary.cpp
  /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/shaderlibrary.h
@@ -96,6 +110,7 @@ CMakeFiles/build/hdr.out.dir/src/main.cpp.o
  src/core/mesh.h
  src/hdr/hdrtexturecube.h
  src/helpers/debug.h
+ src/helpers/objparser.h
  src/helpers/shaderlibrary.h
  src/helpers/utils.h
  src/materials/material.h
@@ -134,6 +149,7 @@ CMakeFiles/build/hdr.out.dir/src/render/renderer.cpp.o
  src/core/mesh.h
  src/hdr/hdrtexturecube.h
  src/helpers/debug.h
+ src/helpers/objparser.h
  src/helpers/shaderlibrary.h
  src/helpers/utils.h
  src/materials/material.h

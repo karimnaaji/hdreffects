@@ -12,6 +12,7 @@
 #include "camera.h"
 #include "shaderlibrary.h"
 #include "cubemap.h"
+#include "objparser.h"
 
 using namespace std;
 
@@ -30,13 +31,12 @@ private:
 	void CreateFrameBuffer(GLuint renderTexture);
 	GLuint CreateTexture(int width, int height, bool isDepth = false);
 
-	Mesh* triangle;
-	Mesh* quad;
 	GLuint fbo;
 	GLuint renderTexture;
 	Camera* camera;
 	ShaderLibrary* shaderLibrary;
 	CubeMap* cubemap;
+    Mesh* sphere;
 
 	Shader* _shader;
 };

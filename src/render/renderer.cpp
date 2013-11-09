@@ -11,6 +11,7 @@ Renderer::Renderer(int width, int height, Camera* camera_) {
 Renderer::~Renderer() {
 	delete shaderLibrary;
     delete cubemap;
+    delete sphere;
 }
 
 void Renderer::LoadShaders() {
@@ -26,6 +27,10 @@ void Renderer::LoadCubeMap() {
 
     cubemap = new CubeMap(materialCubeMap);
     cubemap->CreateBufferData();
+
+    Material* materialSphere = new Material(shaderLibrary->GetShader("basic"));
+    sphere = new Mesh(ObjParser::Parse("sphere"), materialSphere);
+    sphere->CreateBufferData();
 }
 
 void Renderer::Init() {
@@ -39,6 +44,10 @@ void Renderer::Render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     RenderCubeMap();
+
+    _shader = sphere->GetMaterial()->Bind();
+    SendDefaultUniforms();
+    sphere->Draw();
 }
 
 void Renderer::RenderCubeMap() {
