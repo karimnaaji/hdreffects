@@ -1,3 +1,5 @@
+report
+
 #compiled source
 *.o
 *.out

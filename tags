@@ -1,0 +1,536 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APP_H	src/core/app.h	2;"	d
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	299;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	302;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	305;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	308;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	311;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	314;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	317;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	321;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	286;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	289;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	292;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	295;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	298;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	301;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	304;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	308;"	d	file:
+AddShader	src/helpers/shaderlibrary.cpp	/^void ShaderLibrary::AddShader(string shaderName) {$/;"	f	class:ShaderLibrary
+App	src/core/app.cpp	/^App::App(int width_, int height_, bool fullscreen_) : width(width_), height(height_), fullscreen(fullscreen_) {}$/;"	f	class:App
+App	src/core/app.h	/^class App {$/;"	c
+BUFFER_COUNT	src/core/graphics.h	/^	BUFFER_COUNT$/;"	e	enum:MeshBuffer
+Bind	src/hdr/hdrtexturecube.cpp	/^GLuint HDRTextureCube::Bind() {$/;"	f	class:HDRTextureCube
+Bind	src/materials/material.cpp	/^Shader* Material::Bind() {$/;"	f	class:Material
+Bind	src/materials/materialcubemap.cpp	/^Shader* MaterialCubeMap::Bind() {$/;"	f	class:MaterialCubeMap
+CAMERA_H	src/core/camera.h	2;"	d
+CMAKE_BINARY_DIR	Makefile	/^CMAKE_BINARY_DIR = \/Users\/karimnaaji\/Documents\/programmation\/projets\/hdr_project$/;"	m
+CMAKE_COMMAND	Makefile	/^CMAKE_COMMAND = "\/Applications\/CMake 2.8-11.app\/Contents\/bin\/cmake"$/;"	m
+CMAKE_EDIT_COMMAND	Makefile	/^CMAKE_EDIT_COMMAND = "\/Applications\/CMake 2.8-11.app\/Contents\/bin\/ccmake"$/;"	m
+CMAKE_SOURCE_DIR	Makefile	/^CMAKE_SOURCE_DIR = \/Users\/karimnaaji\/Documents\/programmation\/projets\/hdr_project$/;"	m
+COLOUR_BUFFER	src/core/graphics.h	/^	COLOUR_BUFFER,$/;"	e	enum:MeshBuffer
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	107;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	112;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	119;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	122;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	125;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	133;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	13;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	152;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	160;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	171;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	178;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	195;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	198;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	201;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	24;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	32;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	38;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	44;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	50;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	56;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	70;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	77;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	85;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	88;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	90;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	99;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	104;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	112;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	117;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	124;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	127;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	12;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	135;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	154;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	162;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	165;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	182;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	185;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	188;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	18;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	29;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	37;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	43;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	49;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	55;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	61;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	75;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	82;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	90;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	93;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	95;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	100;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	108;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	114;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	126;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	135;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	154;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	15;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	173;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	181;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	186;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	25;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	33;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	39;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	46;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	52;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	59;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	64;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	72;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	79;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	93;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	105;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	113;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	119;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	128;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	137;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	14;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	156;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	168;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	173;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	20;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	30;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	38;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	44;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	51;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	57;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	64;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	69;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	77;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	84;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	98;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	101;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	109;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	115;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	127;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	136;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	155;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	16;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	174;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	182;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	187;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	26;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	34;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	40;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	47;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	53;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	60;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	65;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	73;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	80;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	94;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	106;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	114;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	120;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	129;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	138;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	157;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	15;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	169;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	174;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	21;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	31;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	39;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	45;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	52;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	58;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	65;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	70;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	78;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	85;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	99;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	103;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	116;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	129;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	140;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	143;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	156;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	175;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	17;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	183;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	188;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	28;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	35;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	41;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	61;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	66;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	74;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	81;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	95;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	100;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	108;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	121;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	131;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	142;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	145;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	158;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	170;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	175;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	22;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	33;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	40;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	46;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	66;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	71;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	79;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	86;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	147;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	20;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	149;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	25;"	d	file:
+CUBEMAP_H	src/core/cubemap.h	2;"	d
+Camera	src/core/camera.cpp	/^Camera::Camera() :$/;"	f	class:Camera
+Camera	src/core/camera.h	/^class Camera {$/;"	c
+CreateBufferData	src/core/mesh.cpp	/^void Mesh::CreateBufferData() {$/;"	f	class:Mesh
+CreateFrameBuffer	src/render/renderer.cpp	/^void Renderer::CreateFrameBuffer(GLuint renderTexture) {$/;"	f	class:Renderer
+CreateShader	src/render/shader.cpp	/^GLuint Shader::CreateShader(GLenum type, string& file) {$/;"	f	class:Shader
+CreateTexture	src/render/renderer.cpp	/^GLuint Renderer::CreateTexture(int width, int height, bool isDepth) {$/;"	f	class:Renderer
+Cube	src/core/geometries.cpp	/^Geometry* Geometries::Cube(float size) {$/;"	f	class:Geometries
+CubeMap	src/core/cubemap.cpp	/^CubeMap::CubeMap(MaterialCubeMap* material_) : Mesh() {$/;"	f	class:CubeMap
+CubeMap	src/core/cubemap.h	/^class CubeMap : public Mesh {$/;"	c
+DEBUG	src/helpers/debug.h	8;"	d
+DEBUG_H	src/helpers/debug.h	2;"	d
+DEC	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	325;"	d	file:
+DEC	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	312;"	d	file:
+Debug	src/helpers/debug.cpp	/^Debug::Debug ()$/;"	f	class:Debug
+Debug	src/helpers/debug.h	/^class Debug {$/;"	c
+DisplayGraphicInfo	src/core/app.cpp	/^void App::DisplayGraphicInfo() {$/;"	f	class:App
+Draw	src/core/mesh.cpp	/^void Mesh::Draw() {$/;"	f	class:Mesh
+EQUALS	Makefile	/^EQUALS = =$/;"	m
+FRAG_EXT	src/helpers/utils.h	8;"	d
+Face	src/hdr/hdrtexturecube.h	/^struct Face {$/;"	s
+FlipHorizontal	src/hdr/hdrtexturecube.cpp	/^void HDRTextureCube::FlipHorizontal(Face* face) {$/;"	f	class:HDRTextureCube
+FlipVertical	src/hdr/hdrtexturecube.cpp	/^void HDRTextureCube::FlipVertical(Face* face) {$/;"	f	class:HDRTextureCube
+Format	src/hdr/hdrtexturecube.h	/^		const GLenum Format = GL_RGB;$/;"	m	class:HDRTextureCube
+Forward	src/core/camera.cpp	/^glm::vec3 Camera::Forward() const {$/;"	f	class:Camera
+GEOMETRIES_H	src/core/geometries.h	2;"	d
+GEOMETRY_H	src/core/geometry.h	2;"	d
+GRAPHICS_H	src/core/graphics.h	2;"	d
+Generate	src/hdr/hdrtexturecube.cpp	/^void HDRTextureCube::Generate() {$/;"	f	class:HDRTextureCube
+Geometries	src/core/geometries.h	/^class Geometries {$/;"	c
+Geometry	src/core/geometry.cpp	/^Geometry::Geometry() {$/;"	f	class:Geometry
+Geometry	src/core/geometry.cpp	/^Geometry::Geometry(glm::vec3* vertices_, glm::vec4* colours_, int verticesCount_) {$/;"	f	class:Geometry
+Geometry	src/core/geometry.cpp	/^Geometry::Geometry(glm::vec3* vertices_, unsigned int* indices_, int verticesCount_, int indicesCount_) {$/;"	f	class:Geometry
+Geometry	src/core/geometry.h	/^class Geometry {$/;"	c
+GetColours	src/core/geometry.cpp	/^glm::vec4* Geometry::GetColours() {$/;"	f	class:Geometry
+GetGeometry	src/core/mesh.cpp	/^Geometry* Mesh::GetGeometry() {$/;"	f	class:Mesh
+GetIndices	src/core/geometry.cpp	/^unsigned int* Geometry::GetIndices() {$/;"	f	class:Geometry
+GetIndicesCount	src/core/geometry.cpp	/^int Geometry::GetIndicesCount() {$/;"	f	class:Geometry
+GetMaterial	src/core/mesh.cpp	/^Material* Mesh::GetMaterial() {$/;"	f	class:Mesh
+GetName	src/render/shader.cpp	/^string Shader::GetName() const {$/;"	f	class:Shader
+GetPosition	src/core/camera.cpp	/^glm::vec3 Camera::GetPosition() const {$/;"	f	class:Camera
+GetProjectionMatrix	src/core/camera.cpp	/^glm::mat4 Camera::GetProjectionMatrix() const {$/;"	f	class:Camera
+GetRotationMatrix	src/core/camera.cpp	/^glm::mat4 Camera::GetRotationMatrix() const {$/;"	f	class:Camera
+GetShader	src/helpers/shaderlibrary.cpp	/^Shader* ShaderLibrary::GetShader(string shaderName) const {$/;"	f	class:ShaderLibrary
+GetType	src/core/geometry.cpp	/^PrimitiveType Geometry::GetType() {$/;"	f	class:Geometry
+GetUVs	src/core/geometry.cpp	/^glm::vec2* Geometry::GetUVs() {$/;"	f	class:Geometry
+GetUVsCount	src/core/geometry.cpp	/^int Geometry::GetUVsCount() {$/;"	f	class:Geometry
+GetVertices	src/core/geometry.cpp	/^glm::vec3* Geometry::GetVertices() {$/;"	f	class:Geometry
+GetVerticesCount	src/core/geometry.cpp	/^int Geometry::GetVerticesCount() {$/;"	f	class:Geometry
+GetViewMatrix	src/core/camera.cpp	/^glm::mat4 Camera::GetViewMatrix() const {$/;"	f	class:Camera
+HDRTextureCube	src/hdr/hdrtexturecube.cpp	/^HDRTextureCube::HDRTextureCube(int textureIndex_) : textureIndex(textureIndex_) $/;"	f	class:HDRTextureCube
+HDRTextureCube	src/hdr/hdrtexturecube.h	/^class HDRTextureCube {$/;"	c
+HDR_EXT	src/helpers/utils.h	9;"	d
+HDR_TEXTURE_CUBE_H	src/hdr/hdrtexturecube.h	2;"	d
+HELPERS_H	src/helpers/utils.h	2;"	d
+HEX	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	336;"	d	file:
+HEX	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	323;"	d	file:
+HasColors	src/core/geometry.cpp	/^bool Geometry::HasColors() {$/;"	f	class:Geometry
+HasIndices	src/core/geometry.cpp	/^bool Geometry::HasIndices() {$/;"	f	class:Geometry
+HasTexCoords	src/core/geometry.cpp	/^bool Geometry::HasTexCoords() {$/;"	f	class:Geometry
+ID_VOID_MAIN	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	9;"	d	file:
+INDEX_BUFFER	src/core/graphics.h	/^    INDEX_BUFFER,$/;"	e	enum:MeshBuffer
+INLINE	lib/rgbe.h	58;"	d
+INLINE	lib/rgbe.h	60;"	d
+Init	src/core/app.cpp	/^void App::Init() {$/;"	f	class:App
+Init	src/render/renderer.cpp	/^void Renderer::Init() {$/;"	f	class:Renderer
+Init	src/render/shader.cpp	/^void Shader::Init() {$/;"	f	class:Shader
+InitGLFW	src/core/app.cpp	/^void App::InitGLFW() {$/;"	f	class:App
+Instance	src/helpers/debug.cpp	/^Debug& Debug::Instance () {$/;"	f	class:Debug
+InternalFormat	src/hdr/hdrtexturecube.h	/^		const GLenum InternalFormat = GL_RGB16F_ARB;$/;"	m	class:HDRTextureCube
+IsInUse	src/render/shader.cpp	/^bool Shader::IsInUse() const {$/;"	f	class:Shader
+Link	src/render/shader.cpp	/^void Shader::Link() {$/;"	f	class:Shader
+Load	src/hdr/hdrtexturecube.cpp	/^void HDRTextureCube::Load(const string fileName) {$/;"	f	class:HDRTextureCube
+LoadCubeMap	src/render/renderer.cpp	/^void Renderer::LoadCubeMap() {$/;"	f	class:Renderer
+LoadFaces	src/hdr/hdrtexturecube.cpp	/^void HDRTextureCube::LoadFaces() {$/;"	f	class:HDRTextureCube
+LoadShaderSource	src/render/shader.cpp	/^void Shader::LoadShaderSource(string& path, string& into) {$/;"	f	class:Shader
+LoadShaders	src/render/renderer.cpp	/^void Renderer::LoadShaders() {$/;"	f	class:Renderer
+LookAt	src/core/camera.cpp	/^void Camera::LookAt(glm::vec3 point) {$/;"	f	class:Camera
+MATERIAL_CUBE_MAP_H	src/materials/materialcubemap.h	2;"	d
+MATERIAL_H	src/materials/material.h	2;"	d
+MEDIA_RELATIVE_PATH	src/helpers/utils.h	4;"	d
+MESH_H	src/core/mesh.h	2;"	d
+MINRUNLENGTH	lib/rgbe.c	245;"	d	file:
+MINRUNLENGTH	lib/rgbe.c	292;"	d	file:
+MainLoop	src/core/app.cpp	/^void App::MainLoop() {$/;"	f	class:App
+Material	src/materials/material.cpp	/^Material::Material(Shader* shader_) : shader(shader_) {}$/;"	f	class:Material
+Material	src/materials/material.h	/^class Material {$/;"	c
+MaterialCubeMap	src/materials/materialcubemap.cpp	/^MaterialCubeMap::MaterialCubeMap(Shader* shader, HDRTextureCube* hdrTextureCube_) : Material(shader), hdrTextureCube(hdrTextureCube_) {}$/;"	f	class:MaterialCubeMap
+MaterialCubeMap	src/materials/materialcubemap.h	/^class MaterialCubeMap : public Material {$/;"	c
+Mesh	src/core/mesh.cpp	/^Mesh::Mesh() {$/;"	f	class:Mesh
+Mesh	src/core/mesh.cpp	/^Mesh::Mesh(Geometry* geometry_, Material* material_) {$/;"	f	class:Mesh
+Mesh	src/core/mesh.h	/^class Mesh {$/;"	c
+MeshBuffer	src/core/graphics.h	/^enum MeshBuffer { $/;"	g
+NormalizeAngles	src/core/camera.cpp	/^void Camera::NormalizeAngles() {$/;"	f	class:Camera
+PI	src/helpers/utils.h	/^static const float PI = 3.14159265358979323846f;	$/;"	v
+PI_2	src/helpers/utils.h	/^static const float PI_2 = PI \/ 2.0f;$/;"	v
+PI_360	src/helpers/utils.h	/^static const float PI_360 = PI \/ 360.0f;$/;"	v
+PI_4	src/helpers/utils.h	/^static const float PI_4 = PI \/ 4.0f;$/;"	v
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	213;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	216;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	219;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	222;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	225;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	228;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	231;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	234;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	237;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	240;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	243;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	246;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	249;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	252;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	255;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	258;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	261;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	264;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	267;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	270;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	273;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	276;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	279;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	282;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	285;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	288;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	200;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	203;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	206;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	209;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	212;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	215;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	218;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	221;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	224;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	227;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	230;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	233;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	236;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	239;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	242;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	245;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	248;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	251;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	254;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	257;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	260;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	263;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	266;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	269;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	272;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	275;"	d	file:
+PrimitiveType	src/core/geometry.h	/^enum PrimitiveType { $/;"	g
+Program	src/render/shader.cpp	/^GLuint Shader::Program() const {$/;"	f	class:Shader
+QUADS	src/core/geometry.h	/^	QUADS = GL_QUADS, $/;"	e	enum:PrimitiveType
+Quad	src/core/geometries.cpp	/^Geometry* Geometries::Quad(float size) {$/;"	f	class:Geometries
+RENDERER_H	src/render/renderer.h	2;"	d
+RGBE_DATA_BLUE	lib/rgbe.c	29;"	d	file:
+RGBE_DATA_GREEN	lib/rgbe.c	28;"	d	file:
+RGBE_DATA_RED	lib/rgbe.c	27;"	d	file:
+RGBE_DATA_SIZE	lib/rgbe.c	31;"	d	file:
+RGBE_RETURN_FAILURE	lib/rgbe.h	31;"	d
+RGBE_RETURN_SUCCESS	lib/rgbe.h	30;"	d
+RGBE_ReadHeader	lib/rgbe.c	/^int RGBE_ReadHeader(FILE *fp, int *width, int *height, rgbe_header_info *info)$/;"	f
+RGBE_ReadPixels	lib/rgbe.c	/^int RGBE_ReadPixels(FILE *fp, float *data, int numpixels)$/;"	f
+RGBE_ReadPixels_RLE	lib/rgbe.c	/^int RGBE_ReadPixels_RLE(FILE *fp, float *data, int scanline_width,$/;"	f
+RGBE_ReadPixels_Raw	lib/rgbe.c	/^int RGBE_ReadPixels_Raw(FILE *fp, unsigned char *data, int numpixels)$/;"	f
+RGBE_ReadPixels_Raw_RLE	lib/rgbe.c	/^int RGBE_ReadPixels_Raw_RLE(FILE *fp, unsigned char *data, int scanline_width,$/;"	f
+RGBE_VALID_EXPOSURE	lib/rgbe.h	27;"	d
+RGBE_VALID_GAMMA	lib/rgbe.h	26;"	d
+RGBE_VALID_PROGRAMTYPE	lib/rgbe.h	25;"	d
+RGBE_WriteBytes_RLE	lib/rgbe.c	/^static int RGBE_WriteBytes_RLE(FILE *fp, unsigned char *data, int numbytes)$/;"	f	file:
+RGBE_WriteHeader	lib/rgbe.c	/^int RGBE_WriteHeader(FILE *fp, int width, int height, rgbe_header_info *info)$/;"	f
+RGBE_WritePixels	lib/rgbe.c	/^int RGBE_WritePixels(FILE *fp, float *data, int numpixels)$/;"	f
+RGBE_WritePixels_RLE	lib/rgbe.c	/^int RGBE_WritePixels_RLE(FILE *fp, float *data, int scanline_width,$/;"	f
+RM	Makefile	/^RM = "\/Applications\/CMake 2.8-11.app\/Contents\/bin\/cmake" -E remove -f$/;"	m
+Release	src/helpers/debug.cpp	/^void Debug::Release() {$/;"	f	class:Debug
+Render	src/render/renderer.cpp	/^void Renderer::Render() {$/;"	f	class:Renderer
+RenderCubeMap	src/render/renderer.cpp	/^void Renderer::RenderCubeMap() {$/;"	f	class:Renderer
+Renderer	src/render/renderer.cpp	/^Renderer::Renderer(int width, int height, Camera* camera_) {$/;"	f	class:Renderer
+Renderer	src/render/renderer.h	/^class Renderer {$/;"	c
+Right	src/core/camera.cpp	/^glm::vec3 Camera::Right() const {$/;"	f	class:Camera
+Rotate	src/core/camera.cpp	/^void Camera::Rotate(glm::vec2 rotation_) {$/;"	f	class:Camera
+SHADERS_RELATIVE_PATH	src/helpers/utils.h	5;"	d
+SHADER_H	src/render/shader.h	2;"	d
+SHADER_LIBRARY_H	src/helpers/shaderlibrary.h	2;"	d
+SHELL	Makefile	/^SHELL = \/bin\/sh$/;"	m
+SUFFIXES	Makefile	/^SUFFIXES =$/;"	m
+SendDefaultUniforms	src/render/renderer.cpp	/^void Renderer::SendDefaultUniforms() {$/;"	f	class:Renderer
+SendUniform	src/render/shader.cpp	/^void Shader::SendUniform(string name, HDRTextureCube* hdrTextureCube) {$/;"	f	class:Shader
+SendUniform	src/render/shader.cpp	/^void Shader::SendUniform(string name, float value) {$/;"	f	class:Shader
+SendUniform	src/render/shader.cpp	/^void Shader::SendUniform(string name, glm::mat4 mat) {$/;"	f	class:Shader
+SendUniform	src/render/shader.cpp	/^void Shader::SendUniform(string name, glm::vec3 vec) {$/;"	f	class:Shader
+SetAspectRatio	src/core/camera.cpp	/^void Camera::SetAspectRatio(float ratio) {$/;"	f	class:Camera
+SetColours	src/core/geometry.cpp	/^void Geometry::SetColours(glm::vec4* colours_) {$/;"	f	class:Geometry
+SetDefaultAttributes	src/render/shader.cpp	/^void Shader::SetDefaultAttributes() {$/;"	f	class:Shader
+SetPosition	src/core/camera.cpp	/^void Camera::SetPosition(glm::vec3 position_) {$/;"	f	class:Camera
+SetPrimitive	src/core/geometry.cpp	/^void Geometry::SetPrimitive(PrimitiveType primitiveType_) {$/;"	f	class:Geometry
+SetUVs	src/core/geometry.cpp	/^void Geometry::SetUVs(glm::vec2* uvs_) {$/;"	f	class:Geometry
+Shader	src/render/shader.cpp	/^Shader::Shader(string shaderName) : name(shaderName) {}$/;"	f	class:Shader
+Shader	src/render/shader.h	/^class Shader {$/;"	c
+ShaderLibrary	src/helpers/shaderlibrary.cpp	/^ShaderLibrary::ShaderLibrary() {}$/;"	f	class:ShaderLibrary
+ShaderLibrary	src/helpers/shaderlibrary.h	/^class ShaderLibrary {$/;"	c
+TEXTURE_BUFFER	src/core/graphics.h	/^	TEXTURE_BUFFER,$/;"	e	enum:MeshBuffer
+TRIANGLE	src/core/geometry.h	/^	TRIANGLE = GL_TRIANGLES, $/;"	e	enum:PrimitiveType
+TRIANGLE_STRIP	src/core/geometry.h	/^	TRIANGLE_STRIP = GL_TRIANGLE_STRIP,$/;"	e	enum:PrimitiveType
+TextureId	src/hdr/hdrtexturecube.cpp	/^GLuint HDRTextureCube::TextureId() const {$/;"	f	class:HDRTextureCube
+TextureIndex	src/hdr/hdrtexturecube.cpp	/^GLuint HDRTextureCube::TextureIndex() const {$/;"	f	class:HDRTextureCube
+Translate	src/core/camera.cpp	/^void Camera::Translate(glm::vec3 vec) {$/;"	f	class:Camera
+Type	src/hdr/hdrtexturecube.h	/^		const GLenum Type = GL_FLOAT;$/;"	m	class:HDRTextureCube
+UnBind	src/materials/material.cpp	/^void Material::UnBind() {$/;"	f	class:Material
+UnBind	src/materials/materialcubemap.cpp	/^void MaterialCubeMap::UnBind() {$/;"	f	class:MaterialCubeMap
+Uniform	src/render/shader.cpp	/^GLint Shader::Uniform(string uniformName) const {$/;"	f	class:Shader
+Up	src/core/camera.cpp	/^glm::vec3 Camera::Up() const {$/;"	f	class:Camera
+Update	src/core/app.cpp	/^void App::Update(float elapsedTime) {$/;"	f	class:App
+VERTEX_BUFFER	src/core/graphics.h	/^	VERTEX_BUFFER,$/;"	e	enum:MeshBuffer
+VERT_EXT	src/helpers/utils.h	7;"	d
+_H_RGBE	lib/rgbe.h	2;"	d
+_shader	src/render/renderer.h	/^	Shader* _shader;$/;"	m	class:Renderer
+aspectRatio	src/core/camera.h	/^        float aspectRatio;$/;"	m	class:Camera
+cam	src/core/camera.h	/^namespace cam {$/;"	n
+camera	src/core/app.h	/^	Camera camera;$/;"	m	class:App
+camera	src/render/renderer.h	/^	Camera* camera;$/;"	m	class:Renderer
+clamp	src/helpers/utils.h	/^static inline float clamp(float x, float a, float b) {$/;"	f
+colours	src/core/geometry.h	/^		glm::vec4* colours;$/;"	m	class:Geometry
+cubemap	src/render/renderer.h	/^	CubeMap* cubemap;$/;"	m	class:Renderer
+currentOffset	src/hdr/hdrtexturecube.h	/^	int currentOffset;$/;"	m	struct:Face
+data	src/hdr/hdrtexturecube.h	/^		float *data;$/;"	m	class:HDRTextureCube
+data	src/hdr/hdrtexturecube.h	/^	float *data;$/;"	m	struct:Face
+deg2rad	src/helpers/utils.h	/^static inline float deg2rad(float theta) {$/;"	f
+exposure	lib/rgbe.h	/^  float exposure;       \/* a value of 1.0 in an image corresponds to$/;"	m	struct:__anon1
+faces	src/hdr/hdrtexturecube.h	/^		Face **faces;$/;"	m	class:HDRTextureCube
+far	src/core/camera.h	/^        float far;$/;"	m	class:Camera
+fbo	src/core/app.h	/^	GLuint fbo;$/;"	m	class:App
+fbo	src/render/renderer.h	/^	GLuint fbo;$/;"	m	class:Renderer
+float2rgbe	lib/rgbe.c	/^float2rgbe(unsigned char rgbe[4], float red, float green, float blue)$/;"	f
+fov	src/core/camera.h	/^        float fov;$/;"	m	class:Camera
+fragment	src/render/shader.h	/^		GLuint fragment;$/;"	m	class:Shader
+fullscreen	src/core/app.h	/^	bool fullscreen;$/;"	m	class:App
+gamma	lib/rgbe.h	/^  float gamma;          \/* image has already been gamma corrected with $/;"	m	struct:__anon1
+geometry	src/core/mesh.h	/^	Geometry* geometry;$/;"	m	class:Mesh
+hdrTextureCube	src/materials/materialcubemap.h	/^		 HDRTextureCube* hdrTextureCube;$/;"	m	class:MaterialCubeMap
+height	src/core/app.h	/^	unsigned int width, height;$/;"	m	class:App
+height	src/hdr/hdrtexturecube.h	/^		int height;$/;"	m	class:HDRTextureCube
+height	src/hdr/hdrtexturecube.h	/^	int height;$/;"	m	struct:Face
+indices	src/core/geometry.h	/^        unsigned int* indices;$/;"	m	class:Geometry
+indicesCount	src/core/geometry.h	/^        int indicesCount;$/;"	m	class:Geometry
+info_arch	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_arch	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_compiler	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_compiler	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_platform	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_platform	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_version	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v
+info_version	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
+instance	src/helpers/debug.cpp	/^Debug* Debug::instance = NULL;$/;"	m	class:Debug	file:
+instance	src/helpers/debug.h	/^		static Debug* instance;$/;"	m	class:Debug
+main	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	/^int main(int argc, char* argv[])$/;"	f
+main	CMakeFiles/2.8.11.1/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
+main	CMakeFiles/2.8.11.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	src/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f
+material	src/core/mesh.h	/^	Material* material;$/;"	m	class:Mesh
+maxRotationX	src/core/camera.h	/^	const float maxRotationX = 89.0f;$/;"	m	namespace:cam
+name	src/render/shader.h	/^		string name;$/;"	m	class:Shader
+near	src/core/camera.h	/^        float near;$/;"	m	class:Camera
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const bool& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const char* s) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const double& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const float& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const int& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const long double& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const long& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const short& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const std::streambuf* sb) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const std::string& s) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const std::string* s) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const std::wstring& s) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const std::wstring* s) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const unsigned char* s) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const unsigned int& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const unsigned long& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const unsigned short& val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const void* val) {$/;"	f	class:Debug
+operator <<	src/helpers/debug.cpp	/^Debug& Debug::operator<< (const wchar_t* s) {$/;"	f	class:Debug
+out	src/helpers/debug.h	/^		std::ostream& out;$/;"	m	class:Debug
+pf	src/helpers/debug.cpp	/^Debug& Debug::operator<< (std::ostream& (*pf)(std::ostream&)) {$/;"	f	class:Debug
+position	src/core/camera.h	/^		glm::vec3 position;$/;"	m	class:Camera
+primitiveType	src/core/geometry.h	/^		PrimitiveType primitiveType;$/;"	m	class:Geometry
+program	src/render/shader.h	/^		GLuint program;$/;"	m	class:Shader
+programtype	lib/rgbe.h	/^  char programtype[16]; \/* listed at beginning of file to identify it $/;"	m	struct:__anon1
+quad	src/render/renderer.h	/^	Mesh* quad;$/;"	m	class:Renderer
+rad2deg	src/helpers/utils.h	/^static inline float rad2deg(float theta) {$/;"	f
+renderTexture	src/render/renderer.h	/^	GLuint renderTexture;$/;"	m	class:Renderer
+renderer	src/core/app.h	/^	Renderer* renderer;$/;"	m	class:App
+rgbe2float	lib/rgbe.c	/^rgbe2float(float *red, float *green, float *blue, unsigned char rgbe[4])$/;"	f
+rgbe_error	lib/rgbe.c	/^static int rgbe_error(int rgbe_error_code, char *msg)$/;"	f	file:
+rgbe_error_codes	lib/rgbe.c	/^enum rgbe_error_codes {$/;"	g	file:
+rgbe_format_error	lib/rgbe.c	/^  rgbe_format_error,$/;"	e	enum:rgbe_error_codes	file:
+rgbe_header_info	lib/rgbe.h	/^} rgbe_header_info;$/;"	t	typeref:struct:__anon1
+rgbe_memory_error	lib/rgbe.c	/^  rgbe_memory_error,$/;"	e	enum:rgbe_error_codes	file:
+rgbe_read_error	lib/rgbe.c	/^  rgbe_read_error,$/;"	e	enum:rgbe_error_codes	file:
+rgbe_write_error	lib/rgbe.c	/^  rgbe_write_error,$/;"	e	enum:rgbe_error_codes	file:
+rotation	src/core/camera.h	/^		glm::vec2 rotation;$/;"	m	class:Camera
+shader	src/materials/material.h	/^		Shader* shader;	$/;"	m	class:Material
+shaderLibrary	src/render/renderer.h	/^	ShaderLibrary* shaderLibrary;$/;"	m	class:Renderer
+shaders	src/helpers/shaderlibrary.h	/^		map<string, Shader*> shaders;$/;"	m	class:ShaderLibrary
+textureId	src/hdr/hdrtexturecube.h	/^		GLuint textureId;$/;"	m	class:HDRTextureCube
+textureIndex	src/hdr/hdrtexturecube.h	/^		GLuint textureIndex;$/;"	m	class:HDRTextureCube
+triangle	src/render/renderer.h	/^	Mesh* triangle;$/;"	m	class:Renderer
+uvs	src/core/geometry.h	/^		glm::vec2* uvs;$/;"	m	class:Geometry
+uvsCount	src/core/geometry.h	/^		int uvsCount;$/;"	m	class:Geometry
+valid	lib/rgbe.h	/^  int valid;            \/* indicate which fields are valid *\/$/;"	m	struct:__anon1
+vao	src/core/mesh.h	/^	GLuint vao;$/;"	m	class:Mesh
+vbo	src/core/mesh.h	/^	GLuint vbo[BUFFER_COUNT];$/;"	m	class:Mesh
+vertex	src/render/shader.h	/^		GLuint vertex;$/;"	m	class:Shader
+vertices	src/core/geometry.h	/^		glm::vec3* vertices;$/;"	m	class:Geometry
+verticesCount	src/core/geometry.h	/^		int verticesCount;$/;"	m	class:Geometry
+width	src/core/app.h	/^	unsigned int width, height;$/;"	m	class:App
+width	src/hdr/hdrtexturecube.h	/^		int width;$/;"	m	class:HDRTextureCube
+width	src/hdr/hdrtexturecube.h	/^	int width;$/;"	m	struct:Face
+window	src/core/app.h	/^	GLFWwindow* window;$/;"	m	class:App
+~App	src/core/app.cpp	/^App::~App() {$/;"	f	class:App
+~Camera	src/core/camera.cpp	/^Camera::~Camera() {}$/;"	f	class:Camera
+~CubeMap	src/core/cubemap.cpp	/^CubeMap::~CubeMap() {}/;"	f	class:CubeMap
+~Geometry	src/core/geometry.cpp	/^Geometry::~Geometry() {$/;"	f	class:Geometry
+~HDRTextureCube	src/hdr/hdrtexturecube.cpp	/^HDRTextureCube::~HDRTextureCube() {$/;"	f	class:HDRTextureCube
+~Material	src/materials/material.cpp	/^Material::~Material() {}$/;"	f	class:Material
+~MaterialCubeMap	src/materials/materialcubemap.cpp	/^MaterialCubeMap::~MaterialCubeMap() {}$/;"	f	class:MaterialCubeMap
+~Mesh	src/core/mesh.cpp	/^Mesh::~Mesh(void) {$/;"	f	class:Mesh
+~Renderer	src/render/renderer.cpp	/^Renderer::~Renderer() {$/;"	f	class:Renderer
+~Shader	src/render/shader.cpp	/^Shader::~Shader(void) {$/;"	f	class:Shader
+~ShaderLibrary	src/helpers/shaderlibrary.cpp	/^ShaderLibrary::~ShaderLibrary() {$/;"	f	class:ShaderLibrary
