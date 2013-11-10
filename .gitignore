@@ -1,4 +1,9 @@
+CMakeCache.txt 
+CMakeFiles
 report
+cmake_install.cmake
+tags
+run.sh
 
 #compiled source
 *.o

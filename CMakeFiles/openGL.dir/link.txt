@@ -1,1 +1,0 @@
-/usr/bin/c++   -g -Wall -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/openGL.dir/src/app.cpp.o CMakeFiles/openGL.dir/src/main.cpp.o  -o openGL  -framework AGL -framework OpenGL /usr/local/lib/libglfw3.a /usr/lib/libGLEW.dylib 

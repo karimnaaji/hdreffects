@@ -1,2 +1,0 @@
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/rgbe.dir
