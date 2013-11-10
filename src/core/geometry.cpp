@@ -1,73 +1,36 @@
 #include "geometry.h"
 
-Geometry::Geometry() {
-	uvs = NULL;
-	vertices = NULL;
-	colours = NULL;
-    indices = NULL;
-    normals = NULL;
-
-	verticesCount = 0;
-	uvsCount = 0;
-    indicesCount = 0;
-    normalsCount = 0;
-
-	primitiveType = TRIANGLE;
-}
-
 Geometry::Geometry(glm::vec3* vertices_, unsigned int* indices_, int verticesCount_, int indicesCount_) {
+    isInterleaved = false;
     uvs = NULL;
-    indices = new unsigned int[indicesCount_]();
-    vertices = new glm::vec3[verticesCount_]();
     colours = NULL;
     normals = NULL;
-
-    memcpy(vertices, vertices_, verticesCount_ * sizeof(glm::vec3));
-    memcpy(indices, indices_, indicesCount_ * sizeof(unsigned int));
-
-    verticesCount = verticesCount_;
-    uvsCount = 0;
-    normalsCount = 0;
-    indicesCount = indicesCount_;
-
-    primitiveType = TRIANGLE;
-}
-
-Geometry::Geometry(glm::vec3* vertices_, unsigned int* indices_, glm::vec3* normals_, int verticesCount_, int indicesCount_) {
-    uvs = NULL;
     indices = new unsigned int[indicesCount_]();
     vertices = new glm::vec3[verticesCount_]();
-    normals = new glm::vec3[indicesCount_]();
-    colours = NULL;
 
     memcpy(vertices, vertices_, verticesCount_ * sizeof(glm::vec3));
     memcpy(indices, indices_, indicesCount_ * sizeof(unsigned int));
-    memcpy(normals, normals_, indicesCount_ * sizeof(glm::vec3));
 
     verticesCount = verticesCount_;
-    uvsCount = 0;
-    normalsCount = indicesCount_;
     indicesCount = indicesCount_;
 
     primitiveType = TRIANGLE;
 }
 
-Geometry::Geometry(glm::vec3* vertices_, glm::vec4* colours_, int verticesCount_) {
-	uvs = NULL;
+Geometry::Geometry(glm::vec3* verticesInterleaved_, int verticesCount_) {
+    isInterleaved = true;
+    uvs = NULL;
+    colours = NULL;
+    normals = NULL;
     indices = NULL;
-    normals = NULL;
-    vertices = new glm::vec3[verticesCount_];
-	colours = new glm::vec4[verticesCount_];
+    vertices = new glm::vec3[verticesCount_]();
 
-    memcpy(vertices, vertices_, verticesCount_ * sizeof(glm::vec3));   
-    memcpy(colours, colours_, verticesCount_ * sizeof(glm::vec4));
+    memcpy(vertices, verticesInterleaved_, verticesCount_ * sizeof(glm::vec3));
 
-	verticesCount = verticesCount_;
-	uvsCount = 0;
+    verticesCount = verticesCount_;
     indicesCount = 0;
-    normalsCount = 0;
 
-	primitiveType = TRIANGLE;
+    primitiveType = TRIANGLE;
 }
 
 Geometry::~Geometry() {
@@ -79,10 +42,24 @@ Geometry::~Geometry() {
 }
 
 void Geometry::SetColours(glm::vec4* colours_) {
-    colours = colours_;
+    if(IsInterleaved()) {
+        cerr << "Wrong usage of interleaved geometry" << endl;
+        return;
+    }
+
+    if(colours != NULL)
+        delete[] colours;
+
+    colours = new glm::vec4[verticesCount];
+    memcpy(colours, colours_, verticesCount * sizeof(glm::vec4));
 }
 
 void Geometry::SetUVs(glm::vec2* uvs_) {
+    if(IsInterleaved()) {
+        cerr << "Wrong usage of interleaved geometry" << endl;
+        return;
+    }
+
     if(uvs != NULL)
         delete[] uvs;
 
@@ -118,16 +95,15 @@ int Geometry::GetVerticesCount() {
 	return verticesCount;
 }
 
-int Geometry::GetNormalsCount() {
-    return normalsCount;
-}
-
-int Geometry::GetUVsCount() {
-	return uvsCount;
-}
-
 int Geometry::GetIndicesCount() {
     return indicesCount;
+}
+
+int Geometry::GetTexCoordCount() {
+    if(HasTexCoords() && primitiveType == TRIANGLE) {
+        return GetVerticesCount()/3 * 2;
+    } // TODO: compute other cases
+    return 0;
 }
 
 unsigned int* Geometry::GetIndices() {
@@ -148,4 +124,8 @@ glm::vec2* Geometry::GetUVs() {
 
 glm::vec4* Geometry::GetColours() {
   return colours;
+}
+
+bool Geometry::IsInterleaved() {
+    return isInterleaved;
 }

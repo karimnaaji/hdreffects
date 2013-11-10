@@ -12,10 +12,8 @@ enum PrimitiveType {
 
 class Geometry {
 	public:
-		Geometry();
-		Geometry(glm::vec3* vertices, glm::vec4* colours, int verticesCount);
         Geometry(glm::vec3* vertices, unsigned int* indices, int verticesCount, int indicesCount);
-        Geometry(glm::vec3* vertices, unsigned int* indices, glm::vec3* normals, int verticesCount, int indicesCount);
+        Geometry(glm::vec3* interleavedVertices, int verticesCount);
 		~Geometry();
 
 		glm::vec3* GetVertices();
@@ -25,11 +23,10 @@ class Geometry {
         unsigned int* GetIndices();
 		
 		int GetVerticesCount(); 
-		int GetUVsCount();
         int GetIndicesCount();
-        int GetNormalsCount();
-		PrimitiveType GetType();
+        int GetTexCoordCount();
 
+		PrimitiveType GetType();
         void SetPrimitive(PrimitiveType primitiveType);
 
         void SetColours(glm::vec4* colours);
@@ -41,8 +38,9 @@ class Geometry {
 		bool HasTexCoords();
         bool HasIndices();
         bool HasNormals();
-        
+        bool IsInterleaved();
 	private:
+        bool isInterleaved;
 		glm::vec3* vertices;
 		glm::vec2* uvs;
         glm::vec3* normals;
@@ -51,8 +49,6 @@ class Geometry {
 
         int indicesCount;
 		int verticesCount;
-		int uvsCount;
-        int normalsCount;
 
 		PrimitiveType primitiveType;
 };

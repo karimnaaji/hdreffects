@@ -14,10 +14,8 @@ Geometry* ObjParser::Parse(string filename) {
     string token;
     vector<glm::vec3> vertices;
     vector<glm::vec3> normals;
-    vector<glm::vec3> normalsContiguous;
     vector<glm::vec2> uvs;
-    vector<unsigned int> vertexIndices;
-    vector<unsigned int> normalIndices;
+    vector<glm::vec3> interleavedArray;
 
     while(!f.eof()) {
         f >> token; 
@@ -58,9 +56,9 @@ Geometry* ObjParser::Parse(string filename) {
                 ss >> faceToken;
                 if(faceToken.find_first_not_of("\t\n ") != string::npos) {
                     if(i % 2 == 0) {
-                        vertexIndices.push_back(atoi(faceToken.c_str()) - 1);
+                        interleavedArray.push_back(vertices[atoi(faceToken.c_str()) - 1]);
                     } else {
-                        normalIndices.push_back(atoi(faceToken.c_str()) - 1);
+                        interleavedArray.push_back(normals[atoi(faceToken.c_str()) - 1]);
                     }
                 }
             }
@@ -68,14 +66,7 @@ Geometry* ObjParser::Parse(string filename) {
     }
     f.close();
 
-    for(int i = 0; i < normalIndices.size(); ++i) {
-        normalsContiguous.push_back(normals[normalIndices[i]]);
-    }
-
-    Geometry* geometry = new Geometry(reinterpret_cast<glm::vec3*>(&vertices[0]), 
-            reinterpret_cast<unsigned int*>(&vertexIndices[0]), 
-            reinterpret_cast<glm::vec3*>(&normalsContiguous[0]), 
-            vertices.size(), vertexIndices.size());
+    Geometry* geometry = new Geometry(reinterpret_cast<glm::vec3*>(&interleavedArray[0]), interleavedArray.size());
 
     return geometry;
 }

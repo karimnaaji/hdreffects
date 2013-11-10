@@ -52,50 +52,20 @@ void Mesh::Draw() {
 
 void Mesh::CreateBufferData() {
 	glBindVertexArray(vao);
-	glGenBuffers(1, &vbo[VERTEX_BUFFER]);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo[VERTEX_BUFFER]);
+    glGenBuffers(1, &vbo[VERTEX_BUFFER]);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo[VERTEX_BUFFER]);
+    glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec3), geometry->GetVertices(), GL_STATIC_DRAW);
 
-	glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec3), geometry->GetVertices(), GL_STATIC_DRAW);
-
-	glVertexAttribPointer(VERTEX_BUFFER, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(VERTEX_BUFFER);
-
-	if(geometry->HasTexCoords()) {
-		glGenBuffers(1, &vbo[TEXTURE_BUFFER]);
-		glBindBuffer(GL_ARRAY_BUFFER, vbo[TEXTURE_BUFFER]);
-
-		glBufferData(GL_ARRAY_BUFFER, geometry->GetUVsCount() * sizeof(glm::vec2), geometry->GetUVs(), GL_STATIC_DRAW);
-
-		glVertexAttribPointer(TEXTURE_BUFFER, 2, GL_FLOAT, GL_FALSE, 0, 0);
-		glEnableVertexAttribArray(TEXTURE_BUFFER);
-	}
-    if(geometry->HasNormals()) {
-        glGenBuffers(1, &vbo[NORMAL_BUFFER]);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo[NORMAL_BUFFER]);
-
-        for(int i = 0; i < geometry->GetNormalsCount(); ++i) {
-            glm::vec3 v = geometry->GetNormals()[i];
-            cout << v.x << " " << v.y << " " << v.z;
-            cout << endl;
-        }
-        glBufferData(GL_ARRAY_BUFFER, geometry->GetNormalsCount() * sizeof(glm::vec3), geometry->GetNormals(), GL_STATIC_DRAW);
-        
-        glVertexAttribPointer(NORMAL_BUFFER, 2, GL_FLOAT, GL_FALSE, 0, 0);
+    if(geometry->IsInterleaved()) {
+        glVertexAttribPointer(VERTEX_BUFFER, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), 0);
+        glEnableVertexAttribArray(VERTEX_BUFFER);
+        glVertexAttribPointer(NORMAL_BUFFER, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (const GLvoid*)(3 * sizeof(float)));
         glEnableVertexAttribArray(NORMAL_BUFFER);
-    }
-	if(geometry->HasColors()) {
-		glGenBuffers(1, &vbo[COLOUR_BUFFER]);
-		glBindBuffer(GL_ARRAY_BUFFER, vbo[COLOUR_BUFFER]);
-
-		glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec4), geometry->GetColours(), GL_STATIC_DRAW);
-
-		glVertexAttribPointer(COLOUR_BUFFER, 4, GL_FLOAT, GL_FALSE, 0, 0);
-		glEnableVertexAttribArray(COLOUR_BUFFER);
-	}
-    if(geometry->HasIndices()) {
+    } else {
+        glVertexAttribPointer(VERTEX_BUFFER, 3, GL_FLOAT, GL_FALSE, 0, 0);
+        glEnableVertexAttribArray(VERTEX_BUFFER);
         glGenBuffers(1, &vbo[INDEX_BUFFER]);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo[INDEX_BUFFER]);
-
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, geometry->GetIndicesCount() * sizeof(unsigned int), geometry->GetIndices(), GL_STATIC_DRAW);
     }
 
