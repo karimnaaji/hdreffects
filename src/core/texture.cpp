@@ -1,7 +1,8 @@
 #include "texture.h"
 
-Texture::Texture() : Format(GL_RGB), Type(GL_FLOAT), InternalFormat(GL_RGB8) {
+Texture::Texture(string name_) : Format(GL_RGB), Type(GL_FLOAT), InternalFormat(GL_RGB8) {
     textureIndex = 0;
+    name = name;
 }
 
 Texture::~Texture() {
@@ -14,6 +15,10 @@ GLuint Texture::TextureId() const {
 
 GLuint Texture::TextureIndex() const {
     return textureIndex;
+}
+
+string Texture::GetName() const {
+    return name;
 }
 
 GLuint Texture::Bind() {

@@ -2,16 +2,18 @@
 #define TEXTURE_H
 
 #include "graphics.h"
+#include <string>
 
 class Texture {
     public:
-        Texture();
+        Texture(string name);
         virtual ~Texture();
 
         virtual void Load(string filename) = 0;
         virtual GLuint Bind();
         GLuint TextureId() const;
         GLuint TextureIndex() const;
+        string GetName() const;
     protected:
         GLuint textureIndex;
         GLuint textureId;
@@ -22,6 +24,8 @@ class Texture {
 
         float* data;
         virtual void Generate();
+    private:
+        string name;
 };
 
 #endif

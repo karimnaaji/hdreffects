@@ -1,6 +1,6 @@
 #include "hdrtexturecube.h"
 
-HDRTextureCube::HDRTextureCube() : Texture()
+HDRTextureCube::HDRTextureCube() : Texture("cubeMap")
 {
     Format = GL_RGB;
     Type = GL_FLOAT;

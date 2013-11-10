@@ -2,6 +2,7 @@
 #define MATERIAL_H
 
 #include "shader.h"
+#include <vector>
 
 class Material {
 	public:
@@ -12,6 +13,8 @@ class Material {
 		virtual void UnBind();
 	protected:
 		Shader* shader;	
+    private:
+        vector<Texture*> textures;
 };
 
 #endif
