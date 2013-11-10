@@ -10,11 +10,12 @@ uniform mat4 mvp;
 uniform mat3 normalMatrix;
 uniform vec3 camPosition;
 
-out vec3 norm;
-//out vec3 r;
+out vec3 r;
 
 void main() {
-    //vec3 i
-    norm = normalize(normalMatrix * normal);
+    vec3 i = normalize(position - camPosition);
+    vec3 norm = normalize(normalMatrix * normal);
+    r = reflect(i, norm);
+
     gl_Position = mvp * vec4(position, 1);
 }
