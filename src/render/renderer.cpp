@@ -15,7 +15,7 @@ Renderer::~Renderer() {
 }
 
 void Renderer::LoadShaders() {
-	shaderLibrary->AddShader(string("basic"));
+	shaderLibrary->AddShader(string("fresnel"));
     shaderLibrary->AddShader(string("cubemap"));
 }
 
@@ -28,7 +28,7 @@ void Renderer::LoadCubeMap() {
     cubemap = new CubeMap(materialCubeMap);
     cubemap->CreateBufferData();
 
-    Material* materialSphere = new Material(shaderLibrary->GetShader("basic"));
+    Material* materialSphere = new Material(shaderLibrary->GetShader("fresnel"));
     materialSphere->AddTexture(hdrTextureCube);
     sphere = new Mesh(ObjParser::Parse("sphere"), materialSphere);
     sphere->CreateBufferData();
