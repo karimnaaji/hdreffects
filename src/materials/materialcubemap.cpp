@@ -10,10 +10,6 @@ Shader* MaterialCubeMap::Bind() {
 	Material::Bind();
 
 	glDisable(GL_DEPTH_TEST);
-
-	//hdrTextureCube->Bind();
-	//shader->SendUniform(hdrTextureCube->GetName(), hdrTextureCube);
-
 	return shader;
 }
 

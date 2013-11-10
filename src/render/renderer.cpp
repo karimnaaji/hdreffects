@@ -29,6 +29,7 @@ void Renderer::LoadCubeMap() {
     cubemap->CreateBufferData();
 
     Material* materialSphere = new Material(shaderLibrary->GetShader("basic"));
+    materialSphere->AddTexture(hdrTextureCube);
     sphere = new Mesh(ObjParser::Parse("sphere"), materialSphere);
     sphere->CreateBufferData();
 }
