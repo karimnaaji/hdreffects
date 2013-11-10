@@ -1,12 +1,8 @@
 #version 150
 
-in Vertex {
-	vec4 colour;
-	vec2 uv;
-} IN;
-
+in vec3 norm;
 out vec4 out_colour;
 
 void main(void) {
-    out_colour = IN.colour;
+    out_colour = vec4(norm, 1); //IN.colour;
 }

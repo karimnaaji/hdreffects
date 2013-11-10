@@ -55,7 +55,6 @@ void Mesh::CreateBufferData() {
 	glGenBuffers(1, &vbo[VERTEX_BUFFER]);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[VERTEX_BUFFER]);
 
-	// send data to opengl
 	glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec3), geometry->GetVertices(), GL_STATIC_DRAW);
 
 	glVertexAttribPointer(VERTEX_BUFFER, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -70,6 +69,20 @@ void Mesh::CreateBufferData() {
 		glVertexAttribPointer(TEXTURE_BUFFER, 2, GL_FLOAT, GL_FALSE, 0, 0);
 		glEnableVertexAttribArray(TEXTURE_BUFFER);
 	}
+    if(geometry->HasNormals()) {
+        glGenBuffers(1, &vbo[NORMAL_BUFFER]);
+        glBindBuffer(GL_ARRAY_BUFFER, vbo[NORMAL_BUFFER]);
+
+        for(int i = 0; i < geometry->GetNormalsCount(); ++i) {
+            glm::vec3 v = geometry->GetNormals()[i];
+            cout << v.x << " " << v.y << " " << v.z;
+            cout << endl;
+        }
+        glBufferData(GL_ARRAY_BUFFER, geometry->GetNormalsCount() * sizeof(glm::vec3), geometry->GetNormals(), GL_STATIC_DRAW);
+        
+        glVertexAttribPointer(NORMAL_BUFFER, 2, GL_FLOAT, GL_FALSE, 0, 0);
+        glEnableVertexAttribArray(NORMAL_BUFFER);
+    }
 	if(geometry->HasColors()) {
 		glGenBuffers(1, &vbo[COLOUR_BUFFER]);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[COLOUR_BUFFER]);

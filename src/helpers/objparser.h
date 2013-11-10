@@ -17,10 +17,4 @@ class ObjParser {
         static Geometry* Parse(string filename);
 };
 
-typedef struct s_face {
-    unsigned int vertexIndex[3];
-    unsigned int uvIndex[3];
-    unsigned int normalIndex[3];
-} s_face;
-
 #endif

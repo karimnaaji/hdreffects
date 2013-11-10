@@ -5,14 +5,19 @@ Geometry* ObjParser::Parse(string filename) {
     std::ifstream f(path.c_str(), ios::in);
 
     if(!f) {
+        cerr << "Can't open file " << path << endl;
         return NULL;
     }
+
+    cout << "Loading " << path << endl;
 
     string token;
     vector<glm::vec3> vertices;
     vector<glm::vec3> normals;
+    vector<glm::vec3> normalsContiguous;
     vector<glm::vec2> uvs;
-    vector<s_face> faces;
+    vector<unsigned int> vertexIndices;
+    vector<unsigned int> normalIndices;
 
     while(!f.eof()) {
         f >> token; 
@@ -48,25 +53,29 @@ Geometry* ObjParser::Parse(string filename) {
             }
 
             stringstream ss(faceLine);
-            string indexToken;
-            s_face face;
-            for(int i = 0; i < 3; ++i) {
-                ss >> face.vertexIndex[i];
-                ss >> face.normalIndex[i];
+            string faceToken;
+            for(int i = 0; i < 6; ++i) {
+                ss >> faceToken;
+                if(faceToken.find_first_not_of("\t\n ") != string::npos) {
+                    if(i % 2 == 0) {
+                        vertexIndices.push_back(atoi(faceToken.c_str()) - 1);
+                    } else {
+                        normalIndices.push_back(atoi(faceToken.c_str()) - 1);
+                    }
+                }
             }
-            faces.push_back(face);
         }
     }
-
-    unsigned int* indices = new unsigned int[faces.size()*3];
-    for(int i = 0; i < faces.size(); ++i) {
-        indices[i*3+0] = faces[i].vertexIndex[0];
-        indices[i*3+1] = faces[i].vertexIndex[1];
-        indices[i*3+2] = faces[i].vertexIndex[2];
-    }
-    Geometry* geometry = new Geometry(reinterpret_cast<glm::vec3*>(&vertices[0]), indices, vertices.size(), faces.size()*3);
-    delete[] indices;
-
     f.close();
+
+    for(int i = 0; i < normalIndices.size(); ++i) {
+        normalsContiguous.push_back(normals[normalIndices[i]]);
+    }
+
+    Geometry* geometry = new Geometry(reinterpret_cast<glm::vec3*>(&vertices[0]), 
+            reinterpret_cast<unsigned int*>(&vertexIndices[0]), 
+            reinterpret_cast<glm::vec3*>(&normalsContiguous[0]), 
+            vertices.size(), vertexIndices.size());
+
     return geometry;
 }

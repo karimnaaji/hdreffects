@@ -5,10 +5,12 @@ Geometry::Geometry() {
 	vertices = NULL;
 	colours = NULL;
     indices = NULL;
+    normals = NULL;
 
 	verticesCount = 0;
 	uvsCount = 0;
     indicesCount = 0;
+    normalsCount = 0;
 
 	primitiveType = TRIANGLE;
 }
@@ -18,12 +20,33 @@ Geometry::Geometry(glm::vec3* vertices_, unsigned int* indices_, int verticesCou
     indices = new unsigned int[indicesCount_]();
     vertices = new glm::vec3[verticesCount_]();
     colours = NULL;
+    normals = NULL;
 
     memcpy(vertices, vertices_, verticesCount_ * sizeof(glm::vec3));
     memcpy(indices, indices_, indicesCount_ * sizeof(unsigned int));
 
     verticesCount = verticesCount_;
     uvsCount = 0;
+    normalsCount = 0;
+    indicesCount = indicesCount_;
+
+    primitiveType = TRIANGLE;
+}
+
+Geometry::Geometry(glm::vec3* vertices_, unsigned int* indices_, glm::vec3* normals_, int verticesCount_, int indicesCount_) {
+    uvs = NULL;
+    indices = new unsigned int[indicesCount_]();
+    vertices = new glm::vec3[verticesCount_]();
+    normals = new glm::vec3[indicesCount_]();
+    colours = NULL;
+
+    memcpy(vertices, vertices_, verticesCount_ * sizeof(glm::vec3));
+    memcpy(indices, indices_, indicesCount_ * sizeof(unsigned int));
+    memcpy(normals, normals_, indicesCount_ * sizeof(glm::vec3));
+
+    verticesCount = verticesCount_;
+    uvsCount = 0;
+    normalsCount = indicesCount_;
     indicesCount = indicesCount_;
 
     primitiveType = TRIANGLE;
@@ -32,6 +55,7 @@ Geometry::Geometry(glm::vec3* vertices_, unsigned int* indices_, int verticesCou
 Geometry::Geometry(glm::vec3* vertices_, glm::vec4* colours_, int verticesCount_) {
 	uvs = NULL;
     indices = NULL;
+    normals = NULL;
     vertices = new glm::vec3[verticesCount_];
 	colours = new glm::vec4[verticesCount_];
 
@@ -41,6 +65,7 @@ Geometry::Geometry(glm::vec3* vertices_, glm::vec4* colours_, int verticesCount_
 	verticesCount = verticesCount_;
 	uvsCount = 0;
     indicesCount = 0;
+    normalsCount = 0;
 
 	primitiveType = TRIANGLE;
 }
@@ -50,6 +75,7 @@ Geometry::~Geometry() {
 	delete[] uvs;
 	delete[] colours;
     delete[] indices;
+    delete[] normals;
 }
 
 void Geometry::SetColours(glm::vec4* colours_) {
@@ -81,11 +107,19 @@ bool Geometry::HasTexCoords() {
 }
 
 bool Geometry::HasIndices() {
-  return indices != NULL;
+    return indices != NULL;
+}
+
+bool Geometry::HasNormals() {
+    return normals != NULL;
 }
 
 int Geometry::GetVerticesCount() {
 	return verticesCount;
+}
+
+int Geometry::GetNormalsCount() {
+    return normalsCount;
 }
 
 int Geometry::GetUVsCount() {
@@ -102,6 +136,10 @@ unsigned int* Geometry::GetIndices() {
 
 glm::vec3* Geometry::GetVertices() {
 	return vertices;
+}
+
+glm::vec3* Geometry::GetNormals() {
+    return normals;
 }
 
 glm::vec2* Geometry::GetUVs() {
