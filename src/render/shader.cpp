@@ -102,7 +102,7 @@ GLuint Shader::CreateShader(GLenum type, string& file) {
 		glGetShaderInfoLog(shader, sizeof(error), NULL, error);
 
 		cout << error;
-		throw runtime_error("Impossible de compiler le shader " + file + " (" + name + ")");
+		throw runtime_error("Can't compile shader " + file + " (" + name + ")");
 	} 
 
 	return shader;
@@ -111,9 +111,9 @@ GLuint Shader::CreateShader(GLenum type, string& file) {
 GLint Shader::Uniform(string uniformName) const {
     GLint uniform = glGetUniformLocation(program, uniformName.c_str());
 
-    if(uniform < 0) {
-    	throw runtime_error("Uniform variable not found : " + uniformName + " (" + name + ")");
-    }
+    //if(uniform < 0) {
+    //	throw runtime_error("Uniform variable not found : " + uniformName + " (" + name + ")");
+    //}
 
     return uniform;
 }
@@ -121,6 +121,11 @@ GLint Shader::Uniform(string uniformName) const {
 void Shader::SendUniform(string name, glm::mat4 mat) {
 	assert(IsInUse());
     glUniformMatrix4fv(Uniform(name), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+void Shader::SendUniform(string name, glm::mat3 mat) {
+    assert(IsInUse());
+    glUniformMatrix3fv(Uniform(name), 1, GL_FALSE, glm::value_ptr(mat));
 }
 
 void Shader::SendUniform(string name, float value) {

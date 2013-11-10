@@ -25,6 +25,7 @@ class Shader {
 		void SendUniform(string name, HDRTextureCube* hdrTextureCube);
 		void SendUniform(string name, float value);
 		void SendUniform(string name, glm::mat4 mat);
+        void SendUniform(string name, glm::mat3 mat);
 		void SendUniform(string name, glm::vec3 vec);
 
 	private:	

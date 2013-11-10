@@ -7,11 +7,11 @@ in vec3 normal;
 
 uniform float globalTime;
 uniform mat4 mvp;
+uniform mat3 normalMatrix;
 
 out vec3 norm;
 
 void main() {
-    mat3 normalMatrix = transpose(inverse(mat3(mvp)));
     norm = normalize(normalMatrix * normal);
     gl_Position = mvp * vec4(position, 1);
 }

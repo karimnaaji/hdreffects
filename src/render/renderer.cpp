@@ -29,7 +29,7 @@ void Renderer::LoadCubeMap() {
     cubemap->CreateBufferData();
 
     Material* materialSphere = new Material(shaderLibrary->GetShader("basic"));
-    sphere = new Mesh(ObjParser::Parse("sphere"), materialSphere);
+    sphere = new Mesh(ObjParser::Parse("suzanne"), materialSphere);
     sphere->CreateBufferData();
 }
 
@@ -64,8 +64,10 @@ void Renderer::SendDefaultUniforms() {
     glm::mat4 model = glm::mat4(1.0f);
 
     glm::mat4 mvp = projection * view * model;
+    glm::mat3 normalMatrix = glm::inverse(glm::transpose(glm::mat3(mvp)));
 
     _shader->SendUniform("mvp", mvp);
+    _shader->SendUniform("normalMatrix", normalMatrix);
 }
 
 void Renderer::CreateFrameBuffer(GLuint renderTexture) {
