@@ -5,6 +5,7 @@ in vec3 refractR;
 in vec3 refractG;
 in vec3 refractB;
 in float ratio;
+
 out vec4 outColour;
 
 uniform samplerCube cubeMap;

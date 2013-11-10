@@ -30,6 +30,8 @@ void Renderer::LoadCubeMap() {
 
     Material* materialSphere = new Material(shaderLibrary->GetShader("fresnel"));
     materialSphere->AddTexture(hdrTextureCube);
+    //glm::vec4 materialColour = glm::vec4(1.0);
+    //materialSphere->SetColour(materialColour);
     sphere = new Mesh(ObjParser::Parse("sphere+torus"), materialSphere);
     sphere->CreateBufferData();
 }

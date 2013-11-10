@@ -143,3 +143,8 @@ void Shader::SendUniform(string name, glm::vec3 vec) {
 	glUniform3f(Uniform(name), vec[0], vec[1], vec[2]);
 }
 
+void Shader::SendUniform(string name, glm::vec4 vec) {
+	assert(IsInUse());
+	glUniform4f(Uniform(name), vec[0], vec[1], vec[2], vec[3]);
+}
+
