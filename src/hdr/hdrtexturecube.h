@@ -10,7 +10,7 @@ extern "C" {
 }
 
 #include "graphics.h"
-#include <iostream>
+#include "texture.h"
 
 struct Face {
 	float *data;
@@ -20,20 +20,13 @@ struct Face {
 	int currentOffset;
 };
 
-class HDRTextureCube {
+class HDRTextureCube : public Texture {
 	public:
-		const GLenum Format = GL_RGB;
-		const GLenum Type = GL_FLOAT;
-		const GLenum InternalFormat = GL_RGB16F_ARB;
-		//const GLenum InternalFormat = GL_RGB8;
-
-		HDRTextureCube(int textureIndex = 0);
+		HDRTextureCube();
 		~HDRTextureCube();
 
 		void Load(const string fileName);
-		GLuint Bind();
-		GLuint TextureId() const;
-		GLuint TextureIndex() const;
+        GLuint Bind();
 	private:
 		void LoadFaces();
 		void Generate();
@@ -42,10 +35,6 @@ class HDRTextureCube {
 
 		int width;
 		int height;
-		float *data;
-		
-		GLuint textureId;
-		GLuint textureIndex;
 		
 		Face **faces;
 

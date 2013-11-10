@@ -1,7 +1,11 @@
 #include "hdrtexturecube.h"
 
-HDRTextureCube::HDRTextureCube(int textureIndex_) : textureIndex(textureIndex_) 
-{}
+HDRTextureCube::HDRTextureCube() : Texture()
+{
+    Format = GL_RGB;
+    Type = GL_FLOAT;
+    InternalFormat = GL_RGB16F_ARB;
+}
 
 HDRTextureCube::~HDRTextureCube() {
 	glDeleteTextures(6, &textureId);
@@ -117,14 +121,6 @@ void HDRTextureCube::FlipVertical(Face* face) {
 
     delete[] face->data;
     face->data = newData;
-}
-
-GLuint HDRTextureCube::TextureId() const {
-	return textureId;
-}
-
-GLuint HDRTextureCube::TextureIndex() const {
-	return textureIndex;
 }
 
 GLuint HDRTextureCube::Bind() {

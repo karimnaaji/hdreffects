@@ -5,10 +5,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdexcept>
 
 #include "graphics.h"
-#include "hdrtexturecube.h"
-
+#include "texture.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ class Shader {
 		string GetName() const;
 		bool IsInUse() const;
 
-		void SendUniform(string name, HDRTextureCube* hdrTextureCube);
+		void SendUniform(string name, Texture* texture);
 		void SendUniform(string name, float value);
 		void SendUniform(string name, glm::mat4 mat);
         void SendUniform(string name, glm::mat3 mat);

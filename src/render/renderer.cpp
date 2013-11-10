@@ -29,7 +29,7 @@ void Renderer::LoadCubeMap() {
     cubemap->CreateBufferData();
 
     Material* materialSphere = new Material(shaderLibrary->GetShader("basic"));
-    sphere = new Mesh(ObjParser::Parse("suzanne"), materialSphere);
+    sphere = new Mesh(ObjParser::Parse("sphere"), materialSphere);
     sphere->CreateBufferData();
 }
 
@@ -52,7 +52,6 @@ void Renderer::Render() {
 
 void Renderer::RenderCubeMap() {
     _shader = cubemap->GetMaterial()->Bind();
-    _shader->SendUniform("camPosition", camera->GetPosition());
     SendDefaultUniforms();
 
     cubemap->Draw();
@@ -68,6 +67,7 @@ void Renderer::SendDefaultUniforms() {
 
     _shader->SendUniform("mvp", mvp);
     _shader->SendUniform("normalMatrix", normalMatrix);
+    _shader->SendUniform("camPosition", camera->GetPosition());
 }
 
 void Renderer::CreateFrameBuffer(GLuint renderTexture) {

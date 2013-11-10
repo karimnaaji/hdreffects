@@ -133,9 +133,9 @@ void Shader::SendUniform(string name, float value) {
     glUniform1f(Uniform(name), value);
 }
 
-void Shader::SendUniform(string name, HDRTextureCube* hdrTextureCube) {
+void Shader::SendUniform(string name, Texture* texture) {
 	assert(IsInUse());
-	glUniform1i(Uniform(name), hdrTextureCube->TextureIndex());
+	glUniform1i(Uniform(name), texture->TextureIndex());
 }
 
 void Shader::SendUniform(string name, glm::vec3 vec) {

@@ -295,6 +295,30 @@ src/core/mesh.cpp.s:
 	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.s
 .PHONY : src/core/mesh.cpp.s
 
+src/core/texture.o: src/core/texture.cpp.o
+.PHONY : src/core/texture.o
+
+# target to build an object file
+src/core/texture.cpp.o:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/texture.cpp.o
+.PHONY : src/core/texture.cpp.o
+
+src/core/texture.i: src/core/texture.cpp.i
+.PHONY : src/core/texture.i
+
+# target to preprocess a source file
+src/core/texture.cpp.i:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/texture.cpp.i
+.PHONY : src/core/texture.cpp.i
+
+src/core/texture.s: src/core/texture.cpp.s
+.PHONY : src/core/texture.s
+
+# target to generate assembly for a file
+src/core/texture.cpp.s:
+	$(MAKE) -f CMakeFiles/build/hdr.out.dir/build.make CMakeFiles/build/hdr.out.dir/src/core/texture.cpp.s
+.PHONY : src/core/texture.cpp.s
+
 src/hdr/hdrtexturecube.o: src/hdr/hdrtexturecube.cpp.o
 .PHONY : src/hdr/hdrtexturecube.o
 
@@ -542,6 +566,9 @@ help:
 	@echo "... src/core/mesh.o"
 	@echo "... src/core/mesh.i"
 	@echo "... src/core/mesh.s"
+	@echo "... src/core/texture.o"
+	@echo "... src/core/texture.i"
+	@echo "... src/core/texture.s"
 	@echo "... src/hdr/hdrtexturecube.o"
 	@echo "... src/hdr/hdrtexturecube.i"
 	@echo "... src/hdr/hdrtexturecube.s"

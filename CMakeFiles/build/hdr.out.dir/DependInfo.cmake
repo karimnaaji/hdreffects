@@ -10,6 +10,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometries.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/geometries.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/geometry.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/geometry.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/mesh.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/mesh.cpp.o"
+  "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/core/texture.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/core/texture.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/hdr/hdrtexturecube.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/hdr/hdrtexturecube.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/debug.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/helpers/debug.cpp.o"
   "/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/helpers/objparser.cpp" "/Users/karimnaaji/Documents/programmation/projets/hdr_project/CMakeFiles/build/hdr.out.dir/src/helpers/objparser.cpp.o"
