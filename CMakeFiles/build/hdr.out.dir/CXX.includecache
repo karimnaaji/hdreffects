@@ -6,24 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.cpp
+material.h
+/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.h
+
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.h
 shader.h
 /Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/shader.h
 vector
--
-
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/materialcubemap.cpp
-materialcubemap.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/materialcubemap.h
-
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/materialcubemap.h
-material.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/material.h
-hdrtexturecube.h
-/Users/karimnaaji/Documents/programmation/projets/hdr_project/src/materials/hdrtexturecube.h
-
-lib/rgbe.h
-stdio.h
 -
 
 src/core/graphics.h
@@ -51,20 +41,6 @@ graphics.h
 src/core/graphics.h
 string
 -
-
-src/hdr/hdrtexturecube.h
-iostream
--
-string
--
-stdexcept
--
-rgbe.h
-src/hdr/rgbe.h
-graphics.h
-src/hdr/graphics.h
-texture.h
-src/hdr/texture.h
 
 src/helpers/debug.h
 iosfwd

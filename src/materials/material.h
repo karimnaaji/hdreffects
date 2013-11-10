@@ -11,6 +11,7 @@ class Material {
 
 		virtual Shader* Bind();
 		virtual void UnBind();
+        void AddTexture(Texture* texture);
 	protected:
 		Shader* shader;	
     private:

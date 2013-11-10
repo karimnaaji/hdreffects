@@ -1,6 +1,8 @@
 #include "materialcubemap.h"
 
-MaterialCubeMap::MaterialCubeMap(Shader* shader, HDRTextureCube* hdrTextureCube_) : Material(shader), hdrTextureCube(hdrTextureCube_) {}
+MaterialCubeMap::MaterialCubeMap(Shader* shader, HDRTextureCube* hdrTextureCube_) : Material(shader), hdrTextureCube(hdrTextureCube_) {
+    AddTexture(hdrTextureCube_);
+}
 
 MaterialCubeMap::~MaterialCubeMap() {}
 
@@ -9,8 +11,8 @@ Shader* MaterialCubeMap::Bind() {
 
 	glDisable(GL_DEPTH_TEST);
 
-	hdrTextureCube->Bind();
-	shader->SendUniform(hdrTextureCube->GetName(), hdrTextureCube);
+	//hdrTextureCube->Bind();
+	//shader->SendUniform(hdrTextureCube->GetName(), hdrTextureCube);
 
 	return shader;
 }
