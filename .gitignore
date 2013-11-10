@@ -1,9 +1,14 @@
-CMakeCache.txt 
+#cmake
+CmakeCache.txt
+Makefile
 CMakeFiles
-report
 cmake_install.cmake
+
+#other
+report
 tags
 run.sh
+
 
 #compiled source
 *.o
