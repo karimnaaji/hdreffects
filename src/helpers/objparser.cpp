@@ -9,7 +9,7 @@ Geometry* ObjParser::Parse(string filename) {
         return NULL;
     }
 
-    cout << "Loading " << path << endl;
+    cout << "Loading " << path << ".." << endl;
 
     string token;
     vector<glm::vec3> vertices;
@@ -65,6 +65,9 @@ Geometry* ObjParser::Parse(string filename) {
         }
     }
     f.close();
+
+    cout << "Loaded model :" << endl;
+    cout << " - " << interleavedArray.size() / 2 << " vertices" << endl;
 
     Geometry* geometry = new Geometry(reinterpret_cast<glm::vec3*>(&interleavedArray[0]), interleavedArray.size());
 

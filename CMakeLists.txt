@@ -15,6 +15,7 @@ list(REMOVE_DUPLICATES Foo_INCLUDE_DIRS)
 
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
+find_package(GLFW REQUIRED)
 
 if(APPLE)
 	find_library(COCOA_FRAMEWORK Cocoa)

@@ -21,7 +21,7 @@ HDRTextureCube::~HDRTextureCube() {
 void HDRTextureCube::Load(const string fileName) {
 	string path = string(HDR_RELATIVE_PATH) + fileName + string(HDR_EXT);	
 
-	cout << "Loading hdr texture.. [" << fileName << "]" << endl;
+	cout << "Loading hdr texture " << path << ".." << endl;
 
 	FILE* file = fopen(path.c_str(), "rb");
 	
@@ -36,9 +36,6 @@ void HDRTextureCube::Load(const string fileName) {
 	cout << " - width : " << width << "px" << endl; 
 	cout << " - height : " << height << "px" << endl;
 	cout << " - memory size : " << (3 * width * height * sizeof(float)) / 8 << " bytes" << endl;
-
-	cout << endl;
-
 	cout << "Generating texture cube.." << endl;
 
 	Generate();
@@ -139,12 +136,10 @@ void HDRTextureCube::Generate() {
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 	
-	cout << endl;
 	cout << "HDR Texture parameters : " << endl;
 	cout << " - Format: " << ((Format == GL_RGB) ? "RGB" : "") << endl;
 	cout << " - Type : " << ((Type == GL_FLOAT) ? "Float" : "") << endl;
 	cout << " - Internal Format : " << ((InternalFormat == GL_RGB8) ? "RGB8" : "RGB16F") << endl;
-	cout << endl;
 
 	for(int i = 0; i < 6; ++i) {
 		Face *f = faces[i];

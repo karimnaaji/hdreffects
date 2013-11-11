@@ -34,7 +34,7 @@ void App::MainLoop() {
         float mod = fmodf(time, 1.0f);
         
         if(mod < lastMod) {
-            //Debug::Instance() << "FPS: " << frames << endl;
+            Debug::Instance() << "FPS: " << frames << endl;
             frames = 0;
         }
 
@@ -90,8 +90,6 @@ void App::InitGLFW() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     
-    /* Create a windowed mode window and its OpenGL context */
-
     string appName = "HDR Image Based Lighting";
 
     if(fullscreen)
