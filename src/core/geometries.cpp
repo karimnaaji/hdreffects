@@ -33,10 +33,10 @@ Geometry* Geometries::Cube(float size) {
 
 Geometry* Geometries::Quad(float size) {
     float vertices[] = {
-        -size,  size, size,
-        -size, -size, size,
-         size, -size, size,
-         size, size, size,
+        -size,  size, 0.0f,
+        -size, -size, 0.0f,
+         size, -size, 0.0f,
+         size,  size, 0.0f,
     };
 
     unsigned int indices[] = {

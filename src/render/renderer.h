@@ -24,10 +24,11 @@ public:
 	void Render();
 	void Init();
 private:
+    void SetCurrentShader(Shader* shader);
 	void SendDefaultUniforms();
 	void RenderCubeMap();
 	void LoadShaders();
-	void LoadCubeMap();
+	void LoadMeshes();
 	void CreateFrameBuffer(GLuint renderTexture);
 	GLuint CreateTexture(int width, int height, bool isDepth = false);
 
@@ -37,6 +38,7 @@ private:
 	ShaderLibrary* shaderLibrary;
 	CubeMap* cubemap;
     Mesh* sphere;
+    Mesh* vignette;
 
 	Shader* _shader;
 };

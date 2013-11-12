@@ -12,14 +12,16 @@ Renderer::~Renderer() {
 	delete shaderLibrary;
     delete cubemap;
     delete sphere;
+    delete vignette;
 }
 
 void Renderer::LoadShaders() {
 	shaderLibrary->AddShader(string("fresnel"));
     shaderLibrary->AddShader(string("cubemap"));
+    shaderLibrary->AddShader(string("vignette"));
 }
 
-void Renderer::LoadCubeMap() {
+void Renderer::LoadMeshes() {
     HDRTextureCube* hdrTextureCube = new HDRTextureCube();
     hdrTextureCube->Load(string("uffizi_cross"));
     
@@ -32,15 +34,21 @@ void Renderer::LoadCubeMap() {
     materialSphere->AddTexture(hdrTextureCube);
     //glm::vec4 materialColour = glm::vec4(1.0);
     //materialSphere->SetColour(materialColour);
-    sphere = new Mesh(ObjParser::Parse("sphere+torus"), materialSphere);
+    sphere = new Mesh(ObjParser::Parse("bunny"), materialSphere);
     sphere->CreateBufferData();
+    
+    Material* materialVignette = new Material(shaderLibrary->GetShader("vignette"));
+    vignette = new Mesh(Geometries::Quad(1.0f), materialVignette);
+    vignette->CreateBufferData();
 }
 
 void Renderer::Init() {
 	glClearColor(1, 1, 1, 1);
 
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     LoadShaders();
-    LoadCubeMap();
+    LoadMeshes();
 }
 
 void Renderer::Render() {
@@ -48,15 +56,22 @@ void Renderer::Render() {
 
     RenderCubeMap();
 
-    _shader = sphere->GetMaterial()->Bind();
-    SendDefaultUniforms();
+    SetCurrentShader(sphere->GetMaterial()->Bind());
     sphere->Draw();
+
+    //glEnable(GL_BLEND);
+    //SetCurrentShader(vignette->GetMaterial()->Bind());
+    //vignette->Draw();
+    //glDisable(GL_BLEND);
+}
+
+void Renderer::SetCurrentShader(Shader* shader) {
+    _shader = shader;
+    SendDefaultUniforms();
 }
 
 void Renderer::RenderCubeMap() {
-    _shader = cubemap->GetMaterial()->Bind();
-    SendDefaultUniforms();
-
+    SetCurrentShader(cubemap->GetMaterial()->Bind());
     cubemap->Draw();
 }
 
@@ -78,7 +93,6 @@ void Renderer::CreateFrameBuffer(GLuint renderTexture) {
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 
     glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, renderTexture, 0);
-
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
