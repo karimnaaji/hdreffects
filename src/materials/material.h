@@ -12,6 +12,7 @@ class Material {
 		virtual Shader* Bind();
 		virtual void UnBind();
         void AddTexture(Texture* texture);
+        void ClearTextures();
         void SetColour(glm::vec4& colour);
 	protected:
 		Shader* shader;	

@@ -32,7 +32,6 @@ int main(int argc, char *argv[]) {
         App app(width, height, fullscreen);
         
         app.Init();
-        app.DisplayGraphicInfo();
         app.MainLoop();
         Debug::Release();
     } catch (const exception& e) {

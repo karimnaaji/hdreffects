@@ -2,20 +2,29 @@
 
 Geometry* ObjParser::Parse(string filename) {
     string path = string(OBJ_RELATIVE_PATH) + filename + string(OBJ_EXT);
-    std::ifstream f(path.c_str(), ios::in);
 
-    if(!f) {
+    ifstream file(path.c_str(), ios::in); 
+    if(!file) {
         cerr << "Can't open file " << path << endl;
         return NULL;
     }
 
-    cout << "Loading " << path << ".." << endl;
+    int lines = 0; 
+    while(file.ignore(std::numeric_limits<int>::max(), '\n')) { 
+        ++lines; 
+    } 
+    file.close();
+
+    ifstream f(path.c_str(), ios::in);
+
+    cout << "Loading " << path << ".. " << endl;
 
     string token;
     vector<glm::vec3> vertices;
     vector<glm::vec3> normals;
     vector<glm::vec2> uvs;
     vector<glm::vec3> interleavedArray;
+    int currentLine = 0;
 
     while(!f.eof()) {
         f >> token; 
@@ -63,8 +72,23 @@ Geometry* ObjParser::Parse(string filename) {
                 }
             }
         }
+        currentLine++;
+
+        float ratio = currentLine/(float)lines;
+        int barWidth = 50;
+        cout << "[";
+        int pos = barWidth * ratio;
+        for (int i = 0; i < barWidth; ++i) {
+            if (i < pos) cout << "=";
+            else if (i == pos) cout << ">";
+            else cout << " ";
+        }
+        cout << "] " << int(ratio * 100.0) << " %\r";
+        cout.flush();
     }
     f.close();
+
+    cout << endl;
 
     cout << "Loaded model :" << endl;
     cout << " - " << interleavedArray.size() / 2 << " vertices" << endl;

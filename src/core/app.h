@@ -9,6 +9,8 @@
 
 using namespace std;
 
+#define MAX_FPS 60
+
 class App {
 public:
 	App(int width, int height, bool fullscreen);
@@ -29,6 +31,8 @@ private:
 	GLFWwindow* window;
 	Renderer* renderer;
 	Camera camera;
+    vector<string> environments;
+    int currentEnvIndex;
 };
 
 #endif
