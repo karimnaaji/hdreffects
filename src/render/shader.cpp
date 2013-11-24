@@ -38,6 +38,10 @@ GLuint Shader::Program() const {
 	return program;
 }
 
+void Shader::Use() const {
+	glUseProgram(Program());
+}
+
 bool Shader::IsInUse() const {
     GLint currentProgram = 0;
     glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);

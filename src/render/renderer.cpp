@@ -2,7 +2,6 @@
 
 Renderer::Renderer(int width, int height, Camera* camera_) {
 	shaderLibrary = new ShaderLibrary();
-
     camera = camera_;
 
 	_shader = NULL;
@@ -86,31 +85,4 @@ void Renderer::SendDefaultUniforms() {
     _shader->SendUniform("mvp", mvp);
     _shader->SendUniform("normalMatrix", normalMatrix);
     _shader->SendUniform("camPosition", camera->GetPosition());
-}
-
-void Renderer::CreateFrameBuffer(GLuint renderTexture) {
-    glGenFramebuffers(1, &fbo);
-    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-
-    glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, renderTexture, 0);
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
-
-GLuint Renderer::CreateTexture(int width, int height, bool isDepth) {
-    GLuint textureId;
-
-    glGenTextures(1, &textureId);
-    glBindTexture(GL_TEXTURE_2D, textureId);
-
-    GLenum internalFormat = isDepth ? GL_DEPTH_COMPONENT : GL_RGBA8;
-    GLenum format = isDepth ? GL_DEPTH_COMPONENT : GL_RGBA;
-
-    glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_FLOAT, NULL);                
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-    glBindTexture(GL_TEXTURE_2D, 0);
-
-    return textureId;
 }

@@ -6,9 +6,9 @@ in vec3 normal;
 uniform mat4 mvp;
 uniform vec3 camPosition;
 
-const float etaR = 0.65;
-const float etaG = 0.67;
-const float etaB = 0.69;
+const float etaR = 0.64;
+const float etaG = 0.65;
+const float etaB = 0.66;
 const float fresnelPower = 6.0;
 
 const float f = ((1.0-etaG)*(1.0-etaG)) / ((1.0+etaG)*(1.0+etaG));

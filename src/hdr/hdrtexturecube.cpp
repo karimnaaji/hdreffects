@@ -128,23 +128,22 @@ GLuint HDRTextureCube::Bind() {
 
 void HDRTextureCube::Generate() {
 	glGenTextures(1, &textureId);
+
 	glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
-
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-	
-	cout << "HDR Texture parameters : " << endl;
-	cout << " - Format: " << ((Format == GL_RGB) ? "RGB" : "") << endl;
-	cout << " - Type : " << ((Type == GL_FLOAT) ? "Float" : "") << endl;
-	cout << " - Internal Format : " << ((InternalFormat == GL_RGB8) ? "RGB8" : "RGB16F") << endl;
-
-	for(int i = 0; i < 6; ++i) {
-		Face *f = faces[i];
-		glTexImage2D(CubeMapFace[i], 0, InternalFormat, f->width, f->height, 0, Format, Type, f->data);
-	}
-
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+        
+        for(int i = 0; i < 6; ++i) {
+            Face *f = faces[i];
+            glTexImage2D(CubeMapFace[i], 0, InternalFormat, f->width, f->height, 0, Format, Type, f->data);
+        }
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+    cout << "HDR Texture parameters : " << endl;
+    cout << " - Format: " << ((Format == GL_RGB) ? "RGB" : "") << endl;
+    cout << " - Type : " << ((Type == GL_FLOAT) ? "Float" : "") << endl;
+    cout << " - Internal Format : " << ((InternalFormat == GL_RGB8) ? "RGB8" : "RGB16F") << endl;
 }

@@ -33,9 +33,6 @@ class HDRTextureCube : public Texture {
         void FlipHorizontal(Face* face);
         void FlipVertical(Face* face);
 
-		int width;
-		int height;
-		
 		Face **faces;
 
 		const GLenum CubeMapFace[6] { 

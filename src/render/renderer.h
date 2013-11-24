@@ -17,30 +17,26 @@
 using namespace std;
 
 class Renderer {
-public:
-	Renderer(int width, int height, Camera* camera);
-	~Renderer();
+    public:
+        Renderer(int width, int height, Camera* camera);
+        ~Renderer();
 
-	void Render();
-	void Init();
-private:
-    void SetCurrentShader(Shader* shader);
-	void SendDefaultUniforms();
-	void RenderCubeMap();
-	void LoadShaders();
-	void LoadMeshes();
-	void CreateFrameBuffer(GLuint renderTexture);
-	GLuint CreateTexture(int width, int height, bool isDepth = false);
+        void Render();
+        void Init();
+    private:
+        void SetCurrentShader(Shader* shader);
+        void SendDefaultUniforms();
+        void RenderCubeMap();
+        void LoadShaders();
+        void LoadMeshes();
 
-	GLuint fbo;
-	GLuint renderTexture;
-	Camera* camera;
-	ShaderLibrary* shaderLibrary;
-	CubeMap* cubemap;
-    Mesh* sphere;
-    Mesh* vignette;
+        Camera* camera;
+        ShaderLibrary* shaderLibrary;
+        CubeMap* cubemap;
+        Mesh* sphere;
+        Mesh* vignette;
 
-	Shader* _shader;
+        Shader* _shader;
 };
 
 #endif

@@ -21,6 +21,7 @@ class Shader {
 		void Init();
 		string GetName() const;
 		bool IsInUse() const;
+        void Use() const;
 
 		void SendUniform(string name, Texture* texture);
 		void SendUniform(string name, float value);

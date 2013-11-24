@@ -12,9 +12,6 @@
 
 class ObjParser {
     public:
-        ObjParser();
-        ~ObjParser();
-
         static Geometry* Parse(string filename);
 };
 

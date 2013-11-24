@@ -11,7 +11,7 @@ Material::~Material() {
 Shader* Material::Bind() {
     glEnable(GL_DEPTH_TEST);
 
-	glUseProgram(shader->Program());
+    shader->Use();
 
     vector<Texture*>::iterator it;
     for(it = textures.begin(); it != textures.end(); ++it) {

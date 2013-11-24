@@ -7,7 +7,6 @@ cmake_install.cmake
 #other
 report
 tags
-run.sh
 
 
 #compiled source
