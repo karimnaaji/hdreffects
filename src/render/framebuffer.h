@@ -22,6 +22,7 @@ class Framebuffer {
         Texture* renderTexture;
         bool depth;
         GLuint id;
+        GLuint depthId;
 };
 
 #endif

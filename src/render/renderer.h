@@ -26,12 +26,11 @@ class Renderer {
         void Render();
         void Init();
     private:
-        void SetCurrentShader(Shader* shader);
         void SendDefaultUniforms();
         void RenderCubeMap();
         void LoadShaders();
         void LoadMeshes();
-        void DrawMesh(Mesh* mesh);
+        void DrawMesh(Mesh* mesh, bool sendDefaultUniforms = true);
         int width, height;
 
         Camera* camera;

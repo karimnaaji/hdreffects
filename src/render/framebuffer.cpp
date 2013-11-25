@@ -8,6 +8,8 @@ Framebuffer::Framebuffer(int width_, int height_, bool depth_) {
 }
 
 Framebuffer::~Framebuffer() {
+    glDeleteRenderbuffers(1, &depthId);
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glDeleteFramebuffers(1, &id);
 }
 
@@ -16,8 +18,8 @@ void Framebuffer::Resize(int width, int height) {
 }
 
 void Framebuffer::Start() const {
-    Clear();
     glBindFramebuffer(GL_FRAMEBUFFER, id);
+    Clear();
 }
 
 void Framebuffer::End() const {
@@ -25,6 +27,7 @@ void Framebuffer::End() const {
 }
 
 void Framebuffer::Bind(Shader* shader) const {
+    // TODO : move this to renderer
     shader->Use();
     renderTexture->Bind();
     shader->SendUniform(renderTexture->GetName(), renderTexture);
@@ -43,6 +46,13 @@ void Framebuffer::AttachTexture(Texture* renderTexture_) {
 void Framebuffer::Init() {
     glGenFramebuffers(1, &id);
     glBindFramebuffer(GL_FRAMEBUFFER, id);
-    glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, renderTexture->TextureId(), 0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, renderTexture->TextureId(), 0);
+
+    // TODO : make a test if we want depth testing to take place to this fbo
+    glGenRenderbuffers(1, &depthId);
+    glBindRenderbuffer(GL_RENDERBUFFER_EXT, depthId);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, width, height);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthId);
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }

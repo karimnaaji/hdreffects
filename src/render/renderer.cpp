@@ -38,7 +38,7 @@ void Renderer::LoadMeshes() {
     materialModel->AddTexture(hdrTextureCube);
     //glm::vec4 materialColour = glm::vec4(1.0);
     //materialModel->SetColour(materialColour);
-    model = new Mesh(ObjParser::Parse("cube"), materialModel);
+    model = new Mesh(ObjParser::Parse("sphere+torus"), materialModel);
     model->CreateBufferData();
 
     Material* materialQuad = new Material(shaderLibrary->GetShader("bloom"));
@@ -74,8 +74,7 @@ void Renderer::Render() {
     bloomPass->End();
 
     bloomPass->Bind(shaderLibrary->GetShader("bloom"));
-    quad->GetMaterial()->Bind();
-    quad->Draw();
+    DrawMesh(quad, false);
 
     //glEnable(GL_BLEND);
     //SetCurrentShader(vignette->GetMaterial()->Bind());
@@ -83,13 +82,12 @@ void Renderer::Render() {
     //glDisable(GL_BLEND);
 }
 
-void Renderer::SetCurrentShader(Shader* shader) {
-    _shader = shader;
-    SendDefaultUniforms();
-}
-
-void Renderer::DrawMesh(Mesh* mesh) {
-    SetCurrentShader(mesh->GetMaterial()->Bind());
+void Renderer::DrawMesh(Mesh* mesh, bool sendDefaultUniforms) {
+    Shader* shader = mesh->GetMaterial()->Bind();
+    if(sendDefaultUniforms) {
+        _shader = shader;
+        SendDefaultUniforms();
+    }
     mesh->Draw();
 }
 
