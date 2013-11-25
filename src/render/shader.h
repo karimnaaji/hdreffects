@@ -22,11 +22,13 @@ class Shader {
 		string GetName() const;
 		bool IsInUse() const;
         void Use() const;
+        void Release() const;
 
 		void SendUniform(string name, Texture* texture);
 		void SendUniform(string name, float value);
 		void SendUniform(string name, glm::mat4 mat);
         void SendUniform(string name, glm::mat3 mat);
+		void SendUniform(string name, glm::vec2 vec);
 		void SendUniform(string name, glm::vec3 vec);
 		void SendUniform(string name, glm::vec4 vec);
 

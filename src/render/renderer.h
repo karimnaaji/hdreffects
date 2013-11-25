@@ -13,6 +13,8 @@
 #include "shaderlibrary.h"
 #include "cubemap.h"
 #include "objparser.h"
+#include "framebuffer.h"
+#include "texture.h"
 
 using namespace std;
 
@@ -29,14 +31,18 @@ class Renderer {
         void RenderCubeMap();
         void LoadShaders();
         void LoadMeshes();
+        void DrawMesh(Mesh* mesh);
+        int width, height;
 
         Camera* camera;
         ShaderLibrary* shaderLibrary;
         CubeMap* cubemap;
-        Mesh* sphere;
-        Mesh* vignette;
+        Mesh* model;
+        Mesh* quad;
 
         Shader* _shader;
+        Texture* renderTexture;
+        Framebuffer* bloomPass;
 };
 
 #endif

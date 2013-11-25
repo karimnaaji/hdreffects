@@ -1,26 +1,38 @@
 #include "framebuffer.h"
 
-Framebuffer::Framebuffer(bool depth_) {
+Framebuffer::Framebuffer(int width_, int height_, bool depth_) {
     id = 0;
     depth = depth_;
+    width = width_;
+    height = height_;
 }
 
 Framebuffer::~Framebuffer() {
     glDeleteFramebuffers(1, &id);
 }
 
-void Framebuffer::Bind(Shader* shader) const {
-    shader->Use();
-    glBindFramebuffer(GL_FRAMEBUFFER, id);
-    renderTexture->Bind();
-    shader->SendUniform(renderTexture->GetName(), renderTexture);
+void Framebuffer::Resize(int width, int height) {
+    // TODO resize frame buffer and texture
 }
 
-void Framebuffer::Unbind() const {
+void Framebuffer::Start() const {
+    Clear();
+    glBindFramebuffer(GL_FRAMEBUFFER, id);
+}
+
+void Framebuffer::End() const {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void Framebuffer::Clear() {
+void Framebuffer::Bind(Shader* shader) const {
+    shader->Use();
+    renderTexture->Bind();
+    shader->SendUniform(renderTexture->GetName(), renderTexture);
+    shader->SendUniform("resolution", glm::vec2(width, height));
+    shader->Release();
+}
+
+void Framebuffer::Clear() const {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

@@ -5,9 +5,9 @@ then
     date >> out.log 
     if [[ -z $1 ]] 
     then
-       ./hdr.out 2>> out.log
+       ./hdr.out #2>> out.log
     else 
-       ./hdr.out -w $1 -h $2 -f $3 2>> out.log
+       ./hdr.out -w $1 -h $2 -f $3 #2>> out.log
     fi
 
     #print todos

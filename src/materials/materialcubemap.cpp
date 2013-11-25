@@ -10,6 +10,7 @@ Shader* MaterialCubeMap::Bind() {
 	Material::Bind();
 
 	glDisable(GL_DEPTH_TEST);
+
 	return shader;
 }
 

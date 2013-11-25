@@ -1,19 +1,27 @@
 #include "texture.h"
 
-Texture::Texture(string name_) : Format(GL_RGB), Type(GL_FLOAT), InternalFormat(GL_RGB8) {
-    textureIndex = 0;
+Texture::Texture(string name_, GLuint textureIndex_) : 
+Format(GL_RGBA), 
+Type(GL_UNSIGNED_BYTE), 
+InternalFormat(GL_RGB16F_ARB) {
+    textureId = 0;
     name = name_;
+    textureIndex = textureIndex_;
 }
 
-Texture::Texture(string name_, int width_, int height_) : Format(GL_RGB), Type(GL_FLOAT), InternalFormat(GL_RGB8) {
-    textureIndex = 0;
+Texture::Texture(string name_, int width_, int height_, GLint internalFormat, GLuint textureIndex_) :
+Format(GL_RGBA),
+Type(GL_UNSIGNED_BYTE) {
+    InternalFormat = internalFormat;
+    textureId = 0;
     name = name_;
     width = width_;
     height = height_;
+    textureIndex = textureIndex_;
 }
 
 Texture::~Texture() {
-    glDeleteTextures(1, &textureIndex);
+    glDeleteTextures(1, &textureId);
 }
 
 void Texture::Load(string filename) {
@@ -41,20 +49,22 @@ void Texture::Resize(int width_, int height_) {
 }
 
 GLuint Texture::Bind() {
-    glBindTexture(GL_TEXTURE_2D, textureIndex);
-    return textureIndex;
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    return textureId;
 }
 
 void Texture::Unbind() {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture::Generate() {
-    glGenTextures(1, &textureIndex);
+void Texture::Init() {
+    glGenTextures(1, &textureId);
 
     Bind();
         glTexImage2D(GL_TEXTURE_2D, 0, InternalFormat, width, height, 0, Format, Type, NULL);                
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     Unbind();
 }

@@ -37,6 +37,6 @@ include_directories(${GLEW_INCLUDE_DIRS})
 include_directories(${OpenGL_INCLUDE_DIRS})
 include_directories(${INCLUDE_DIRS})
 
-add_executable(build/hdr.out ${SOURCES})
+add_executable(hdr.out ${SOURCES})
 
-target_link_libraries(build/hdr.out rgbe ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${GLEW_LIBRARY})
+target_link_libraries(hdr.out rgbe ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${GLEW_LIBRARY})

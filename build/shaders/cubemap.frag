@@ -15,12 +15,6 @@ void main(void) {
     float L = luminance(color.rgb);
    
     L = L / (L + 1);
-    /*
-    if(L < 1.0 && L > 0)
-        out_colour = vec4(L); 
-    else 
-        out_colour = vec4(1, 0, 0, 1);
-        */
     out_colour = color;
 }
 

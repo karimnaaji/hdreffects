@@ -39,7 +39,12 @@ GLuint Shader::Program() const {
 }
 
 void Shader::Use() const {
-	glUseProgram(Program());
+    if(!IsInUse())
+	    glUseProgram(Program());
+}
+
+void Shader::Release() const {
+    glUseProgram(0);
 }
 
 bool Shader::IsInUse() const {
@@ -105,7 +110,8 @@ GLuint Shader::CreateShader(GLenum type, string& file) {
 
 		glGetShaderInfoLog(shader, sizeof(error), NULL, error);
 
-		cout << error;
+        cerr << "In shader: " << file << endl;
+		cerr << error << endl;
 		throw runtime_error("Can't compile shader " + file + " (" + name + ")");
 	} 
 
@@ -140,6 +146,11 @@ void Shader::SendUniform(string name, float value) {
 void Shader::SendUniform(string name, Texture* texture) {
 	assert(IsInUse());
 	glUniform1i(Uniform(name), texture->TextureIndex());
+}
+
+void Shader::SendUniform(string name, glm::vec2 vec) {
+	assert(IsInUse());
+	glUniform2f(Uniform(name), vec[0], vec[1]);
 }
 
 void Shader::SendUniform(string name, glm::vec3 vec) {

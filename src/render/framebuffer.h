@@ -7,15 +7,18 @@
 
 class Framebuffer {
     public:
-        Framebuffer(bool depth = false);
+        Framebuffer(int width, int height, bool depth = false);
         ~Framebuffer();
 
+        void Start() const;
+        void End() const;
         void Bind(Shader* shader) const;
-        void Unbind() const;
         void Init();
-        void Clear();
+        void Clear() const;
         void AttachTexture(Texture* renderTexture);
+        void Resize(int width, int height);
     private:
+        int width, height;
         Texture* renderTexture;
         bool depth;
         GLuint id;

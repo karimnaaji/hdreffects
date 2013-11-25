@@ -64,6 +64,7 @@ Geometry* ObjParser::Parse(string filename) {
             for(int i = 0; i < 6; ++i) {
                 ss >> faceToken;
                 if(faceToken.find_first_not_of("\t\n ") != string::npos) {
+                    // fast forward loader.. indices are not used as they should be
                     if(i % 2 == 0) {
                         interleavedArray.push_back(vertices[atoi(faceToken.c_str()) - 1]);
                     } else {
@@ -74,6 +75,7 @@ Geometry* ObjParser::Parse(string filename) {
         }
         currentLine++;
 
+        // so useless.. but fun, think that it may also increase loading time, but anyway..
         float ratio = currentLine/(float)lines;
         int barWidth = 50;
         cout << "[";

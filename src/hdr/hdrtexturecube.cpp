@@ -37,8 +37,6 @@ void HDRTextureCube::Load(const string fileName) {
 	cout << " - height : " << height << "px" << endl;
 	cout << " - memory size : " << (3 * width * height * sizeof(float)) / 8 << " bytes" << endl;
 	cout << "Generating texture cube.." << endl;
-
-	Generate();
 }
 
 void HDRTextureCube::LoadFaces() {
@@ -126,7 +124,7 @@ GLuint HDRTextureCube::Bind() {
 	return textureId;
 }
 
-void HDRTextureCube::Generate() {
+void HDRTextureCube::Init() {
 	glGenTextures(1, &textureId);
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);

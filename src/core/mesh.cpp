@@ -57,6 +57,7 @@ void Mesh::CreateBufferData() {
     glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec3), geometry->GetVertices(), GL_STATIC_DRAW);
 
     if(geometry->IsInterleaved()) {
+        // unfortunately.. wavefront loader should really be improved to reorganize indices not to use interleaved
         glVertexAttribPointer(VERTEX_BUFFER, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), 0);
         glEnableVertexAttribArray(VERTEX_BUFFER);
         glVertexAttribPointer(NORMAL_BUFFER, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (const GLvoid*)(3 * sizeof(float)));

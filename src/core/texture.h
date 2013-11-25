@@ -6,12 +6,13 @@
 
 class Texture {
     public:
-        Texture(string name);
-        Texture(string name, int width, int height);
+        Texture(string name, GLuint textureIndex = 0);
+        Texture(string name, int width, int height, GLint internalFormat, GLuint textureIndex = 0); 
         virtual ~Texture();
 
         virtual void Load(string filename);
         virtual GLuint Bind();
+        virtual void Init();
         void Unbind();
         GLuint TextureId() const;
         GLuint TextureIndex() const;
@@ -26,7 +27,6 @@ class Texture {
         GLenum InternalFormat;
 
         float* data;
-        virtual void Generate();
         int width, height;
         string name;
 };

@@ -27,9 +27,9 @@ class HDRTextureCube : public Texture {
 
 		void Load(const string fileName);
         GLuint Bind();
+		void Init();
 	private:
 		void LoadFaces();
-		void Generate();
         void FlipHorizontal(Face* face);
         void FlipVertical(Face* face);
 

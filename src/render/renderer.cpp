@@ -1,8 +1,10 @@
 #include "renderer.h"
 
-Renderer::Renderer(int width, int height, Camera* camera_) {
+Renderer::Renderer(int width_, int height_, Camera* camera_) {
 	shaderLibrary = new ShaderLibrary();
     camera = camera_;
+    width = width_;
+    height = height_;
 
 	_shader = NULL;
 }
@@ -10,53 +12,70 @@ Renderer::Renderer(int width, int height, Camera* camera_) {
 Renderer::~Renderer() {
 	delete shaderLibrary;
     delete cubemap;
-    delete sphere;
-    delete vignette;
+    delete model;
+    delete renderTexture;
+    delete bloomPass;
+    delete quad;
 }
 
 void Renderer::LoadShaders() {
 	shaderLibrary->AddShader(string("fresnel"));
     shaderLibrary->AddShader(string("cubemap"));
-    shaderLibrary->AddShader(string("vignette"));
+    shaderLibrary->AddShader(string("bloom"));
 }
 
 void Renderer::LoadMeshes() {
     HDRTextureCube* hdrTextureCube = new HDRTextureCube();
     hdrTextureCube->Load(string("uffizi_cross"));
+    hdrTextureCube->Init();
     
     MaterialCubeMap* materialCubeMap = new MaterialCubeMap(shaderLibrary->GetShader("cubemap"), hdrTextureCube);
 
     cubemap = new CubeMap(materialCubeMap);
     cubemap->CreateBufferData();
 
-    Material* materialSphere = new Material(shaderLibrary->GetShader("fresnel"));
-    materialSphere->AddTexture(hdrTextureCube);
+    Material* materialModel = new Material(shaderLibrary->GetShader("fresnel"));
+    materialModel->AddTexture(hdrTextureCube);
     //glm::vec4 materialColour = glm::vec4(1.0);
-    //materialSphere->SetColour(materialColour);
-    sphere = new Mesh(ObjParser::Parse("bunny"), materialSphere);
-    sphere->CreateBufferData();
+    //materialModel->SetColour(materialColour);
+    model = new Mesh(ObjParser::Parse("cube"), materialModel);
+    model->CreateBufferData();
+
+    Material* materialQuad = new Material(shaderLibrary->GetShader("bloom"));
+    quad = new Mesh(Geometries::Quad(1.0f), materialQuad);
+    quad->CreateBufferData();
     
-    Material* materialVignette = new Material(shaderLibrary->GetShader("vignette"));
-    vignette = new Mesh(Geometries::Quad(1.0f), materialVignette);
-    vignette->CreateBufferData();
+    //Material* materialVignette = new Material(shaderLibrary->GetShader("vignette"));
+    //vignette = new Mesh(Geometries::Quad(1.0f), materialVignette);
+    //vignette->CreateBufferData();
 }
 
 void Renderer::Init() {
-	glClearColor(1, 1, 1, 1);
+	glClearColor(56.0/255, 101.0/255, 190.0/255, 1);
 
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     LoadShaders();
     LoadMeshes();
+
+    bloomPass = new Framebuffer(width, height);
+    renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
+    renderTexture->Init();
+    bloomPass->AttachTexture(renderTexture);
+    bloomPass->Init();
 }
 
 void Renderer::Render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    RenderCubeMap();
+    bloomPass->Start();
+        DrawMesh(cubemap);
+        DrawMesh(model);
+    bloomPass->End();
 
-    SetCurrentShader(sphere->GetMaterial()->Bind());
-    sphere->Draw();
+    bloomPass->Bind(shaderLibrary->GetShader("bloom"));
+    quad->GetMaterial()->Bind();
+    quad->Draw();
 
     //glEnable(GL_BLEND);
     //SetCurrentShader(vignette->GetMaterial()->Bind());
@@ -69,9 +88,9 @@ void Renderer::SetCurrentShader(Shader* shader) {
     SendDefaultUniforms();
 }
 
-void Renderer::RenderCubeMap() {
-    SetCurrentShader(cubemap->GetMaterial()->Bind());
-    cubemap->Draw();
+void Renderer::DrawMesh(Mesh* mesh) {
+    SetCurrentShader(mesh->GetMaterial()->Bind());
+    mesh->Draw();
 }
 
 void Renderer::SendDefaultUniforms() {
