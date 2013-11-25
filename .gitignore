@@ -8,7 +8,6 @@ cmake_install.cmake
 report
 tags
 
-
 #compiled source
 *.o
 *.out
