@@ -33,6 +33,8 @@ class Renderer {
         void RenderCubeMap();
         void LoadShaders();
         void LoadMeshes();
+        void BloomPass();
+        void BrightPass();
         void DrawMesh(Mesh* mesh, bool sendDefaultUniforms = true);
         int width, height;
 

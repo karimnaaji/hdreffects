@@ -49,8 +49,13 @@ void Texture::Resize(int width_, int height_) {
 }
 
 GLuint Texture::Bind() {
+    glActiveTexture(TextureUnitFromIndex(textureIndex));
     glBindTexture(GL_TEXTURE_2D, textureId);
     return textureId;
+}
+
+void Texture::SetTextureIndex(GLuint index) {
+    textureIndex = index;
 }
 
 void Texture::Unbind() {
@@ -67,4 +72,14 @@ void Texture::Init() {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     Unbind();
+}
+
+GLuint Texture::TextureUnitFromIndex(GLuint index) {
+    switch(index) {
+        case 1: return GL_TEXTURE1;
+        case 2: return GL_TEXTURE2;
+        case 3: return GL_TEXTURE3;
+        case 4: return GL_TEXTURE4;
+        default: return GL_TEXTURE0;
+    }
 }

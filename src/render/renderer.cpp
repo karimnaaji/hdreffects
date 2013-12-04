@@ -24,10 +24,11 @@ Renderer::~Renderer() {
 void Renderer::LoadShaders() {
 	shaderLibrary->AddShader(string("fresnel"));
     shaderLibrary->AddShader(string("cubemap"));
-    shaderLibrary->AddShader(string("bloom"));
+    shaderLibrary->AddShader(string("compose"));
     shaderLibrary->AddShader(string("brightpass"));
     shaderLibrary->AddShader(string("blur"));
     shaderLibrary->AddShader(string("default"));
+    shaderLibrary->AddShader(string("bloom"));
 }
 
 void Renderer::LoadMeshes() {
@@ -97,30 +98,45 @@ void Renderer::SwapBuffers() {
 void Renderer::Render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    Shader* brightpass = shaderLibrary->GetShader("brightpass");
-    Shader* bloom = shaderLibrary->GetShader("bloom");
-    Shader* hblur = shaderLibrary->GetShader("hblur");
-    Shader* blur = shaderLibrary->GetShader("blur");
-
     writeFBO->Start();
         DrawMesh(cubemap);
         DrawMesh(model);
     writeFBO->End();
 
-    /*
     SwapBuffers();
     
+    BrightPass();
+    BloomPass();
+    
+    readFBO->Bind(shaderLibrary->GetShader("default"));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
+    DrawMesh(quad, false);
+
+    //glEnable(GL_BLEND);
+    //SetCurrentShader(vignette->GetMaterial()->Bind());
+    //vignette->Draw();
+    //glDisable(GL_BLEND);
+}
+
+void Renderer::BrightPass() {
+    Shader* brightpass = shaderLibrary->GetShader("brightpass");
+
     writeFBO->Start();
         readFBO->Bind(brightpass);
         quad->GetMaterial()->SetShader(brightpass);
         DrawMesh(quad, false);
     writeFBO->End();
-    */
 
     SwapBuffers();
-    
+}
+
+void Renderer::BloomPass() {
+    Shader* blur = shaderLibrary->GetShader("blur");
+    Shader* compose = shaderLibrary->GetShader("compose");
+    Shader* bloom = shaderLibrary->GetShader("bloom");
+
     float downScale = 1.0;
-    for(int i = 0; i < 4; ++i) {
+    for(int i = 0; i < MAX_DOWNSCALE_FBO; ++i) {
         downScale *= 2.0;
         downScaleFBO[i]->Start(1/downScale);
             readFBO->Bind(shaderLibrary->GetShader("default"), glm::vec2(width/downScale, height/downScale));
@@ -128,26 +144,39 @@ void Renderer::Render() {
             DrawMesh(quad, false);
         downScaleFBO[i]->End();
     }
-    
-    for(int i = 0; i < 30; ++i) {
-        writeFBO->Start();
-            readFBO->Bind(blur);
-            quad->GetMaterial()->SetShader(blur);
+
+    Framebuffer* lowResFBO = downScaleFBO[MAX_DOWNSCALE_FBO - 1];
+
+    writeFBO->Start(1/downScale);
+        lowResFBO->Bind(shaderLibrary->GetShader("default"), glm::vec2(width/downScale, height/downScale));
+        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
+        DrawMesh(quad, false);
+    writeFBO->End();
+
+    SwapBuffers();
+
+    for(int i = MAX_DOWNSCALE_FBO - 1; i >= 1; i--) {
+        for(int j = 0; j < 4; ++j) {
+            writeFBO->Start(1/downScale);
+                readFBO->Bind(blur, glm::vec2(width/downScale, height/downScale));
+                quad->GetMaterial()->SetShader(blur);
+                DrawMesh(quad, false);
+            writeFBO->End();
+
+            SwapBuffers();
+        }
+
+        writeFBO->Start(1/(downScale/2));
+            readFBO->Bind(compose, string("blurLowRes"));
+            downScaleFBO[i-1]->GetRenderTexture()->SetTextureIndex(1);
+            downScaleFBO[i-1]->Bind(compose, glm::vec2(width/(downScale/2), height/(downScale/2)), string("texHighRes"));
+            quad->GetMaterial()->SetShader(compose);
             DrawMesh(quad, false);
         writeFBO->End();
 
         SwapBuffers();
+        downScale /= 2;
     }
-
-    readFBO->Bind(shaderLibrary->GetShader("default"));
-    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
-    DrawMesh(quad, false);
-
-
-    //glEnable(GL_BLEND);
-    //SetCurrentShader(vignette->GetMaterial()->Bind());
-    //vignette->Draw();
-    //glDisable(GL_BLEND);
 }
 
 void Renderer::DrawMesh(Mesh* mesh, bool sendDefaultUniforms) {

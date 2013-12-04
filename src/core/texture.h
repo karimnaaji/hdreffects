@@ -18,7 +18,9 @@ class Texture {
         GLuint TextureIndex() const;
         string GetName() const;
         void Resize(int width, int height);
+        void SetTextureIndex(GLuint index);
     protected:
+        GLuint TextureUnitFromIndex(GLuint index);
         GLuint textureIndex;
         GLuint textureId;
 
