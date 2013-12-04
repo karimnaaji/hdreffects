@@ -16,12 +16,18 @@ Renderer::~Renderer() {
     delete quad;
     delete writeFBO;
     delete readFBO;
+    for(int i = 0; i < MAX_DOWNSCALE_FBO; ++i) {
+        delete downScaleFBO[i];
+    }
 }
 
 void Renderer::LoadShaders() {
 	shaderLibrary->AddShader(string("fresnel"));
     shaderLibrary->AddShader(string("cubemap"));
     shaderLibrary->AddShader(string("bloom"));
+    shaderLibrary->AddShader(string("brightpass"));
+    shaderLibrary->AddShader(string("blur"));
+    shaderLibrary->AddShader(string("default"));
 }
 
 void Renderer::LoadMeshes() {
@@ -41,7 +47,7 @@ void Renderer::LoadMeshes() {
     model = new Mesh(ObjParser::Parse("sphere"), materialModel);
     model->CreateBufferData();
 
-    Material* materialQuad = new Material(shaderLibrary->GetShader("bloom"));
+    Material* materialQuad = new Material();
     quad = new Mesh(Geometries::Quad(1.0f), materialQuad);
     quad->CreateBufferData();
     
@@ -58,10 +64,20 @@ void Renderer::Init() {
     LoadShaders();
     LoadMeshes();
 
+    Texture* renderTexture;
+
     writeFBO = new Framebuffer(width, height);
     readFBO = new Framebuffer(width, height);
+    
+    for(int i = 0; i < MAX_DOWNSCALE_FBO; ++i) {
+        downScaleFBO[i] = new Framebuffer(width, height);
+        renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
+        renderTexture->Init();
+        downScaleFBO[i]->AttachTexture(renderTexture);
+        downScaleFBO[i]->Init();
+    }
 
-    Texture* renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
+    renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
     renderTexture->Init();
     writeFBO->AttachTexture(renderTexture);
     renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
@@ -81,13 +97,52 @@ void Renderer::SwapBuffers() {
 void Renderer::Render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    writeFBO->Start(1/2.0);
+    Shader* brightpass = shaderLibrary->GetShader("brightpass");
+    Shader* bloom = shaderLibrary->GetShader("bloom");
+    Shader* hblur = shaderLibrary->GetShader("hblur");
+    Shader* blur = shaderLibrary->GetShader("blur");
+
+    writeFBO->Start();
         DrawMesh(cubemap);
         DrawMesh(model);
     writeFBO->End();
 
-    writeFBO->Bind(shaderLibrary->GetShader("bloom"));
+    /*
+    SwapBuffers();
+    
+    writeFBO->Start();
+        readFBO->Bind(brightpass);
+        quad->GetMaterial()->SetShader(brightpass);
+        DrawMesh(quad, false);
+    writeFBO->End();
+    */
+
+    SwapBuffers();
+    
+    float downScale = 1.0;
+    for(int i = 0; i < 4; ++i) {
+        downScale *= 2.0;
+        downScaleFBO[i]->Start(1/downScale);
+            readFBO->Bind(shaderLibrary->GetShader("default"), glm::vec2(width/downScale, height/downScale));
+            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
+            DrawMesh(quad, false);
+        downScaleFBO[i]->End();
+    }
+    
+    for(int i = 0; i < 30; ++i) {
+        writeFBO->Start();
+            readFBO->Bind(blur);
+            quad->GetMaterial()->SetShader(blur);
+            DrawMesh(quad, false);
+        writeFBO->End();
+
+        SwapBuffers();
+    }
+
+    readFBO->Bind(shaderLibrary->GetShader("default"));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
     DrawMesh(quad, false);
+
 
     //glEnable(GL_BLEND);
     //SetCurrentShader(vignette->GetMaterial()->Bind());

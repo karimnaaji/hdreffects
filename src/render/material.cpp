@@ -4,8 +4,16 @@ Material::Material(Shader* shader_) : shader(shader_) {
     materialColour = glm::vec4(1.0, 1.0, 1.0, 0.0);
 }
 
+Material::Material() {
+    materialColour = glm::vec4(1.0, 1.0, 1.0, 0.0);
+}
+
 Material::~Material() {
     ClearTextures();
+}
+
+void Material::SetShader(Shader* shader_) {
+    shader = shader_;
 }
 
 Shader* Material::Bind() {

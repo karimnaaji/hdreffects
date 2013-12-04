@@ -42,13 +42,17 @@ void Framebuffer::End() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void Framebuffer::Bind(Shader* shader) const {
+void Framebuffer::Bind(Shader* shader, glm::vec2 resolution) const {
     // TODO : move this to renderer
     shader->Use();
     renderTexture->Bind();
     shader->SendUniform(renderTexture->GetName(), renderTexture);
-    shader->SendUniform("resolution", glm::vec2(width, height));
+    shader->SendUniform("resolution", resolution);
     shader->Release();
+}
+
+void Framebuffer::Bind(Shader* shader) const {
+    Bind(shader, glm::vec2(width, height));
 }
 
 void Framebuffer::Clear() const {

@@ -18,6 +18,8 @@
 
 using namespace std;
 
+#define MAX_DOWNSCALE_FBO 4
+
 class Renderer {
     public:
         Renderer(int width, int height, Camera* camera);
@@ -43,6 +45,7 @@ class Renderer {
         Shader* _shader;
         Framebuffer* readFBO;
         Framebuffer* writeFBO;
+        Framebuffer* downScaleFBO[MAX_DOWNSCALE_FBO];
 };
 
 #endif

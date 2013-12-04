@@ -7,6 +7,7 @@
 class Material {
 	public:
 		Material(Shader* shader_);
+        Material();
 		virtual ~Material();
 
 		virtual Shader* Bind();
@@ -14,6 +15,7 @@ class Material {
         void AddTexture(Texture* texture);
         void ClearTextures();
         void SetColour(glm::vec4& colour);
+        void SetShader(Shader* shader);
 	protected:
 		Shader* shader;	
         glm::vec4 materialColour;

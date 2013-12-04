@@ -12,6 +12,7 @@ class Framebuffer {
 
         void Start(float downSamplingRatio = 1.0);
         void End();
+        void Bind(Shader* shader, glm::vec2 resolution) const;
         void Bind(Shader* shader) const;
         void Init();
         void Clear() const;
