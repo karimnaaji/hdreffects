@@ -13,9 +13,9 @@ Renderer::~Renderer() {
 	delete shaderLibrary;
     delete cubemap;
     delete model;
-    delete renderTexture;
-    delete bloomPass;
     delete quad;
+    delete writeFBO;
+    delete readFBO;
 }
 
 void Renderer::LoadShaders() {
@@ -38,7 +38,7 @@ void Renderer::LoadMeshes() {
     materialModel->AddTexture(hdrTextureCube);
     //glm::vec4 materialColour = glm::vec4(1.0);
     //materialModel->SetColour(materialColour);
-    model = new Mesh(ObjParser::Parse("sphere+torus"), materialModel);
+    model = new Mesh(ObjParser::Parse("sphere"), materialModel);
     model->CreateBufferData();
 
     Material* materialQuad = new Material(shaderLibrary->GetShader("bloom"));
@@ -58,22 +58,35 @@ void Renderer::Init() {
     LoadShaders();
     LoadMeshes();
 
-    bloomPass = new Framebuffer(width, height);
+    writeFBO = new Framebuffer(width, height);
+    readFBO = new Framebuffer(width, height);
+
+    Texture* renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
+    renderTexture->Init();
+    writeFBO->AttachTexture(renderTexture);
     renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
     renderTexture->Init();
-    bloomPass->AttachTexture(renderTexture);
-    bloomPass->Init();
+    readFBO->AttachTexture(renderTexture);
+
+    writeFBO->Init();
+    readFBO->Init();
+}
+
+void Renderer::SwapBuffers() {
+    Framebuffer* tmp = readFBO;
+    readFBO = writeFBO;
+    writeFBO = tmp;
 }
 
 void Renderer::Render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    bloomPass->Start();
+    writeFBO->Start(1/2.0);
         DrawMesh(cubemap);
         DrawMesh(model);
-    bloomPass->End();
+    writeFBO->End();
 
-    bloomPass->Bind(shaderLibrary->GetShader("bloom"));
+    writeFBO->Bind(shaderLibrary->GetShader("bloom"));
     DrawMesh(quad, false);
 
     //glEnable(GL_BLEND);
@@ -87,8 +100,22 @@ void Renderer::DrawMesh(Mesh* mesh, bool sendDefaultUniforms) {
     if(sendDefaultUniforms) {
         _shader = shader;
         SendDefaultUniforms();
+        mesh->Draw();
+    } else {
+        mesh->Draw();
+        /*for(int i = 0; i < 4; i++) {
+            glm::vec3 shift = glm::vec3((i % 2) * 0.5 / width, (i / 2) * 0.5 / height, 0);
+            glm::mat4 aa = glm::translate(glm::mat4(1.0), shift);
+            glm::mat4 view = camera->GetViewMatrix();
+            glm::mat4 projection = camera->GetProjectionMatrix();
+            glm::mat4 mvp = aa * projection * view;
+            shader->SendUniform("aamvp", mvp);
+            mesh->Draw();
+            glAccum(i ? GL_ACCUM : GL_LOAD, 0.25);
+        }
+        glAccum(GL_RETURN, 1);
+        */
     }
-    mesh->Draw();
 }
 
 void Renderer::SendDefaultUniforms() {

@@ -11,18 +11,34 @@ Framebuffer::~Framebuffer() {
     glDeleteRenderbuffers(1, &depthId);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glDeleteFramebuffers(1, &id);
+    delete renderTexture;
 }
 
-void Framebuffer::Resize(int width, int height) {
-    // TODO resize frame buffer and texture
+void Framebuffer::Resize(int width_, int height_) {
+    width = width_;
+    height = height_;
+
+    // TODO : only if depth
+    glBindRenderbuffer(GL_RENDERBUFFER_EXT, depthId);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, width, height);
+    renderTexture->Resize(width, height);
 }
 
-void Framebuffer::Start() const {
+void Framebuffer::ScaleRenderTarget(float ratio) {
+    renderTexture->Resize(width * ratio, height * ratio);
+}
+
+void Framebuffer::Start(float downSamplingRatio) {
+    assert(downSamplingRatio <= 1.0);
+    //down scale render target
+    ScaleRenderTarget(downSamplingRatio);
+    glViewport(0, 0, width * downSamplingRatio, height * downSamplingRatio);
     glBindFramebuffer(GL_FRAMEBUFFER, id);
     Clear();
 }
 
-void Framebuffer::End() const {
+void Framebuffer::End() {
+    glViewport(0, 0, width, height);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
@@ -41,6 +57,14 @@ void Framebuffer::Clear() const {
 
 void Framebuffer::AttachTexture(Texture* renderTexture_) {
     renderTexture = renderTexture_;
+}
+
+int Framebuffer::Width() const {
+    return width;
+}
+
+int Framebuffer::Height() const {
+    return height;
 }
 
 void Framebuffer::Init() {

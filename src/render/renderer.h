@@ -26,6 +26,7 @@ class Renderer {
         void Render();
         void Init();
     private:
+        void SwapBuffers();
         void SendDefaultUniforms();
         void RenderCubeMap();
         void LoadShaders();
@@ -40,8 +41,8 @@ class Renderer {
         Mesh* quad;
 
         Shader* _shader;
-        Texture* renderTexture;
-        Framebuffer* bloomPass;
+        Framebuffer* readFBO;
+        Framebuffer* writeFBO;
 };
 
 #endif

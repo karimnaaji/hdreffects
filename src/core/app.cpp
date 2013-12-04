@@ -144,6 +144,7 @@ void App::Init() {
     DisplayGraphicInfo();
 
     camera.SetAspectRatio(width / height);
+    //camera.SetFov(100);
 
 	renderer = new Renderer(width, height, &camera);
 

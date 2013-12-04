@@ -26,6 +26,7 @@ class Camera {
 
 		void Translate(glm::vec3 vec);
 		void Rotate(glm::vec2 rotation);
+        void SetFov(float fov);
 
 		void LookAt(glm::vec3 point);
 		void NormalizeAngles();
