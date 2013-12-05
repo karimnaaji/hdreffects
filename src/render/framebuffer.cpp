@@ -48,7 +48,6 @@ void Framebuffer::Bind(Shader* shader, glm::vec2 resolution, string textureName)
     renderTexture->Bind();
     shader->SendUniform(textureName, renderTexture);
     shader->SendUniform("resolution", resolution);
-    shader->Release();
 }
 
 void Framebuffer::Bind(Shader* shader, string textureName) const {

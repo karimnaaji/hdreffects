@@ -2,6 +2,7 @@
 
 uniform sampler2D renderTexture;
 uniform vec2 resolution;
+uniform float threshold;
 
 out vec4 outColour;
 
@@ -14,7 +15,7 @@ void main(void) {
     vec4 colour = texture(renderTexture, uv);
     float l = luminance(colour.xyz);
 
-    if(l > 0.5) {
+    if(l > threshold) {
         outColour = vec4(vec3(l), 1.0);
     } else {
         outColour = vec4(0.0, 0.0, 0.0, 1.0);

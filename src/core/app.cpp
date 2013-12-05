@@ -1,4 +1,5 @@
 #include "app.h"
+#include "glfwfunc.h"
 
 App::App(int width_, int height_, bool fullscreen_) : width(width_), height(height_), fullscreen(fullscreen_) {}
 
@@ -126,6 +127,8 @@ void App::InitGLFW() {
 
     glfwSetCursorPos(window, 0, 0);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    glfwSetKeyCallback(window, KeyCallback);
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);

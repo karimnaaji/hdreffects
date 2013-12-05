@@ -6,6 +6,7 @@
 #include <stdexcept>
 
 #include "graphics.h"
+#include "globals.h"
 
 #include "mesh.h"
 #include "shader.h"
@@ -45,6 +46,7 @@ class Renderer {
         Mesh* quad;
 
         Shader* _shader;
+        Framebuffer* mainFBO;
         Framebuffer* readFBO;
         Framebuffer* writeFBO;
         Framebuffer* downScaleFBO[MAX_DOWNSCALE_FBO];
