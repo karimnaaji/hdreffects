@@ -29,6 +29,9 @@ void Renderer::LoadShaders() {
     shaderLibrary->AddShader(string("blur"));
     shaderLibrary->AddShader(string("default"));
     shaderLibrary->AddShader(string("bloom"));
+    shaderLibrary->AddShader(string("tonemap"));
+    shaderLibrary->AddShader(string("ghost"));
+    shaderLibrary->AddShader(string("rgbshift"));
 }
 
 void Renderer::LoadMeshes() {
@@ -100,7 +103,7 @@ void Renderer::SwapBuffers() {
     writeFBO = tmp;
 }
 
-void Renderer::Render() {
+void Renderer::Render(float time) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     mainFBO->Start();
@@ -110,15 +113,75 @@ void Renderer::Render() {
 
     SwapBuffers();
     
+    Framebuffer* buffer;
     if(doBloom) {
-        BrightPass();
-        BloomPass();
-    
-        readFBO->Bind(shaderLibrary->GetShader("default"));
-    } else {
-        mainFBO->Bind(shaderLibrary->GetShader("default"));
-    }
+        BrightPass(brightThreshold);
+        //BloomPass(time);
 
+        float downScale = 4.0;
+        BrightPass(6.0);
+        writeFBO->Start(1/downScale);
+            readFBO->Bind(shaderLibrary->GetShader("ghost"), glm::vec2(width/downScale, height/downScale));
+            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("ghost"));
+            DrawMesh(quad, false);
+        writeFBO->End();
+
+        SwapBuffers();
+
+        for(int j = 0; j < 3; ++j) {
+            writeFBO->Start(1/downScale);
+                readFBO->Bind(shaderLibrary->GetShader("blur"), glm::vec2(width/downScale, height/downScale));
+                quad->GetMaterial()->SetShader(shaderLibrary->GetShader("blur"));
+                DrawMesh(quad, false);
+            writeFBO->End();
+
+            SwapBuffers();
+        }
+
+        writeFBO->Start();
+            readFBO->Bind(shaderLibrary->GetShader("rgbshift"));
+            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("rgbshift"));
+            DrawMesh(quad, false);
+        writeFBO->End();
+
+        SwapBuffers();
+        
+        writeFBO->Start();
+            mainFBO->Bind(shaderLibrary->GetShader("compose"), string("sampler2"));
+            readFBO->GetRenderTexture()->SetTextureIndex(1);
+            readFBO->Bind(shaderLibrary->GetShader("compose"), string("sampler1"));
+            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("compose"));
+            DrawMesh(quad, false);
+        writeFBO->End();
+
+        readFBO->GetRenderTexture()->SetTextureIndex(0);
+        
+        SwapBuffers();
+        
+        buffer = readFBO;
+    } else {
+        buffer = mainFBO;
+    }
+    
+    /*float downScale = height;
+    writeFBO->Start(1/downScale);
+        buffer->Bind(shaderLibrary->GetShader("default"), glm::vec2(width/downScale, height/downScale));
+        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
+        DrawMesh(quad, false);
+    writeFBO->End();
+
+    SwapBuffers();
+    */
+ /*   
+    writeFBO->Start();
+        mainFBO->Bind(shaderLibrary->GetShader("tonemap"));
+        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("tonemap"));
+        DrawMesh(quad, false);
+    writeFBO->End();
+
+    SwapBuffers();
+*/
+    readFBO->Bind(shaderLibrary->GetShader("default"));
     quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
     DrawMesh(quad, false);
 
@@ -128,12 +191,12 @@ void Renderer::Render() {
     //glDisable(GL_BLEND);
 }
 
-void Renderer::BrightPass() {
+void Renderer::BrightPass(float threshold) {
     Shader* brightpass = shaderLibrary->GetShader("brightpass");
 
     writeFBO->Start();
         mainFBO->Bind(brightpass);
-        brightpass->SendUniform("threshold", brightThreshold);
+        brightpass->SendUniform("threshold", threshold);
         quad->GetMaterial()->SetShader(brightpass);
         DrawMesh(quad, false);
     writeFBO->End();
@@ -141,7 +204,7 @@ void Renderer::BrightPass() {
     SwapBuffers();
 }
 
-void Renderer::BloomPass() {
+void Renderer::BloomPass(float time) {
     Shader* blur = shaderLibrary->GetShader("blur");
     Shader* compose = shaderLibrary->GetShader("compose");
     Shader* bloom = shaderLibrary->GetShader("bloom");
@@ -178,9 +241,9 @@ void Renderer::BloomPass() {
         }
 
         writeFBO->Start(1/(downScale/2));
-            readFBO->Bind(compose, string("blurLowRes"));
+            readFBO->Bind(compose, string("sampler2"));
             downScaleFBO[i-1]->GetRenderTexture()->SetTextureIndex(1);
-            downScaleFBO[i-1]->Bind(compose, glm::vec2(width/(downScale/2), height/(downScale/2)), string("texHighRes"));
+            downScaleFBO[i-1]->Bind(compose, glm::vec2(width/(downScale/2), height/(downScale/2)), string("sampler1"));
             quad->GetMaterial()->SetShader(compose);
             DrawMesh(quad, false);
         writeFBO->End();
@@ -194,6 +257,8 @@ void Renderer::BloomPass() {
         readFBO->GetRenderTexture()->SetTextureIndex(1);
         readFBO->Bind(bloom, string("bloom"));
         bloom->SendUniform("bloomFactor", bloomFactor);
+        bloom->SendUniform("addNoise", addNoise);
+        bloom->SendUniform("time", time);
         quad->GetMaterial()->SetShader(bloom);
         DrawMesh(quad, false);
     writeFBO->End();

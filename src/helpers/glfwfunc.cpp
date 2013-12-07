@@ -3,7 +3,11 @@
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if(key == 'B' && action == GLFW_RELEASE) {
         doBloom = !doBloom;
-    } 
+    }
+    if(key == 'X' && action == GLFW_RELEASE) {
+        std::cout << addNoise << std::endl;
+        addNoise = !addNoise;
+    }
     if(key == 'N') {
         brightThreshold += 0.01f;
         brightThreshold = brightThreshold > 1.0f ? 1.0f : brightThreshold;

@@ -23,7 +23,7 @@ void App::MainLoop() {
 
         if(frames * 4 < MAX_FPS) {
             /* render scene in buffer */
-            renderer->Render();
+            renderer->Render(time);
 
             /* Swap front and back buffers */
             glfwSwapBuffers(window);

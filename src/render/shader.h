@@ -26,6 +26,7 @@ class Shader {
 
 		void SendUniform(string name, Texture* texture);
 		void SendUniform(string name, float value);
+        void SendUniform(string name, int value);
 		void SendUniform(string name, glm::mat4 mat);
         void SendUniform(string name, glm::mat3 mat);
 		void SendUniform(string name, glm::vec2 vec);

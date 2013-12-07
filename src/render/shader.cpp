@@ -143,6 +143,11 @@ void Shader::SendUniform(string name, float value) {
     glUniform1f(Uniform(name), value);
 }
 
+void Shader::SendUniform(string name, int value) {
+	assert(IsInUse());
+    glUniform1i(Uniform(name), value);
+}
+
 void Shader::SendUniform(string name, Texture* texture) {
 	assert(IsInUse());
 	glUniform1i(Uniform(name), texture->TextureIndex());

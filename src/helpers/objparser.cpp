@@ -74,19 +74,6 @@ Geometry* ObjParser::Parse(string filename) {
             }
         }
         currentLine++;
-
-        // so useless.. but fun, think that it may also increase loading time, but anyway..
-        float ratio = currentLine/(float)lines;
-        int barWidth = 50;
-        cout << "[";
-        int pos = barWidth * ratio;
-        for (int i = 0; i < barWidth; ++i) {
-            if (i < pos) cout << "=";
-            else if (i == pos) cout << ">";
-            else cout << " ";
-        }
-        cout << "] " << int(ratio * 100.0) << " %\r";
-        cout.flush();
     }
     f.close();
 

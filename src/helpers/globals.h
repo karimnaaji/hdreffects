@@ -5,5 +5,6 @@ extern bool doBloom;
 extern float brightThreshold;
 extern float bloomFactor;
 extern int blurPass;
+extern int addNoise;
 
 #endif

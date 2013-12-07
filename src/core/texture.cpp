@@ -74,6 +74,13 @@ void Texture::Init() {
     Unbind();
 }
 
+void Texture::SetFiltering(GLint filtering) {
+    Bind();
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filtering);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filtering);
+    Unbind();
+}
+
 GLuint Texture::TextureUnitFromIndex(GLuint index) {
     switch(index) {
         case 1: return GL_TEXTURE1;

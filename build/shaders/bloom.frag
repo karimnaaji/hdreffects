@@ -5,19 +5,54 @@ out vec4 outColour;
 uniform sampler2D tex;
 uniform sampler2D bloom;
 uniform vec2 resolution;
+uniform int addNoise;
+uniform float time;
 uniform float bloomFactor;
+
+mat2 m = mat2(0.8, 0.6, -0.6, 0.8);
+
+float hash(vec2 p) {
+	float h = dot(p,vec2(127.1,311.7));
+    return -1.0 + 2.0*fract(sin(h)*43758.5453123);
+}
+
+float noise(in vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+	vec2 u = f*f*(3.0-2.0*f);
+    return mix(mix(hash(i + vec2(0.0,0.0)), 
+                   hash(i + vec2(1.0,0.0)), u.x),
+               mix(hash(i + vec2(0.0,1.0)), 
+                   hash(i + vec2(1.0,1.0)), u.x), u.y);
+}
+
+float fbm(vec2 p) {
+	float f = 0.0;
+	f += 0.5000 * noise(p); p *= m*2.02;
+	f += 0.2500 * noise(p); p *= m*2.03;
+	f += 0.1250 * noise(p); p *= m*2.01;
+	f += 0.0625 * noise(p); p *= m*2.04;
+	f /= 0.9375; 
+	return f;
+}
+
+float luminance(vec3 color) {
+    return dot(color.rgb, vec3(0.2126, 0.7152, 0.0722));
+}
+
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
 
 void main(void) {
     vec2 uv = gl_FragCoord.xy / resolution;
     vec3 color = texture(tex, uv).rgb;
     vec3 colorBloom = texture(bloom, uv).rgb;
 
-    color += colorBloom * bloomFactor;
-    //float exposure = 0.9;
-    //float brightThreshold = 0.5;
-    //float Y = dot(vec3(0.30, 0.59, 0.11), color.rgb);
-    //float YD = exposure * (exposure/brightThreshold + 1.0) / (exposure + 1.0);
-    //color *= YD;
+    if(addNoise == 1) {
+		float f = fbm(vec2(80.0 * uv));
+		colorBloom += 0.1 * luminance(colorBloom) * colorBloom * (1.0-f);
+	}	
 
-    outColour = vec4(color, 1.0);
+    outColour = vec4(color + colorBloom * bloomFactor, 1.0);
 }

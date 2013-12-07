@@ -26,7 +26,7 @@ class Renderer {
         Renderer(int width, int height, Camera* camera);
         ~Renderer();
 
-        void Render();
+        void Render(float time);
         void Init();
     private:
         void SwapBuffers();
@@ -34,8 +34,8 @@ class Renderer {
         void RenderCubeMap();
         void LoadShaders();
         void LoadMeshes();
-        void BloomPass();
-        void BrightPass();
+        void BloomPass(float time);
+        void BrightPass(float threshold);
         void DrawMesh(Mesh* mesh, bool sendDefaultUniforms = true);
         int width, height;
 
