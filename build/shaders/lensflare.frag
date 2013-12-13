@@ -52,28 +52,33 @@ float luminance(vec3 color) {
 }
 
 void main() {
-   vec2 uv = (-gl_FragCoord.xy / resolution)+vec2(1.0); 
-   vec2 ghostDir = (vec2(0.5) - uv) * dispertion;
-   
-   vec4 result = vec4(0.0);
-   for (int i = 0; i < ghosts; ++i) { 
+    vec2 uv = (-gl_FragCoord.xy / resolution)+vec2(1.0); 
+    vec2 ghostDir = (vec2(0.5) - uv) * dispertion;
+
+    vec4 result = vec4(0.0);
+    for (int i = 0; i < ghosts; ++i) { 
       vec2 offset = fract(uv + ghostDir * float(i));
       float weight = length(vec2(0.5) - offset) / length(vec2(0.5));
       weight = pow(weight + 0.2, 3.0 * abs(-i-1));
       result += texture(renderTexture, offset) * max(weight, 1.0);
-      result *= (i * (1.0/(2.0*ghosts)));
-   }
-      
-   //float dist = length(uv - vec2(0.5,0.5));
-   //float weight = smoothstep(0.6,0.3, dist);
-   result += (result * vec4(pattern(uv), 1.0));
-   /*vec2 p = -1.0 + 2.0 * uv;
+      //result *= (i * (1.0/(3.0*ghosts)));
+    }
 
-   float r1 = dot(p,p);
-   float a1 = atan(p.y, p.x);
-   float f1 = fbm(vec2(r1,80.0*a1));
+    //vec2 haloVec = normalize(ghostDir) * 2.0;
+    //float weight = length(vec2(0.5) - fract(uv + haloVec)) / length(vec2(0.5));
+    //weight = pow(1.0 - weight, 5.0);
+    //result = texture(renderTexture, uv + haloVec) * weight;
+     
+    //float dist = length(uv - vec2(0.5,0.5));
+    //float weight = smoothstep(0.6,0.3, dist);
+    result += (result * vec4(pattern(uv), 1.0));
+    /*vec2 p = -1.0 + 2.0 * uv;
 
-   result *= f1;*/
+    float r1 = dot(p,p);
+    float a1 = atan(p.y, p.x);
+    float f1 = fbm(vec2(r1,80.0*a1));
 
-   outColour = result;
+    result *= f1;*/
+
+    outColour = result;
 }

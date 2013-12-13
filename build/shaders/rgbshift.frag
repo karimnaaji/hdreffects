@@ -5,7 +5,7 @@ uniform vec2 resolution;
 
 out vec4 outColour;
 
-float distortStrength = 2.0;
+float distortStrength = 1.0;
 float dispersion = 0.15;
 
 void main() {
