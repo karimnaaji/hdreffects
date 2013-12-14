@@ -15,5 +15,7 @@ void main(void) {
     l += texture(renderTexture, uv + vec2(        0.0, texelSize.y)).r;
     l += texture(renderTexture, uv + vec2(texelSize.x, texelSize.y)).r;
 
+    l = l / 4.0;
+
     outColour = vec4(l, 1.0, 1.0, 1.0);
 }
