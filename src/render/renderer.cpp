@@ -127,6 +127,10 @@ void Renderer::Render(float time) {
         Capture();
     }
 
+    if(doToneMapping) {
+        ToneMap(time);
+        Capture();
+    }
     /*
     float downScale = 8.0;
     BrightPass(3.0);
@@ -169,69 +173,67 @@ void Renderer::Render(float time) {
     SwapBuffers();
     */
 
-    // TODO : delete main fbo, instead, save the main texture
-    
-    if(doToneMapping) {
-        writeFBO->Start();
-            mainFBO->Bind(shaderLibrary->GetShader("luminance"));
-            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("luminance"));
-            DrawMesh(quad, false);
-        writeFBO->End();
-        
-        SwapBuffers();
-        
-        float n = max(height, width);
-        float count = 0;
-        while((n /= 2) > 1) {
-            count++;
-        }
-        
-        writeFBO->GetRenderTexture()->SetFiltering(GL_NEAREST);
-        readFBO->GetRenderTexture()->SetFiltering(GL_NEAREST);
-        float downScale = 2;
-        for(int i = 0; i < count; ++i) {
-            writeFBO->Start(1/downScale);
-            readFBO->Bind(shaderLibrary->GetShader("lumavg"), glm::vec2(width/downScale, height/downScale));
-            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("lumavg"));
-            DrawMesh(quad, false);
-            writeFBO->End();
-
-            SwapBuffers();
-            downScale *= 2;
-        }
-        writeFBO->GetRenderTexture()->SetFiltering(GL_LINEAR);
-        readFBO->GetRenderTexture()->SetFiltering(GL_LINEAR);
-        
-        // use pbo and read asynchronously -> optimization
-        /*int textureWidth, textureHeight;
-        readFBO->GetRenderTexture()->Bind();
-        glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &textureWidth);
-        glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &textureHeight);
-        GLfloat* pixels = new GLfloat[textureWidth*textureHeight*4];
-        glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, pixels);
-        //cout << textureWidth << " " << textureHeight << " ";
-        cout << pixels[0] << " " << pixels[0] / (width * height) << endl;
-        delete[] pixels;
-        */
-        writeFBO->Start();
-            mainFBO->Bind(shaderLibrary->GetShader("tonemap"));
-            readFBO->GetRenderTexture()->SetTextureIndex(1);
-            readFBO->Bind(shaderLibrary->GetShader("tonemap"), string("sampler"));
-            shaderLibrary->GetShader("tonemap")->SendUniform("time", time);
-            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("tonemap"));
-            DrawMesh(quad, false);
-        writeFBO->End();
-
-        readFBO->GetRenderTexture()->SetTextureIndex(0);
-
-        SwapBuffers();
-
-        Capture();
-    }
-     
     mainFBO->Bind(shaderLibrary->GetShader("default"));
     quad->GetMaterial()->SetShader(shaderLibrary->GetShader("default"));
     DrawMesh(quad, false);
+}
+
+void Renderer::ToneMap(float time) {
+    writeFBO->Start();
+    mainFBO->Bind(shaderLibrary->GetShader("luminance"));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("luminance"));
+    DrawMesh(quad, false);
+    writeFBO->End();
+    
+    SwapBuffers();
+    
+    float n = max(height, width);
+    float count = 0;
+    while((n /= 2) > 1) {
+        count++;
+    }
+    
+    writeFBO->GetRenderTexture()->SetFiltering(GL_NEAREST);
+    readFBO->GetRenderTexture()->SetFiltering(GL_NEAREST);
+    float downScale = 2;
+    for(int i = 0; i < count; ++i) {
+        writeFBO->Start(1/downScale);
+        readFBO->Bind(shaderLibrary->GetShader("lumavg"), glm::vec2(width/downScale, height/downScale));
+        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("lumavg"));
+        DrawMesh(quad, false);
+        writeFBO->End();
+
+        SwapBuffers();
+        downScale *= 2;
+    }
+    writeFBO->GetRenderTexture()->SetFiltering(GL_LINEAR);
+    readFBO->GetRenderTexture()->SetFiltering(GL_LINEAR);
+    
+#if DEBUG
+    // use pbo and read asynchronously -> optimization
+    int textureWidth, textureHeight;
+    readFBO->GetRenderTexture()->Bind();
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &textureWidth);
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &textureHeight);
+    GLfloat* pixels = new GLfloat[textureWidth*textureHeight*4];
+    glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, pixels);
+    //cout << textureWidth << " " << textureHeight << " ";
+    cout << pixels[0] << " " << pixels[0] / (width * height) << endl;
+    delete[] pixels;
+#endif
+    
+    writeFBO->Start();
+    mainFBO->Bind(shaderLibrary->GetShader("tonemap"));
+    readFBO->GetRenderTexture()->SetTextureIndex(1);
+    readFBO->Bind(shaderLibrary->GetShader("tonemap"), string("sampler"));
+    shaderLibrary->GetShader("tonemap")->SendUniform("time", time);
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("tonemap"));
+    DrawMesh(quad, false);
+    writeFBO->End();
+
+    readFBO->GetRenderTexture()->SetTextureIndex(0);
+
+    SwapBuffers();
 }
 
 void Renderer::BrightPass(float threshold) {
@@ -316,22 +318,8 @@ void Renderer::DrawMesh(Mesh* mesh, bool sendDefaultUniforms) {
     if(sendDefaultUniforms) {
         _shader = shader;
         SendDefaultUniforms();
-        mesh->Draw();
-    } else {
-        mesh->Draw();
-        /*for(int i = 0; i < 4; i++) {
-            glm::vec3 shift = glm::vec3((i % 2) * 0.5 / width, (i / 2) * 0.5 / height, 0);
-            glm::mat4 aa = glm::translate(glm::mat4(1.0), shift);
-            glm::mat4 view = camera->GetViewMatrix();
-            glm::mat4 projection = camera->GetProjectionMatrix();
-            glm::mat4 mvp = aa * projection * view;
-            shader->SendUniform("aamvp", mvp);
-            mesh->Draw();
-            glAccum(i ? GL_ACCUM : GL_LOAD, 0.25);
-        }
-        glAccum(GL_RETURN, 1);
-        */
     }
+    mesh->Draw();
 }
 
 void Renderer::SendDefaultUniforms() {
