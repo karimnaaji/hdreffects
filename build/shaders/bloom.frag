@@ -28,10 +28,10 @@ float noise(in vec2 p) {
 
 float fbm(vec2 p) {
 	float f = 0.0;
-	f += 0.5000 * noise(p); p *= m*2.02;
-	f += 0.2500 * noise(p); p *= m*2.03;
-	f += 0.1250 * noise(p); p *= m*2.01;
-	f += 0.0625 * noise(p); p *= m*2.04;
+	f += 0.5000 * noise(p); p *= 2.02;
+	f += 0.2500 * noise(p); p *= 2.03;
+	f += 0.1250 * noise(p); p *= 2.01;
+	f += 0.0625 * noise(p); p *= 2.04;
 	f /= 0.9375; 
 	return f;
 }
@@ -44,15 +44,18 @@ float rand(vec2 co){
     return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
 }
 
+const float noiseSeed = 50.0;
+const float noiseStrength = 0.5;
+
 void main(void) {
     vec2 uv = gl_FragCoord.xy / resolution;
     vec3 color = texture(tex, uv).rgb;
     vec3 colorBloom = texture(bloom, uv).rgb;
 
     if(addNoise == 1) {
-		float f = fbm(vec2(80.0 * uv));
-		colorBloom += 0.1 * luminance(colorBloom) * colorBloom * (1.0-f);
-	}	
+		float f = fbm(vec2(noiseSeed * uv));
+		colorBloom += noiseStrength * bloomFactor * luminance(colorBloom) * colorBloom * abs(f);
+	} 
 
     outColour = vec4(color + colorBloom * bloomFactor, 1.0);
 }

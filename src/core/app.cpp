@@ -39,7 +39,7 @@ void App::MainLoop() {
         float mod = fmodf(time, 0.25f);
         
         if(mod < lastMod) {
-            cout << "FPS: " << frames * 4 << "\r";
+            Debug::Instance() << "FPS: " << frames * 4 << "\r";
             avgFps += frames * 4;
             cout.flush();
             frames = 0;
@@ -147,7 +147,7 @@ void App::Init() {
     DisplayGraphicInfo();
 
     camera.SetAspectRatio(width / height);
-    //camera.SetFov(100);
+    //camera.SetFov(80);
 
 	renderer = new Renderer(width, height, &camera);
 

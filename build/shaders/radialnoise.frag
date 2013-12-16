@@ -3,9 +3,6 @@
 uniform sampler2D renderTexture;
 uniform vec2 resolution;
 
-int ghosts = 7;
-float dispertion = 0.5;
-
 out vec4 outColour;
 
 float hash(vec2 p) {
@@ -46,28 +43,17 @@ vec3 pattern(vec2 uv) {
    return (1.0-f) * vec3(r,g,b);
 }
 
-float luminance(vec3 color) {
-    return dot(color.rgb, vec3(0.2126, 0.7152, 0.0722));
-}
-
 void main() {
-    vec2 uv = (-gl_FragCoord.xy / resolution)+vec2(1.0); 
-    vec2 ghostDir = (vec2(0.5) - uv) * dispertion;
+    vec2 uv = gl_FragCoord.xy / resolution; 
+    vec2 p = -1.0 + 2.0 * uv;
+    vec4 color = texture(renderTexture, uv);
+            
+    float r = dot(p, p);
+    float a = atan(p.y, p.x);
+    float f = fbm(vec2(r, 50.0 * a));
+    float w = length(vec2(0.5) - uv);
 
-    vec4 result = vec4(0.0);
-    for (int i = 0; i < ghosts; ++i) { 
-        vec2 offset = fract(uv + ghostDir * float(i));
-        float weight = length(vec2(0.5) - offset) / length(vec2(0.5));
-        weight = pow(1.0 - weight, 10.0);
-        result += texture(renderTexture, offset) * weight;
-    }
-    float patternWeight = 0.4 * length(vec2(0.5) - uv);
-    result = mix(result, result * vec4(pattern(uv), 1.0), 0.2);
+    f *= w;
 
-    vec2 haloVec = normalize(ghostDir) * 0.4;
-    float weight = length(vec2(0.5) - fract(uv + haloVec)) / length(vec2(0.5));
-    weight = pow(1.0 - weight, 5.0);
-    vec4 halo = texture(renderTexture, uv + haloVec) * weight;
-
-    outColour = 0.05 * result + 0.03 * halo;
+    outColour = mix(color, color * (1.0 - f), 0.1);
 }

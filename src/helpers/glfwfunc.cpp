@@ -7,36 +7,39 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     if(key == 'T' && action == GLFW_RELEASE) {
         doToneMapping = !doToneMapping;
     }
+    if(key == 'R' && action == GLFW_RELEASE) {
+        doCubicLens = !doCubicLens;
+    }
     if(key == 'X' && action == GLFW_RELEASE) {
-        std::cout << addNoise << std::endl;
+        Debug::Instance() << addNoise << std::endl;
         addNoise = !addNoise;
     }
     if(key == 'N') {
         brightThreshold += 0.01f;
-        std::cout << brightThreshold << std::endl;
+        Debug::Instance() << brightThreshold << std::endl;
     }
     if(key == 'J') {
         brightThreshold -= 0.01f;
         brightThreshold = brightThreshold < 0.0f ? 0.0f : brightThreshold;
-        std::cout << brightThreshold << std::endl;
+        Debug::Instance() << brightThreshold << std::endl;
     }
     if(key == 'V') {
         bloomFactor += 0.01f;
         bloomFactor = bloomFactor > 1.0f ? 1.0f : bloomFactor;
-        std::cout << bloomFactor << std::endl;
+        Debug::Instance() << bloomFactor << std::endl;
     }
     if(key == 'G') {
         bloomFactor -= 0.01f;
         bloomFactor = bloomFactor < 0.0f ? 0.0f : bloomFactor;
-        std::cout << bloomFactor << std::endl;
+        Debug::Instance() << bloomFactor << std::endl;
     }
     if(key == 'C' && action == GLFW_RELEASE) {
         blurPass++;
-        std::cout << blurPass << std::endl;
+        Debug::Instance() << blurPass << std::endl;
     }
     if(key == 'F' && action == GLFW_RELEASE) {
         blurPass--;
         blurPass = blurPass < 0 ? 0 : blurPass;
-        std::cout << blurPass << std::endl;
+        Debug::Instance() << blurPass << std::endl;
     }
 }

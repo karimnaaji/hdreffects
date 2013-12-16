@@ -36,9 +36,12 @@ class Renderer {
         void LoadMeshes();
         void BloomPass(float time);
         void BrightPass(float threshold);
+        void CubicLensPass();
+        void LensFlarePass();
         void ToneMap(float time);
         void Capture();
         void DrawMesh(Mesh* mesh, bool sendDefaultUniforms = true);
+        void SetFiltering(GLint filtering);
         int width, height;
 
         Camera* camera;
