@@ -185,15 +185,17 @@ void Renderer::Render(float time) {
     }
 
     if(doCubicLens) {
-        camera->SetFov(60);
+        //camera->SetFov(60);
         CubicLensPass();
         Capture();
     } else {
         camera->SetFov(45);
     }
 
-    LensFlarePass();
-    Capture();
+    if(doLensFlare) {
+        LensFlarePass();
+        Capture();
+    }
 
     if(doToneMapping) {
         ToneMap(time);

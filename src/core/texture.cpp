@@ -21,7 +21,7 @@ Type(GL_UNSIGNED_BYTE) {
 }
 
 Texture::~Texture() {
-    glDeleteTextures(1, &textureId);
+    DisposeGL();
 }
 
 void Texture::Load(string filename) {
@@ -38,6 +38,10 @@ GLuint Texture::TextureIndex() const {
 
 string Texture::GetName() const {
     return name;
+}
+
+void Texture::DisposeGL() {
+    glDeleteTextures(1, &textureId);
 }
 
 void Texture::Resize(int width_, int height_) {

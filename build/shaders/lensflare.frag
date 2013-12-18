@@ -3,8 +3,8 @@
 uniform sampler2D renderTexture;
 uniform vec2 resolution;
 
-int ghosts = 7;
-float dispertion = 0.5;
+int ghosts = 3;
+float dispertion = 0.3;
 
 out vec4 outColour;
 
@@ -62,12 +62,12 @@ void main() {
         result += texture(renderTexture, offset) * weight;
     }
     float patternWeight = 0.4 * length(vec2(0.5) - uv);
-    result = mix(result, result * vec4(pattern(uv), 1.0), 0.2);
+    result = mix(result, result * vec4(pattern(uv), 1.0), 0.6);
 
     vec2 haloVec = normalize(ghostDir) * 0.4;
     float weight = length(vec2(0.5) - fract(uv + haloVec)) / length(vec2(0.5));
     weight = pow(1.0 - weight, 5.0);
     vec4 halo = texture(renderTexture, uv + haloVec) * weight;
 
-    outColour = 0.05 * result + 0.03 * halo;
+    outColour = 0.06 * result + 0.03 * halo;
 }

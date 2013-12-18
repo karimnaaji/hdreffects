@@ -5,7 +5,7 @@ uniform vec2 resolution;
 
 out vec4 outColour;
 
-float k = -0.45;
+float k = -0.55;
 float dispersion = 0.01;
 float scale = 0.9;
 float etaR = 0.9, etaG = 0.6, etaB = 0.2;

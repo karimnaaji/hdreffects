@@ -1,6 +1,9 @@
 #include "glfwfunc.h"
 
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if(key == 'L' && action == GLFW_RELEASE) {
+        doLensFlare = !doLensFlare;
+    }
     if(key == 'B' && action == GLFW_RELEASE) {
         doBloom = !doBloom;
     }

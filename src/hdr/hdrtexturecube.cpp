@@ -8,7 +8,7 @@ HDRTextureCube::HDRTextureCube() : Texture("cubeMap")
 }
 
 HDRTextureCube::~HDRTextureCube() {
-	glDeleteTextures(6, &textureId);
+    DisposeGL();
 
 	for(int i = 0; i < 6; ++i) {
 		delete[] faces[i]->data;
@@ -16,6 +16,10 @@ HDRTextureCube::~HDRTextureCube() {
 	}
 	delete[] faces;
 	delete[] data;
+}
+
+void HDRTextureCube::DisposeGL() {
+	glDeleteTextures(6, &textureId);
 }
 
 void HDRTextureCube::Load(const string fileName) {

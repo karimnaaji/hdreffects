@@ -5,8 +5,8 @@ uniform vec2 resolution;
 
 out vec4 outColour;
 
-float distortStrength = 1.0;
-float dispersion = 0.15;
+const float distortStrength = 4.0;
+const float dispersion = 0.15;
 
 void main() {
     vec2 uv = gl_FragCoord.xy / resolution; 
