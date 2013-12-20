@@ -44,8 +44,8 @@ float rand(vec2 co){
     return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
 }
 
-const float noiseSeed = 50.0;
-const float noiseStrength = 0.5;
+const float noiseSeed = 20.0;
+const float noiseStrength = 0.3;
 
 void main(void) {
     vec2 uv = gl_FragCoord.xy / resolution;
@@ -54,7 +54,7 @@ void main(void) {
 
     if(addNoise == 1) {
 		float f = fbm(vec2(noiseSeed * uv));
-		colorBloom += noiseStrength * bloomFactor * luminance(colorBloom) * colorBloom * abs(f);
+		colorBloom += noiseStrength * luminance(colorBloom) * abs(f);
 	} 
 
     outColour = vec4(color + colorBloom * bloomFactor, 1.0);

@@ -55,5 +55,5 @@ void main() {
 
     f *= w;
 
-    outColour = mix(color, color * (1.0 - f), 0.4);
+    outColour = mix(color, color * f, 0.4);
 }

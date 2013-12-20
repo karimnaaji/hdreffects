@@ -132,15 +132,13 @@ void Renderer::LensFlarePass() {
 
     SwapBuffers();
     
-    for(int j = 0; j < 2; ++j) {
-        writeFBO->Start(1/downScale);
-            readFBO->Bind(shaderLibrary->GetShader("blur"), glm::vec2(width/downScale, height/downScale));
-            quad->GetMaterial()->SetShader(shaderLibrary->GetShader("blur"));
-            DrawMesh(quad, false);
-        writeFBO->End();
+    writeFBO->Start(1/downScale);
+        readFBO->Bind(shaderLibrary->GetShader("blur"), glm::vec2(width/downScale, height/downScale));
+        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("blur"));
+        DrawMesh(quad, false);
+    writeFBO->End();
 
-        SwapBuffers();
-    }
+    SwapBuffers();
 
     writeFBO->Start();
         readFBO->Bind(shaderLibrary->GetShader("rgbshift"));
@@ -185,11 +183,8 @@ void Renderer::Render(float time) {
     }
 
     if(doCubicLens) {
-        //camera->SetFov(60);
         CubicLensPass();
         Capture();
-    } else {
-        camera->SetFov(45);
     }
 
     if(doLensFlare) {
