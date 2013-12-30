@@ -50,7 +50,7 @@ void Shader::Release() const {
 bool Shader::IsInUse() const {
     GLint currentProgram = 0;
     glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
-    return (Program() == (GLint)currentProgram);
+    return (Program() == (GLuint)currentProgram);
 }
 
 void Shader::Link() {

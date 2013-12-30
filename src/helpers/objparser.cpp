@@ -46,14 +46,9 @@ Geometry* ObjParser::Parse(string filename) {
             normals.push_back(normal);
         } else if(token == "f") {   // face
             string faceLine;
-            bool noTexIndices = false;
             getline(f, faceLine);
 
-            if(faceLine.find("//") != string::npos) {
-                noTexIndices = true;
-            }
-
-            for(int i = 0; i < faceLine.length(); ++i) {
+            for(unsigned int i = 0; i < faceLine.length(); ++i) {
                 if(faceLine[i] == '/') {
                     faceLine[i] = ' ';
                 }
