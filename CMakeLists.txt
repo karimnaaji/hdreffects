@@ -15,28 +15,19 @@ list(REMOVE_DUPLICATES INCLUDE_DIRS)
 
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
-find_package(GLFW REQUIRED)
 
-if(APPLE)
-	find_library(COCOA_FRAMEWORK Cocoa)
-    find_library(IOKIT_FRAMEWORK IOKit)
-    find_library(CORE_FOUNDATION_FRAMEWORK CoreFoundation)
-    
-    list(APPEND GLFW_LIBRARY ${COCOA_FRAMEWORK}
-                             ${IOKIT_FRAMEWORK}
-                             ${CORE_FOUNDATION_FRAMEWORK})
-endif()
+set(LIB lib)
+include_directories(${LIB})
+add_library(rgbe ${LIB}/rgbe.c)
 
-#link c library
-set(LIB_C lib)
-include_directories(${LIB_C})
-add_library(rgbe ${LIB_C}/rgbe.c)
+add_subdirectory(${LIB}/glfw-3.0.3)
+include_directories(${LIB}/glfw-3.0.3/include)
 
-include_directories(${GLFW_INCLUDE_DIRS})
 include_directories(${GLEW_INCLUDE_DIRS})
 include_directories(${OpenGL_INCLUDE_DIRS})
 include_directories(${INCLUDE_DIRS})
 
 add_executable(hdr.out ${SOURCES})
 
-target_link_libraries(hdr.out rgbe ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} ${GLEW_LIBRARY})
+target_link_libraries(hdr.out glfw ${GLFW_LIBRARIES})
+target_link_libraries(hdr.out rgbe ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})

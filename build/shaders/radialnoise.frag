@@ -31,18 +31,6 @@ float fbm(vec2 p) {
    return f;
 }
 
-vec3 pattern(vec2 uv) {
-   vec2 p = -1.0 + 2.0 * uv;
-   float p2 = dot(p,p);
-   float a = atan(fract(0.5), fract(0.01));
-   float f = fbm(vec2(15.0*p2,15.0*a)) / 2.0;
-   float d = length(uv - vec2(0.5));
-   float r = 0.2 + 0.6 * sin(12.5*length(uv - vec2(0.5)));
-   float g = 0.2 + 0.6 * sin(20.5*length(uv - vec2(0.5)));
-   float b = 0.2 + 0.6 * sin(17.2*length(uv - vec2(0.5)));
-   return (1.0-f) * vec3(r,g,b);
-}
-
 void main() {
     vec2 uv = gl_FragCoord.xy / resolution; 
     vec2 p = -1.0 + 2.0 * uv;
