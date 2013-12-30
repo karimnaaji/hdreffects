@@ -79,11 +79,14 @@ void App::Update(float elapsedTime) {
     double cursorX, cursorY;
     glfwGetCursorPos(window, &cursorX, &cursorY);
 
-    // fix a bug that made the cursor out of screen for the first time
+// fix a bug that made the cursor out of screen for the first time (only apple build)
+#ifdef __APPLE__
     if(!fullscreen) {
+#endif
         if(abs(cursorX) <= 100 && abs(cursorY) <= 100) {
             camera.Rotate(glm::vec2(mouseSensitivity * cursorY, mouseSensitivity * cursorX));
         }
+#ifdef __APPLE__
     } else {
         // fixing a glfw issue on cursor position, in fullscreen it's not sending the delta position of the mouse
         static glm::vec2 lastCursorPos = glm::vec2(0,0); 
@@ -91,6 +94,7 @@ void App::Update(float elapsedTime) {
         lastCursorPos.x = cursorX;
         lastCursorPos.y = cursorY;
     }
+#endif
 
     glfwSetCursorPos(window, 0, 0); 
 }
