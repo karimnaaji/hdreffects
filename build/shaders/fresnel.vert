@@ -13,7 +13,7 @@ const float fresnelPower = 6.0;
 
 const float f = ((1.0-etaG)*(1.0-etaG)) / ((1.0+etaG)*(1.0+etaG));
 
-out vec3 reflect;
+out vec3 r;
 out vec3 refractR;
 out vec3 refractG;
 out vec3 refractB;
@@ -28,7 +28,7 @@ void main() {
     refractG = refract(i, normal, etaG);
     refractB = refract(i, normal, etaB);
 
-    reflect = reflect(i, normal);
+    r = reflect(i, normal);
 
     gl_Position = mvp * vec4(position, 1);
 }
