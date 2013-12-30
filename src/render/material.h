@@ -3,6 +3,7 @@
 
 #include "shader.h"
 #include <vector>
+#include <algorithm>
 
 class Material {
 	public:

@@ -20,6 +20,15 @@ struct Face {
 	int currentOffset;
 };
 
+const GLenum CubeMapFace[6] { 
+    GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
+    GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
+    GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
+    GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, 
+    GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 
+    GL_TEXTURE_CUBE_MAP_NEGATIVE_Z 
+};
+	
 class HDRTextureCube : public Texture {
 	public:
 		HDRTextureCube();
@@ -35,15 +44,6 @@ class HDRTextureCube : public Texture {
         void FlipVertical(Face* face);
 
 		Face **faces;
-
-		const GLenum CubeMapFace[6] { 
-			GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-			GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-			GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-			GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, 
-			GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 
-			GL_TEXTURE_CUBE_MAP_NEGATIVE_Z 
-		};
 };
 
 #endif
