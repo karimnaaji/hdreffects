@@ -12,7 +12,7 @@ Renderer::Renderer(int width_, int height_, Camera* camera_) {
 Renderer::~Renderer() {
 	delete shaderLibrary;
     delete cubemap;
-    delete model;
+    //delete model;
     delete quad;
     delete writeFBO;
     delete readFBO;

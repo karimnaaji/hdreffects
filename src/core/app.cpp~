@@ -4,7 +4,7 @@
 App::App(int width_, int height_, bool fullscreen_) : width(width_), height(height_), fullscreen(fullscreen_) {}
 
 App::~App() {
-	delete renderer;
+	//delete renderer;
     glfwDestroyWindow(window);
     glfwTerminate();
 }
