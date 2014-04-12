@@ -178,22 +178,22 @@ void Renderer::Render(float time) {
     DrawMesh(model);
     mainFBO->End();
 
-    if(doBloom) {
+    if(g_doBloom) {
         BloomPass(time);
         Capture();
     }
 
-    if(doCubicLens) {
+    if(g_doCubicLens) {
         CubicLensPass();
         Capture();
     }
 
-    if(doLensFlare) {
+    if(g_doLensFlare) {
         LensFlarePass();
         Capture();
     }
 
-    if(doToneMapping) {
+    if(g_doToneMapping) {
         ToneMap(time);
         Capture();
     }
@@ -284,7 +284,7 @@ void Renderer::BloomPass(float time) {
     Shader* compose = shaderLibrary->GetShader("compose");
     Shader* bloom = shaderLibrary->GetShader("bloom");
 
-    BrightPass(brightThreshold);
+    BrightPass(g_brightThreshold);
 
     float downScale = 1.0;
     for(int i = 0; i < MAX_DOWNSCALE_FBO; ++i) {
@@ -307,7 +307,7 @@ void Renderer::BloomPass(float time) {
     SwapBuffers();
 
     for(int i = MAX_DOWNSCALE_FBO - 1; i >= 1; i--) {
-        for(int j = 0; j < blurPass; ++j) {
+        for(int j = 0; j < g_blurPass; ++j) {
             writeFBO->Start(1/downScale);
             readFBO->Bind(blur, glm::vec2(width/downScale, height/downScale));
             quad->GetMaterial()->SetShader(blur);
@@ -333,8 +333,8 @@ void Renderer::BloomPass(float time) {
     mainFBO->Bind(bloom, string("tex"));
     readFBO->GetRenderTexture()->SetTextureIndex(1);
     readFBO->Bind(bloom, string("bloom"));
-    bloom->SendUniform("bloomFactor", bloomFactor);
-    bloom->SendUniform("addNoise", addNoise);
+    bloom->SendUniform("bloomFactor", g_bloomFactor);
+    bloom->SendUniform("addNoise", g_addNoise);
     bloom->SendUniform("time", time);
     quad->GetMaterial()->SetShader(bloom);
     DrawMesh(quad, false);

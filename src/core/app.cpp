@@ -15,25 +15,19 @@ void App::MainLoop() {
     int cpt = 0;
     float avgFps = 0;
     
-    /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window)) {
         double time = glfwGetTime();
 
-        /* update inputs */
         Update(time - lastTime);
 
         if(frames * 4 < MAX_FPS) {
-            /* render scene in buffer */
             renderer->Render(time);
 
-            /* Swap front and back buffers */
             glfwSwapBuffers(window);
 
-            /* update frame number */
             frames++;
         }
 
-        /* Poll for and process events */
         glfwPollEvents();
 
         float lastMod = fmodf(lastTime, 0.25f);
@@ -108,7 +102,6 @@ void App::DisplayGraphicInfo() {
 }
 
 void App::InitGLFW() {
-    /* Initialize the library */
     if (!glfwInit())
         throw std::runtime_error("glfwInit failed");
 
@@ -135,10 +128,8 @@ void App::InitGLFW() {
 
     glfwSetKeyCallback(window, KeyCallback);
 
-    /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
-    /* Initialize GLEW */
     glewExperimental = GL_TRUE;
     if(glewInit() != GLEW_OK) {
         glfwTerminate();
@@ -152,11 +143,7 @@ void App::Init() {
     DisplayGraphicInfo();
 
     camera.SetAspectRatio(width / height);
-    //camera.SetFov(80);
 
 	renderer = new Renderer(width, height, &camera);
-
-    //currentEnvIndex = 0;
-    //renderer->NextEnv("rnl_cross");
 	renderer->Init();
 }
