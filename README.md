@@ -28,6 +28,7 @@ build and run
 ```bash
 cd build
 cmake .. && make
+./hdr.out
 ```
 
 usage
@@ -57,8 +58,8 @@ article
 
 This project comes with the following [article](http://www.karim.naaji.fr/documents/naaji13-hdreffects.pdf). You can also check the [page](http://www.karim.naaji.fr/projects/hdreffects) of the project for some more informations.
 
-example
---------
+results
+-------
 
 ![example](http://www.karim.naaji.fr/images/lensflare-bloom.png)
 
