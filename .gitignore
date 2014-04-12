@@ -6,6 +6,8 @@ cmake_install.cmake
 
 #other
 tags
+build/lib
+report/
 
 #compiled source
 *.o
