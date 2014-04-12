@@ -34,7 +34,7 @@ cmake .. && make
 usage
 -----
 
-While running, use the following keys to move/modify render parameters:
+While running, use the following keys to move around and modify render parameters:
 
 * mouse : look around
 * Z : move forward
