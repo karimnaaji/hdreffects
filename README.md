@@ -50,8 +50,8 @@ While running, use the following keys to move/modify render parameters:
 * J : decrease bright threshold
 * V : increase bloom factor
 * G : decrease bloom factor
-* C : increase the number of blur pass assoaciated to the bloom effect
-* F : decrease the number of blur pass assoaciated to the bloom effect
+* C : increase the number of blur pass associated to the bloom effect
+* F : decrease the number of blur pass associated to the bloom effect
 
 article 
 -------
