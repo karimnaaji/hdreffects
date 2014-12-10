@@ -4,7 +4,7 @@
 App::App(int width_, int height_, bool fullscreen_) : width(width_), height(height_), fullscreen(fullscreen_) {}
 
 App::~App() {
-	delete renderer;
+    delete renderer;
     glfwDestroyWindow(window);
     glfwTerminate();
 }
@@ -14,7 +14,7 @@ void App::MainLoop() {
     int frames = 0;
     int cpt = 0;
     float avgFps = 0;
-    
+
     while (!glfwWindowShouldClose(window)) {
         double time = glfwGetTime();
 
@@ -32,7 +32,7 @@ void App::MainLoop() {
 
         float lastMod = fmodf(lastTime, 0.25f);
         float mod = fmodf(time, 0.25f);
-        
+
         if(mod < lastMod) {
             Debug::Instance() << "FPS: " << frames * 4 << "\r";
             avgFps += frames * 4;
@@ -84,14 +84,14 @@ void App::Update(float elapsedTime) {
 #ifdef __APPLE__
     } else {
         // fixing a glfw issue on cursor position, in fullscreen it's not sending the delta position of the mouse
-        static glm::vec2 lastCursorPos = glm::vec2(0,0); 
+        static glm::vec2 lastCursorPos = glm::vec2(0,0);
         camera.Rotate(glm::vec2(mouseSensitivity * (cursorY - lastCursorPos.y), mouseSensitivity * (cursorX - lastCursorPos.x)));
         lastCursorPos.x = cursorX;
         lastCursorPos.y = cursorY;
     }
 #endif
 
-    glfwSetCursorPos(window, 0, 0); 
+    glfwSetCursorPos(window, 0, 0);
 }
 
 void App::DisplayGraphicInfo() {
@@ -110,7 +110,7 @@ void App::InitGLFW() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-    
+
     string appName = "HDR Image Based Lighting";
 
     if(fullscreen)
@@ -138,12 +138,12 @@ void App::InitGLFW() {
 }
 
 void App::Init() {
-	InitGLFW();
+    InitGLFW();
 
     DisplayGraphicInfo();
 
     camera.SetAspectRatio(width / height);
 
-	renderer = new Renderer(width, height, &camera);
-	renderer->Init();
+    renderer = new Renderer(width, height, &camera);
+    renderer->Init();
 }

@@ -10,80 +10,80 @@ HDRTextureCube::HDRTextureCube() : Texture("cubeMap")
 HDRTextureCube::~HDRTextureCube() {
     DisposeGL();
 
-	for(int i = 0; i < 6; ++i) {
-		delete[] faces[i]->data;
-		delete faces[i];
-	}
-	delete[] faces;
-	delete[] data;
+    for(int i = 0; i < 6; ++i) {
+        delete[] faces[i]->data;
+        delete faces[i];
+    }
+    delete[] faces;
+    delete[] data;
 }
 
 void HDRTextureCube::DisposeGL() {
-	glDeleteTextures(6, &textureId);
+    glDeleteTextures(6, &textureId);
 }
 
 void HDRTextureCube::Load(const string fileName) {
-	string path = string(HDR_RELATIVE_PATH) + fileName + string(HDR_EXT);	
+    string path = string(HDR_RELATIVE_PATH) + fileName + string(HDR_EXT);
 
-	cout << "Loading hdr texture " << path << ".." << endl;
+    cout << "Loading hdr texture " << path << ".." << endl;
 
-	FILE* file = fopen(path.c_str(), "rb");
-	
-	RGBE_ReadHeader(file, &width, &height, NULL);
-	data = new float[3 * width * height];
-	RGBE_ReadPixels_RLE(file, data, width, height);
-	
-	fclose(file);
+    FILE* file = fopen(path.c_str(), "rb");
 
-	LoadFaces();
+    RGBE_ReadHeader(file, &width, &height, NULL);
+    data = new float[3 * width * height];
+    RGBE_ReadPixels_RLE(file, data, width, height);
 
-	cout << " - width : " << width << "px" << endl; 
-	cout << " - height : " << height << "px" << endl;
-	cout << " - memory size : " << (3 * width * height * sizeof(float)) / 8 << " bytes" << endl;
-	cout << "Generating texture cube.." << endl;
+    fclose(file);
+
+    LoadFaces();
+
+    cout << " - width : " << width << "px" << endl;
+    cout << " - height : " << height << "px" << endl;
+    cout << " - memory size : " << (3 * width * height * sizeof(float)) / 8 << " bytes" << endl;
+    cout << "Generating texture cube.." << endl;
 }
 
 void HDRTextureCube::LoadFaces() {
-	faces = new Face*[6];
-	
-	int faceWidth = width / 3;
-	int faceHeight = height / 4;
-	
-	for(int i = 0; i < 6; ++i) {
-		faces[i] = new Face();
-		faces[i]->data = new float[3 * faceWidth * faceHeight];
-		faces[i]->width = faceWidth;
-		faces[i]->height = faceHeight;
-		faces[i]->currentOffset = 0;
-	}
-	
-	for(int l = 0; l < height; ++l) {
-		int jFace = (l - (l % faceHeight)) / faceHeight;
-		
-		for(int iFace = 0; iFace < 3; ++iFace) {
-			Face *face = NULL;			
-			int offset = 3 * (faceWidth * iFace + l * width);
+    faces = new Face*[6];
 
-			if(iFace == 2 && jFace == 1) face = faces[0]; // POS_Y
-			if(iFace == 0 && jFace == 1) face = faces[1]; // NEG_Y
-			if(iFace == 1 && jFace == 0) face = faces[2]; // POS_X
-			if(iFace == 1 && jFace == 2) face = faces[3]; // NEG_X
-			if(iFace == 1 && jFace == 1) face = faces[4]; // POS_Z
-			if(iFace == 1 && jFace == 3) face = faces[5]; // NEG_Z
-            
-			if(face) {
-				// the number of components to copy
-				int n = sizeof(float) * faceWidth * 3;
-				
-				memcpy(face->data + face->currentOffset, data + offset, n); 	
-				face->currentOffset += (3 * faceWidth);
-			}
-		}
-	}
+    int faceWidth = width / 3;
+    int faceHeight = height / 4;
+
+    for(int i = 0; i < 6; ++i) {
+        faces[i] = new Face();
+        faces[i]->data = new float[3 * faceWidth * faceHeight];
+        faces[i]->width = faceWidth;
+        faces[i]->height = faceHeight;
+        faces[i]->currentOffset = 0;
+    }
+
+    for(int l = 0; l < height; ++l) {
+        int jFace = (l - (l % faceHeight)) / faceHeight;
+
+        for(int iFace = 0; iFace < 3; ++iFace) {
+            Face *face = NULL;
+            int offset = 3 * (faceWidth * iFace + l * width);
+
+            if(iFace == 2 && jFace == 1) face = faces[0]; // POS_Y
+            if(iFace == 0 && jFace == 1) face = faces[1]; // NEG_Y
+            if(iFace == 1 && jFace == 0) face = faces[2]; // POS_X
+            if(iFace == 1 && jFace == 2) face = faces[3]; // NEG_X
+            if(iFace == 1 && jFace == 1) face = faces[4]; // POS_Z
+            if(iFace == 1 && jFace == 3) face = faces[5]; // NEG_Z
+
+            if(face) {
+                // the number of components to copy
+                int n = sizeof(float) * faceWidth * 3;
+
+                memcpy(face->data + face->currentOffset, data + offset, n);
+                face->currentOffset += (3 * faceWidth);
+            }
+        }
+    }
 
     // adjust NEG_Z face
-    FlipHorizontal(faces[5]); 
-    FlipVertical(faces[5]);   
+    FlipHorizontal(faces[5]);
+    FlipVertical(faces[5]);
 }
 
 void HDRTextureCube::FlipHorizontal(Face* face) {
@@ -113,9 +113,9 @@ void HDRTextureCube::FlipVertical(Face* face) {
         for(int j = 0; j < face->width; ++j) {
             int offset = lineOffset + j * 3;
             int bias = lineOffset + face->width * 3 - (j + 1) * 3;
-            
+
             memcpy(newData + bias, face->data + offset, n);
-        }   
+        }
     }
 
     delete[] face->data;
@@ -123,26 +123,26 @@ void HDRTextureCube::FlipVertical(Face* face) {
 }
 
 GLuint HDRTextureCube::Bind() {
-	glActiveTexture(GL_TEXTURE0 + textureIndex);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
-	return textureId;
+    glActiveTexture(GL_TEXTURE0 + textureIndex);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
+    return textureId;
 }
 
 void HDRTextureCube::Init() {
-	glGenTextures(1, &textureId);
+    glGenTextures(1, &textureId);
 
-	glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-        
-        for(int i = 0; i < 6; ++i) {
-            Face *f = faces[i];
-            glTexImage2D(CubeMapFace[i], 0, InternalFormat, f->width, f->height, 0, Format, Type, f->data);
-        }
-	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+    for(int i = 0; i < 6; ++i) {
+        Face *f = faces[i];
+        glTexImage2D(CubeMapFace[i], 0, InternalFormat, f->width, f->height, 0, Format, Type, f->data);
+    }
+    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
     cout << "HDR Texture parameters : " << endl;
     cout << " - Format: " << ((Format == GL_RGB) ? "RGB" : "") << endl;

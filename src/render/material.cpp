@@ -26,10 +26,10 @@ Shader* Material::Bind() {
         (*it)->Bind();
         shader->SendUniform((*it)->GetName(), (*it));
     }
-    
+
     shader->SendUniform("materialColour", materialColour);
 
-	return shader;
+    return shader;
 }
 
 void Material::SetColour(glm::vec4& colour) {
@@ -51,5 +51,5 @@ void Material::ClearTextures() {
 }
 
 void Material::UnBind() {
-	glUseProgram(0);
+    glUseProgram(0);
 }

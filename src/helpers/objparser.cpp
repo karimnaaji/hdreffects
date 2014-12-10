@@ -3,16 +3,16 @@
 Geometry* ObjParser::Parse(string filename) {
     string path = string(OBJ_RELATIVE_PATH) + filename + string(OBJ_EXT);
 
-    ifstream file(path.c_str(), ios::in); 
+    ifstream file(path.c_str(), ios::in);
     if(!file) {
         cerr << "Can't open file " << path << endl;
         return NULL;
     }
 
-    int lines = 0; 
-    while(file.ignore(std::numeric_limits<int>::max(), '\n')) { 
-        ++lines; 
-    } 
+    int lines = 0;
+    while(file.ignore(std::numeric_limits<int>::max(), '\n')) {
+        ++lines;
+    }
     file.close();
 
     ifstream f(path.c_str(), ios::in);
@@ -27,7 +27,7 @@ Geometry* ObjParser::Parse(string filename) {
     int currentLine = 0;
 
     while(!f.eof()) {
-        f >> token; 
+        f >> token;
 
         if(token == "#") {
             f.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

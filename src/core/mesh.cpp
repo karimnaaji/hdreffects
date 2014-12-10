@@ -1,55 +1,55 @@
 #include "mesh.h"
 
 Mesh::Mesh(Geometry* geometry_, Material* material_) {
-	geometry = geometry_;
-	material = material_;
-        
-	for(int i = 0; i < BUFFER_COUNT; ++i) {
-		vbo[i] = 0;
-	}
-	
-	glGenVertexArrays(1, &vao);
+    geometry = geometry_;
+    material = material_;
+
+    for(int i = 0; i < BUFFER_COUNT; ++i) {
+        vbo[i] = 0;
+    }
+
+    glGenVertexArrays(1, &vao);
 }
 
 Mesh::Mesh() {
-	geometry = NULL;
-	material = NULL;
+    geometry = NULL;
+    material = NULL;
 
-	for(int i = 0; i < BUFFER_COUNT; ++i) {
-		vbo[i] = 0;
-	}
+    for(int i = 0; i < BUFFER_COUNT; ++i) {
+        vbo[i] = 0;
+    }
 
-	glGenVertexArrays(1, &vao);
+    glGenVertexArrays(1, &vao);
 }
 
 Mesh::~Mesh(void) {
-	glDeleteVertexArrays(1, &vao);
-	glDeleteBuffers(BUFFER_COUNT, vbo);
-	delete geometry;
+    glDeleteVertexArrays(1, &vao);
+    glDeleteBuffers(BUFFER_COUNT, vbo);
+    delete geometry;
 }
 
 Geometry* Mesh::GetGeometry() {
-	return geometry;
+    return geometry;
 }
 
 Material* Mesh::GetMaterial() {
-	return material;
+    return material;
 }
 
 void Mesh::Draw() {
-	glBindVertexArray(vao);
-    
+    glBindVertexArray(vao);
+
     if(geometry->HasIndices()) {
         glDrawElements(geometry->GetType(), geometry->GetIndicesCount(), GL_UNSIGNED_INT, 0);
     } else {
-	    glDrawArrays(geometry->GetType(), 0, geometry->GetVerticesCount());
+        glDrawArrays(geometry->GetType(), 0, geometry->GetVerticesCount());
     }
 
-	glBindVertexArray(0);
+    glBindVertexArray(0);
 }
 
 void Mesh::CreateBufferData() {
-	glBindVertexArray(vao);
+    glBindVertexArray(vao);
     glGenBuffers(1, &vbo[VERTEX_BUFFER]);
     glBindBuffer(GL_ARRAY_BUFFER, vbo[VERTEX_BUFFER]);
     glBufferData(GL_ARRAY_BUFFER, geometry->GetVerticesCount() * sizeof(glm::vec3), geometry->GetVertices(), GL_STATIC_DRAW);
@@ -68,6 +68,6 @@ void Mesh::CreateBufferData() {
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, geometry->GetIndicesCount() * sizeof(unsigned int), geometry->GetIndices(), GL_STATIC_DRAW);
     }
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
 }

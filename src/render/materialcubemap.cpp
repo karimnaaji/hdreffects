@@ -7,13 +7,13 @@ MaterialCubeMap::MaterialCubeMap(Shader* shader, HDRTextureCube* hdrTextureCube_
 MaterialCubeMap::~MaterialCubeMap() {}
 
 Shader* MaterialCubeMap::Bind() {
-	Material::Bind();
+    Material::Bind();
 
-	glDisable(GL_DEPTH_TEST);
+    glDisable(GL_DEPTH_TEST);
 
-	return shader;
+    return shader;
 }
 
 void MaterialCubeMap::UnBind() {
-	Material::UnBind();
+    Material::UnBind();
 }

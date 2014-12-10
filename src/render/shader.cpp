@@ -3,44 +3,44 @@
 Shader::Shader(string shaderName) : name(shaderName) {}
 
 void Shader::Init() {
-	program = glCreateProgram();
-	
-	string fragName = name + string(FRAG_EXT);
-	string vertName = name + string(VERT_EXT);
+    program = glCreateProgram();
 
-	vertex = CreateShader(GL_VERTEX_SHADER, vertName);
-	fragment = CreateShader(GL_FRAGMENT_SHADER, fragName);
+    string fragName = name + string(FRAG_EXT);
+    string vertName = name + string(VERT_EXT);
 
-	glAttachShader(program, vertex);
-	glAttachShader(program, fragment);
+    vertex = CreateShader(GL_VERTEX_SHADER, vertName);
+    fragment = CreateShader(GL_FRAGMENT_SHADER, fragName);
 
-	// must be done before linking
-	SetDefaultAttributes();
+    glAttachShader(program, vertex);
+    glAttachShader(program, fragment);
 
-	Link();
+    // must be done before linking
+    SetDefaultAttributes();
+
+    Link();
 }
 
 Shader::~Shader(void) {
-	glDetachShader(program, fragment);
-	glDeleteShader(fragment);
+    glDetachShader(program, fragment);
+    glDeleteShader(fragment);
 
-	glDetachShader(program, vertex);
-	glDeleteShader(vertex);
+    glDetachShader(program, vertex);
+    glDeleteShader(vertex);
 
-	glDeleteProgram(program);
+    glDeleteProgram(program);
 }
 
 string Shader::GetName() const {
-	return name;
+    return name;
 }
 
 GLuint Shader::Program() const {
-	return program;
+    return program;
 }
 
 void Shader::Use() const {
     if(!IsInUse())
-	    glUseProgram(Program());
+        glUseProgram(Program());
 }
 
 void Shader::Release() const {
@@ -54,68 +54,68 @@ bool Shader::IsInUse() const {
 }
 
 void Shader::Link() {
-	glLinkProgram(program);
+    glLinkProgram(program);
 
-	GLint code;
-	glGetProgramiv(program, GL_LINK_STATUS, &code);
+    GLint code;
+    glGetProgramiv(program, GL_LINK_STATUS, &code);
 
-	if(!code) {
-		throw runtime_error("Link shader failure (" + name + ")"); 
-	}
+    if(!code) {
+        throw runtime_error("Link shader failure (" + name + ")");
+    }
 }
 
 void Shader::SetDefaultAttributes() {
-	glBindAttribLocation(program, VERTEX_BUFFER, "position");
-	glBindAttribLocation(program, TEXTURE_BUFFER, "uv");
-	glBindAttribLocation(program, COLOUR_BUFFER, "colour");
+    glBindAttribLocation(program, VERTEX_BUFFER, "position");
+    glBindAttribLocation(program, TEXTURE_BUFFER, "uv");
+    glBindAttribLocation(program, COLOUR_BUFFER, "colour");
     glBindAttribLocation(program, NORMAL_BUFFER, "normal");
 }
 
 void Shader::LoadShaderSource(string& path, string& into) {
-	ifstream file;
-	string buffer;
+    ifstream file;
+    string buffer;
 
-	file.open(path.c_str());
+    file.open(path.c_str());
 
-	if(!file.is_open()) {
-		throw runtime_error("Opening file failure" + path + " (" + name + ")"); 
-	}
+    if(!file.is_open()) {
+        throw runtime_error("Opening file failure" + path + " (" + name + ")");
+    }
 
-	while(!file.eof()) {
-		getline(file, buffer);
-		into += buffer + "\n";
-	}
+    while(!file.eof()) {
+        getline(file, buffer);
+        into += buffer + "\n";
+    }
 
-	file.close();
+    file.close();
 }
 
 GLuint Shader::CreateShader(GLenum type, string& file) {
-	string path = string(SHADERS_RELATIVE_PATH) + file;	
-	string source;
+    string path = string(SHADERS_RELATIVE_PATH) + file;
+    string source;
 
-	LoadShaderSource(path, source);
+    LoadShaderSource(path, source);
 
-	GLuint shader = glCreateShader(type);
+    GLuint shader = glCreateShader(type);
 
-	const GLchar* chars = source.c_str();
+    const GLchar* chars = source.c_str();
 
-	glShaderSource(shader, 1, &chars, NULL);
-	glCompileShader(shader);
+    glShaderSource(shader, 1, &chars, NULL);
+    glCompileShader(shader);
 
-	GLint status;
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+    GLint status;
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
 
-	if(status != GL_TRUE) {
-		char error[512];
+    if(status != GL_TRUE) {
+        char error[512];
 
-		glGetShaderInfoLog(shader, sizeof(error), NULL, error);
+        glGetShaderInfoLog(shader, sizeof(error), NULL, error);
 
         cerr << "In shader: " << file << endl;
-		cerr << error << endl;
-		throw runtime_error("Can't compile shader " + file + " (" + name + ")");
-	} 
+        cerr << error << endl;
+        throw runtime_error("Can't compile shader " + file + " (" + name + ")");
+    }
 
-	return shader;
+    return shader;
 }
 
 GLint Shader::Uniform(string uniformName) const {
@@ -129,7 +129,7 @@ GLint Shader::Uniform(string uniformName) const {
 }
 
 void Shader::SendUniform(string name, glm::mat4 mat) {
-	assert(IsInUse());
+    assert(IsInUse());
     glUniformMatrix4fv(Uniform(name), 1, GL_FALSE, glm::value_ptr(mat));
 }
 
@@ -139,32 +139,32 @@ void Shader::SendUniform(string name, glm::mat3 mat) {
 }
 
 void Shader::SendUniform(string name, float value) {
-	assert(IsInUse());
+    assert(IsInUse());
     glUniform1f(Uniform(name), value);
 }
 
 void Shader::SendUniform(string name, int value) {
-	assert(IsInUse());
+    assert(IsInUse());
     glUniform1i(Uniform(name), value);
 }
 
 void Shader::SendUniform(string name, Texture* texture) {
-	assert(IsInUse());
-	glUniform1i(Uniform(name), texture->TextureIndex());
+    assert(IsInUse());
+    glUniform1i(Uniform(name), texture->TextureIndex());
 }
 
 void Shader::SendUniform(string name, glm::vec2 vec) {
-	assert(IsInUse());
-	glUniform2f(Uniform(name), vec[0], vec[1]);
+    assert(IsInUse());
+    glUniform2f(Uniform(name), vec[0], vec[1]);
 }
 
 void Shader::SendUniform(string name, glm::vec3 vec) {
-	assert(IsInUse());
-	glUniform3f(Uniform(name), vec[0], vec[1], vec[2]);
+    assert(IsInUse());
+    glUniform3f(Uniform(name), vec[0], vec[1], vec[2]);
 }
 
 void Shader::SendUniform(string name, glm::vec4 vec) {
-	assert(IsInUse());
-	glUniform4f(Uniform(name), vec[0], vec[1], vec[2], vec[3]);
+    assert(IsInUse());
+    glUniform4f(Uniform(name), vec[0], vec[1], vec[2], vec[3]);
 }
 

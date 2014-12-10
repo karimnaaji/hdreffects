@@ -1,29 +1,29 @@
 #include "renderer.h"
 
 Renderer::Renderer(int width_, int height_, Camera* camera_) {
-	shaderLibrary = new ShaderLibrary();
+    shaderLibrary = new ShaderLibrary();
     camera = camera_;
     width = width_;
     height = height_;
 
-	_shader = NULL;
+    _shader = NULL;
 }
 
 Renderer::~Renderer() {
-	delete shaderLibrary;
+    delete shaderLibrary;
     delete cubemap;
     delete model;
     delete quad;
     delete writeFBO;
     delete readFBO;
-	delete mainFBO;
+    delete mainFBO;
     for(int i = 0; i < MAX_DOWNSCALE_FBO; ++i) {
         delete downScaleFBO[i];
     }
 }
 
 void Renderer::LoadShaders() {
-	shaderLibrary->AddShader(string("fresnel"));
+    shaderLibrary->AddShader(string("fresnel"));
     shaderLibrary->AddShader(string("cubemap"));
     shaderLibrary->AddShader(string("compose"));
     shaderLibrary->AddShader(string("brightpass"));
@@ -43,7 +43,7 @@ void Renderer::LoadMeshes() {
     HDRTextureCube* hdrTextureCube = new HDRTextureCube();
     hdrTextureCube->Load(string("uffizi_cross"));
     hdrTextureCube->Init();
-    
+
     MaterialCubeMap* materialCubeMap = new MaterialCubeMap(shaderLibrary->GetShader("cubemap"), hdrTextureCube);
 
     cubemap = new CubeMap(materialCubeMap);
@@ -60,7 +60,7 @@ void Renderer::LoadMeshes() {
 }
 
 void Renderer::Init() {
-	glClearColor(56.0/255, 101.0/255, 190.0/255, 1);
+    glClearColor(56.0/255, 101.0/255, 190.0/255, 1);
 
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -72,7 +72,7 @@ void Renderer::Init() {
     writeFBO = new Framebuffer(width, height);
     readFBO = new Framebuffer(width, height);
     mainFBO = new Framebuffer(width, height);
-    
+
     for(int i = 0; i < MAX_DOWNSCALE_FBO; ++i) {
         downScaleFBO[i] = new Framebuffer(width, height);
         renderTexture = new Texture("renderTexture", width, height, GL_RGB16F_ARB);
@@ -112,9 +112,9 @@ void Renderer::Capture() {
 
 void Renderer::CubicLensPass() {
     writeFBO->Start();
-        mainFBO->Bind(shaderLibrary->GetShader("cubiclens"));
-        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("cubiclens"));
-        DrawMesh(quad, false);
+    mainFBO->Bind(shaderLibrary->GetShader("cubiclens"));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("cubiclens"));
+    DrawMesh(quad, false);
     writeFBO->End();
 
     SwapBuffers();
@@ -126,47 +126,47 @@ void Renderer::LensFlarePass() {
     BrightPass(3.0);
 
     writeFBO->Start(1/downScale);
-        readFBO->Bind(shaderLibrary->GetShader("lensflare"), glm::vec2(width/downScale, height/downScale));
-        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("lensflare"));
-        DrawMesh(quad, false);
+    readFBO->Bind(shaderLibrary->GetShader("lensflare"), glm::vec2(width/downScale, height/downScale));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("lensflare"));
+    DrawMesh(quad, false);
     writeFBO->End();
 
     SwapBuffers();
-    
+
     writeFBO->Start(1/downScale);
-        readFBO->Bind(shaderLibrary->GetShader("blur"), glm::vec2(width/downScale, height/downScale));
-        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("blur"));
-        DrawMesh(quad, false);
+    readFBO->Bind(shaderLibrary->GetShader("blur"), glm::vec2(width/downScale, height/downScale));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("blur"));
+    DrawMesh(quad, false);
     writeFBO->End();
 
     SwapBuffers();
 
     writeFBO->Start();
-        readFBO->Bind(shaderLibrary->GetShader("rgbshift"));
-        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("rgbshift"));
-        DrawMesh(quad, false);
+    readFBO->Bind(shaderLibrary->GetShader("rgbshift"));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("rgbshift"));
+    DrawMesh(quad, false);
     writeFBO->End();
 
     SwapBuffers();
 
     writeFBO->Start();
-        readFBO->Bind(shaderLibrary->GetShader("radialnoise"));
-        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("radialnoise"));
-        DrawMesh(quad, false);
+    readFBO->Bind(shaderLibrary->GetShader("radialnoise"));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("radialnoise"));
+    DrawMesh(quad, false);
     writeFBO->End();
 
     SwapBuffers();
-    
+
     writeFBO->Start();
-        mainFBO->Bind(shaderLibrary->GetShader("compose"), string("sampler2"));
-        readFBO->GetRenderTexture()->SetTextureIndex(1);
-        readFBO->Bind(shaderLibrary->GetShader("compose"), string("sampler1"));
-        quad->GetMaterial()->SetShader(shaderLibrary->GetShader("compose"));
-        DrawMesh(quad, false);
+    mainFBO->Bind(shaderLibrary->GetShader("compose"), string("sampler2"));
+    readFBO->GetRenderTexture()->SetTextureIndex(1);
+    readFBO->Bind(shaderLibrary->GetShader("compose"), string("sampler1"));
+    quad->GetMaterial()->SetShader(shaderLibrary->GetShader("compose"));
+    DrawMesh(quad, false);
     writeFBO->End();
 
     readFBO->GetRenderTexture()->SetTextureIndex(0);
-    
+
     SwapBuffers();
 }
 
@@ -215,15 +215,15 @@ void Renderer::ToneMap(float time) {
     quad->GetMaterial()->SetShader(shaderLibrary->GetShader("luminance"));
     DrawMesh(quad, false);
     writeFBO->End();
-    
+
     SwapBuffers();
-    
+
     float n = max(height, width);
     float count = 0;
     while((n /= 2) > 1) {
         count++;
     }
-    
+
     SetFiltering(GL_NEAREST);
 
     float downScale = 2;
@@ -239,7 +239,7 @@ void Renderer::ToneMap(float time) {
     }
 
     SetFiltering(GL_LINEAR);
-    
+
 #if DEBUG
     // optim -> use pbo
     int textureWidth, textureHeight;
@@ -251,7 +251,7 @@ void Renderer::ToneMap(float time) {
     cout << "average luminance: " << pixels[0] << ", normalized: " << pixels[0] / (width * height) << endl;
     delete[] pixels;
 #endif
-    
+
     writeFBO->Start();
     mainFBO->Bind(shaderLibrary->GetShader("tonemap"));
     readFBO->GetRenderTexture()->SetTextureIndex(1);

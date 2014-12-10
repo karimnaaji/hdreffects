@@ -34,9 +34,9 @@ Geometry::Geometry(glm::vec3* verticesInterleaved_, int verticesCount_) {
 }
 
 Geometry::~Geometry() {
-	delete[] vertices;
-	delete[] uvs;
-	delete[] colours;
+    delete[] vertices;
+    delete[] uvs;
+    delete[] colours;
     delete[] indices;
     delete[] normals;
 }
@@ -72,15 +72,15 @@ void Geometry::SetPrimitive(PrimitiveType primitiveType_) {
 }
 
 PrimitiveType Geometry::GetType() {
-	return primitiveType;
+    return primitiveType;
 }
 
 bool Geometry::HasColors() {
-	return colours != NULL;
+    return colours != NULL;
 }
 
 bool Geometry::HasTexCoords() {
-	return uvs != NULL;
+    return uvs != NULL;
 }
 
 bool Geometry::HasIndices() {
@@ -92,7 +92,7 @@ bool Geometry::HasNormals() {
 }
 
 int Geometry::GetVerticesCount() {
-	return verticesCount;
+    return verticesCount;
 }
 
 int Geometry::GetIndicesCount() {
@@ -111,7 +111,7 @@ unsigned int* Geometry::GetIndices() {
 }
 
 glm::vec3* Geometry::GetVertices() {
-	return vertices;
+    return vertices;
 }
 
 glm::vec3* Geometry::GetNormals() {
@@ -119,11 +119,11 @@ glm::vec3* Geometry::GetNormals() {
 }
 
 glm::vec2* Geometry::GetUVs() {
-	return uvs;
+    return uvs;
 }
 
 glm::vec4* Geometry::GetColours() {
-  return colours;
+    return colours;
 }
 
 bool Geometry::IsInterleaved() {
