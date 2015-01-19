@@ -20,6 +20,7 @@ set(LIB lib)
 include_directories(${LIB})
 add_library(rgbe ${LIB}/rgbe.c)
 
+add_subdirectory("${LIB}/glm")
 add_subdirectory(${LIB}/glfw-3.0.3)
 include_directories(${LIB}/glfw-3.0.3/include)
 
